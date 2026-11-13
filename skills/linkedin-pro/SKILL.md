@@ -22,7 +22,7 @@ Lo que «todo el mundo dice» sin sustento va a [mitos.md](references/mitos.md).
 ## Reglas que no se rompen
 
 1. **Emi aprueba cada pieza y es él quien la publica.** La IA entrega el texto aprobado listo para copiar, con fecha y hora. Ninguna IA inicia sesión en LinkedIn, publica, programa, reacciona, comenta, invita ni manda mensajes por él. Las métricas llegan por captura.
-2. **La IA propone, Emi reescribe.** No se inventan vivencias, opiniones, cifras ni citas.
+2. **La IA propone, Emi reescribe.** No se inventan vivencias, opiniones, cifras ni citas. **Jamás se dice que una pieza o herramienta la hizo una IA**: las construyó él; sí se nombra la IA que usa.
 3. **Nada sobre el algoritmo sin certeza y fuente.** No se inventan pesos ni porcentajes.
 4. **Límites de Emi**: nunca clientes ni asuntos, no nombrar a Castorena ni a sus licenciados, sin ataques personales, toda cita legal con fuente oficial verificada, un post informa u opina y no asesora un caso. Detalle en [pilares.md](references/pilares.md).
 5. **Sin captación de clientes de MILLA** mientras Emi no la abra (`captacion_milla: false`).

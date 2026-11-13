@@ -12,6 +12,7 @@ Valen igual en Claude, ChatGPT, Codex, Gemini o cualquier otra IA, y para person
 - Correr `linkedin.py aprobar` (o usar `--reescrito`) o escribir a mano `aprobado_por_emi`, `aprobado_huella` o `reescrito` sin que Emi haya aprobado y hecho suya esa pieza. La huella detecta cambios, pero cualquiera puede calcularla: la compuerta depende de que ninguna IA la falsifique.
 - Anotar con `--leidas-a-mano` una fuente que no se leyó de verdad.
 - Publicar texto crudo de una IA, o inventar vivencias, opiniones, cifras, citas o pesos del algoritmo.
+- Decir en cualquier pieza que la hizo, armó o editó una IA (regla absoluta de Emi, 13/11/2026), o publicar medios sintéticos que muestren a una persona real diciendo o haciendo algo que no hizo.
 - Afirmar algo sobre cómo funciona LinkedIn sin su certeza («oficial», «de terceros» o «criterio») y su fuente.
 - Mencionar clientes o asuntos de cualquier despacho, ni siquiera anonimizados; nombrar a Castorena Abogados o a sus licenciados; atacar a personas.
 - Afirmar derecho sin fuente oficial verificada, o presentar un post como asesoría para un caso.

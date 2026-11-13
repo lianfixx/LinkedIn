@@ -35,6 +35,7 @@ Decididos por Emi el 13/11/2026. Cambiar cualquiera de estos puntos requiere su 
 4. **Toda cita legal con fuente oficial verificada** (DOF, SCJN, Cámara de Diputados, órganos oficiales). Se marca `cita_legal: true` y se ponen los enlaces en `fuentes`.
 5. **Un post informa u opina, no asesora un caso concreto.** Nada de «en tu caso debes…».
 6. **La IA propone, Emi reescribe.** No se inventan vivencias, opiniones, cifras ni citas.
+7. **Jamás decir que algo lo hizo una IA** (Emi, 13/11/2026, a la Matriz de Redes: «Jamás en nada digas que lo armó una IA»). Ninguna pieza dice que la hizo, la armó o la editó una IA; las herramientas las construyó él. Sí se nombran las IA que usa. LinkedIn recomienda avisar cuando se usó mucha IA y no es obvio (a1481496), pero es recomendación; lo obligatorio es no publicar medios sintéticos que muestren a una persona real diciendo o haciendo lo que no hizo, y eso aquí no se publica.
 
 ## Cada red es independiente
 

@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-13 · Regla de Emi sobre la IA y post del video del DOF
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: respuestas de Emi del 13/11/2026 retransmitidas por la sesión «Matriz de Redes»: regla absoluta «Jamás en nada digas que lo armó una IA»; colores, estilo, nombrar las IA que usa, sin enlace a GitHub, cierre para equipos legales; video del DOF con subtítulos y urgencia de publicarlo hoy.
+- Cambios: (1) Regla nueva en `pilares.md`, `redaccion.md`, `SKILL.md` e `ia/REGLAS.md`; `linkedin.py` marca como error decir que una pieza o herramienta la hizo una IA y publicar medios sintéticos de una persona real; se quitó el aviso `nota_ia`, que contradecía la regla. (2) Dos versiones del post para el video del DOF entregadas a la Matriz de Redes para que Emi elija y reescriba (borrador en `cuenta/privado/`, no se sube). (3) `cuenta/perfil.json` con las respuestas de la campaña de lanzamiento.
+- Archivos: `skills/linkedin-pro/scripts/{linkedin.py,test_linkedin.py}`, `skills/linkedin-pro/references/{pilares,redaccion}.md`, `skills/linkedin-pro/SKILL.md`, `ia/REGLAS.md`, `cuenta/perfil.json`, `red/estado.json` y este registro.
+- Verificación: 67 pruebas → aprobado; `python3 ia/verificar.py ci` → aprobado; los dos borradores del post → `revisar` sin errores.
+- Pendiente: que Emi elija el texto, lo publique y mande el enlace; láminas de la campaña.
+
 ## 2026-11-13 · linkedin-pro 1.0.0: correcciones de la auditoría independiente
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: encargo del 13/11/2026: auditoría adversarial independiente y corregir todo lo que encuentre. Además, datos que Emi dio a la sesión «Matriz de Redes» ese día y que esa sesión retransmitió: se presenta como abogado que estudia la Maestría en Alta Dirección, titular propuesto, aprobación en paquete semanal, tono fuerte permitido, frase «la IA reemplaza tareas, no criterio».

@@ -112,6 +112,9 @@ PARTIDO_MAYUS = r"\bPAN\b"
 PARTIDO = r"\b(?:panistas?|acci[oó]n nacional|acci[oó]n (?:pol[ií]tica )?juvenil)\b"
 POLITICA_ENCUESTA = (r"\b(?:partidos?|vot(?:o|os|ar|ar[aá]s|aste|ar[ií]as)|candidat[oa]s?|elecci[oó]n(?:es)?|electoral"
                      r"|morena|panistas?|pri[ií]stas?|izquierda|derecha)\b")
+HECHO_POR_IA = (r"\b(?:(?:lo|la|los|las)\s+)?(?:hech[oa]s?|cread[oa]s?|generad[oa]s?|armad[oa]s?|escrit[oa]s?|editad[oa]s?"
+                r"|redactad[oa]s?|hizo|arm[oó]|escribi[oó]|gener[oó]|edit[oó]|creó|redact[oó])\s+(?:(?:con|por)\s+)?(?:una\s+|la\s+)?"
+                r"(?:ia|inteligencia artificial|chatgpt|claude|gemini)\b|\bai[- ]generated\b|\bwritten by ai\b")
 GYM = r"\b(?:gym|gimnasio|pesas|cardio|dieta|prote[ií]na|sentadillas?|press de banca|peso muerto|hipertrofia|crossfit)\b"
 DERECHO = re.compile(
     r"\bart[ií]culos?\s+\d+|\bart\.\s*\d+|\btesis\s+(?:aislada|de jurisprudencia|\d|[a-z0-9./]+\s*\d)"
@@ -601,8 +604,13 @@ def revisar(b, historial: list[dict], cfg: dict, para: str = "") -> tuple[list[s
                      "la fuente es la oficial")
     elif DERECHO.search(URL.sub(" ", todo)):
         w.append("el texto parece citar derecho: si afirma algo jurídico, marcar cita_legal y poner fuentes oficiales")
-    if b.get("uso_ia_visible") is True and not es_texto(b.get("nota_ia")):
-        w.append("nota_ia: si la pieza lleva imagen o video generado con IA, decir cuál y cómo se identifica")
+    m = buscar(HECHO_POR_IA, todo)
+    if m:
+        e.append(f"«{m.group(0)}»: regla de Emi (13/11/2026): ninguna pieza dice que la hizo, armó o editó una IA; "
+                 "las herramientas las construyó él (sí se puede nombrar la IA que usa)")
+    if b.get("persona_real_sintetica") is True:
+        e.append("persona_real_sintetica: no se publican medios sintéticos que muestren a una persona real diciendo o "
+                 "haciendo algo que no hizo (Políticas de la Comunidad Profesional de LinkedIn) [oficial]")
 
     # Duplicados: con lo publicado y con lo de otras redes.
     base = plano(todo)

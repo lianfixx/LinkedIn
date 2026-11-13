@@ -68,9 +68,9 @@
       "bloquea": "primera semana"
     },
     {
-      "que": "Responder d) a i) de la campaña de lanzamiento (paleta, capturas, nombrar IA, video del DOF, enlace a GitHub, cierre para empresas)",
+      "que": "Elegir y reescribir el texto del post del video del DOF y mandar el enlace cuando salga",
       "desde": "2026-11-13",
-      "bloquea": "campaña «lo que construí uniendo IA y Derecho»"
+      "bloquea": "anotar la primera pieza"
     }
   ],
   "actualizado": "2026-11-13",
@@ -80,5 +80,17 @@
     "titular_propuesto": "Abogado | Maestría en Alta Dirección (en curso) | IA + Derecho",
     "fuente": "Emi a la sesión Matriz de Redes, 13/11/2026, retransmitido a esta sesión; el titular lo cambia él"
   },
-  "aprobacion": "paquete semanal; lo urgente va aparte (Emi a la Matriz de Redes, 13/11/2026)"
+  "aprobacion": "paquete semanal; lo urgente va aparte (Emi a la Matriz de Redes, 13/11/2026)",
+  "regla_ia": "Jamás decir en ninguna pieza que la hizo, armó o editó una IA; las herramientas las construyó Emi; sí se nombran las IA que usa (Emi a la Matriz de Redes, 13/11/2026)",
+  "campana_lanzamiento": {
+    "fecha": "2026-11-13",
+    "fuente": "respuestas de Emi retransmitidas por la Matriz de Redes",
+    "colores": "base de su marca personal (papel #F4ECD6, tinta #20180F, acento #FF5A1F, apoyo #FFD23F) combinada con la paleta institucional de su otro espacio de trabajo (papel #F7F5F0, tinta #0D1B2A, acento #8A6D3B, apoyo #C8A96B); puede haber tonos nuevos",
+    "referencia_visual": "su post de LinkedIn del 28/10/2026 (Enlace Universitario Banxico); pedir captura si no se ve sin sesión",
+    "estilo": "capturas y maquetas; natural, humano, claro, útil, polémico, a veces con humor",
+    "nombra_ias": true,
+    "enlace_github": false,
+    "cierre": "abierto a conversar con equipos legales que quieran trabajar así",
+    "video_dof_subtitulos": true
+  }
 }

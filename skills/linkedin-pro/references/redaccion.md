@@ -9,6 +9,7 @@ Tono elegido por Emi para LinkedIn (13/11/2026): **profesional y cercano, con al
 - El humor es un guiño, no el gancho: una línea, sin burlarse de personas, nunca a costa del dato. En opinión, con medida; en temas jurídicos delicados, ninguno.
 - Postura clara. Si hay duda honesta, se dice como duda.
 - Experiencia propia por encima de consejos genéricos. LinkedIn dice que lo genérico, repetitivo o sin punto de vista se distribuye menos (Centro de ayuda, a1481496).
+- **Nunca decir que una pieza o una herramienta la hizo, armó o editó una IA** (regla absoluta de Emi, 13/11/2026). Las herramientas las construyó él; sí se nombra la IA que usa («uso Claude para…»). `linkedin.py` lo marca como error.
 - Sin «me complace anunciar», «apasionado por», «sinergia», rayas largas, listas de emojis ni hashtags de relleno.
 
 ## Estructura de un post de texto (punto de partida, no fórmula)
@@ -39,7 +40,7 @@ Un JSON por pieza (o una semana con `"posts": [...]`) en `cuenta/privado/`, que 
 | `leccion_profesional` | si habla de gym o estilo de vida | La lección profesional que justifica el tema. |
 | `cita_legal`, `fuentes` | si afirma derecho | `true` y enlaces directos a la fuente oficial. |
 | `excepcion_limite` | solo si aplica | Por qué un ejemplo hipotético o un asunto público no rompe el límite de clientes. |
-| `uso_ia_visible`, `nota_ia` | si hay imagen o video hecho con IA | Cuál y cómo se identifica. LinkedIn pide decirlo si no es obvio (a1481496) y prohíbe medios sintéticos que muestren a alguien haciendo lo que no hizo sin aclararlo. |
+| `persona_real_sintetica` | si aplica | `true` si una imagen, voz o video muestra a una persona real diciendo o haciendo algo que no hizo. Es error: no se publica (Políticas de la Comunidad Profesional). |
 | `idea_matriz` | opcional | Id de la idea en la Matriz de Redes, si viene de ahí. |
 | `imagenes` | imagen | Cuántas imágenes lleva el post (máximo 20). |
 | `estado`, `aprobado_por_emi`, `aprobado_huella`, `reescrito`, `entregado`, `publicado_url` | los ponen `aprobar`, `entregar` y `publicado` | No se escriben a mano. Todos los demás campos entran en la huella de aprobación. |

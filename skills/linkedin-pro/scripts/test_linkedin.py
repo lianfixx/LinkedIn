@@ -564,6 +564,18 @@ class Auditoria(Base):
         self.assertEqual(self.correr("estado", "--comprobar")[0], 0)
 
 
+class ReglaIA(Base):
+    def test_no_decir_que_lo_hizo_una_ia(self):
+        for t in ("Este video lo hizo una IA.", "Imagen generada con IA.", "Post escrito con ChatGPT.",
+                  "La herramienta la armó Claude por mí.", "Contenido creado con inteligencia artificial."):
+            self.assertTrue(any("regla de Emi" in x for x in self.errores(texto=t)), t)
+        for t in ("Uso Claude para leer y resumir el DOF.", "Construí un monitor del DOF; lo trabajo con Claude."):
+            self.assertFalse(any("regla de Emi" in x for x in self.errores(texto=t)), t)
+
+    def test_persona_sintetica(self):
+        self.assertTrue(any("sintéticos" in x for x in self.errores(persona_real_sintetica=True)))
+
+
 class Sellar(unittest.TestCase):
     """H-26: no se sella con páginas cambiadas o sin leer, salvo que se nombren como leídas a mano."""
 
