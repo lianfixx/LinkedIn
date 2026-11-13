@@ -54,7 +54,7 @@ Python 3.9 o posterior, sin dependencias (probado con 3.9 y 3.13 en local, 3.10 
 
 - Cada push pasa el control de [`control.yml`](.github/workflows/control.yml) con Python 3.10 y 3.12.
 - Cada lunes, [`fuentes.yml`](.github/workflows/fuentes.yml) marca en rojo si la verificación de fuentes tiene más de 10 días. GitHub no descarga páginas de LinkedIn. GitHub pausa los workflows programados tras 60 días sin actividad en el repositorio.
-- Emi eligió una revisión semanal: una tarea programada en su cuenta de Claude lee las fuentes y busca comunicados nuevos; si nada cambió, sella la fecha; si algo cambió, abre un pull request.
+- Revisión semanal: la tarea «LinkedIn · revisión semanal de fuentes» (cuenta de Claude de Emi, lunes 13:19 del centro de México, desde el 16/11/2026) lee las fuentes y busca comunicados nuevos; si nada cambió, sella la fecha; si algo cambió, abre un pull request.
 
 ## Estado
 

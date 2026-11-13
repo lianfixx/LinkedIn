@@ -2,13 +2,21 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-13 · Tarea semanal de revisión de fuentes
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi eligió el 13/11/2026 una revisión semanal de fuentes.
+- Cambios: tarea programada en la cuenta de Claude de Emi, «LinkedIn · revisión semanal de fuentes», cada lunes a las 13:19 (centro de México), con aviso al teléfono; abre una sesión nueva que sigue el encargo 6 de `prompts.md`. Primera ejecución: 16/11/2026. Vive en la cuenta de Emi, no en este repositorio. README actualizado.
+- Archivos: `README.md` y este registro.
+- Verificación: tarea creada → aprobado; su primera ejecución → no probada todavía. Las sesiones que abre no llevan el repositorio conectado: si no pueden subir, dejan un «Registro pendiente».
+- Pendiente: ver si la primera ejecución puede subir a `main`; si no, añadir `lianfixx/linkedin` al entorno de la tarea.
+
 ## 2026-11-13 · Publicación en GitHub
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 13/11/2026: el repositorio `lianfixx/LinkedIn` ya existe (creado por Emi con Muse, con un README inicial).
 - Cambios: se integró la historia completa de linkedin-pro sobre el commit inicial del repositorio (el README inicial queda sustituido por el de la skill) y se subió a `main`.
 - Archivos: todos los del repositorio.
-- Verificación: `python3 ia/verificar.py ci` → aprobado antes del push; workflow «Control de la skill» en GitHub → ver la entrada siguiente o la pestaña Actions.
-- Pendiente: tarea semanal de revisión de fuentes; registro del repositorio en esta sesión.
+- Verificación: `python3 ia/verificar.py ci` → aprobado antes del push; workflow «Control de la skill» en GitHub → aprobado (Python 3.10 y 3.12).
+- Pendiente: ver la entrada de arriba.
 
 ## 2026-11-13 · Sesión de LinkedIn en box (solo lectura) y línea base del perfil
 - Agente: Claude Code (sesión en la nube)
