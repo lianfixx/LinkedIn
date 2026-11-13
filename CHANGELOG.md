@@ -9,6 +9,7 @@ Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 - Archivos: los citados, `puente/README.md`, `red/estado.json` y este registro.
 - Verificación: `python3 ia/verificar.py ci` → aprobado.
 - Pendiente: archivo MP4 del video del DOF para publicarlo; que Vox Studio aplique la petición.
+- Errata (mismo día): `AGENTS.md` y `CLAUDE.md` aún decían que Emi publica él; corregido en el commit siguiente.
 
 ## 2026-11-13 · Tarea semanal de revisión de fuentes
 - Agente: Claude Code (sesión en la nube)
