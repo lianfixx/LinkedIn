@@ -2,7 +2,7 @@
 
 - De: skill linkedin-pro (`lianfixx/LinkedIn`), 13/11/2026, por encargo de Emi: que cada red tenga su skill y que Vox Studio pueda tomar ideas de todas.
 - Para: quien mantenga `skills/vox-studio/` en `lianfixx/VIDEOS-IA-SKILL-MILLA`.
-- Estado: **enviada** el 13/11/2026, con autorización de Emi («Sí, autorizo ahora mismo»), a la sesión de Claude que mantiene Vox Studio («CEREBRO - VIDEOS ANIMADOS»). Pendiente de que la aplique; linkedin-pro no escribe en ese repositorio.
+- Estado: **aplicada** el 13/11/2026 por Vox Studio con el «Sí» de Emi: commit `99bcd0c` en `lianfixx/VIDEOS-IA-SKILL-MILLA`, rama `claude/magical-cori-8bdu3a` (Vox Studio 0.13.1), todavía no en `main`. No se añadió `cuentas.linkedin` (era opcional). linkedin-pro no escribe en ese repositorio.
 
 ## Qué se pide
 

@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-13 · Petición a Vox aplicada; muestra de láminas de la campaña
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: aviso de la sesión de Vox Studio (13/11/2026) de que aplicó la petición; Emi pidió («Sí») la muestra de láminas con su post de Banxico como modelo.
+- Cambios: (1) `puente/PETICION-vox.md` marcada como aplicada (commit `99bcd0c` de Vox Studio, aún fuera de su `main`). (2) Muestra de 8 láminas (PDF 1080×1350) en `cuenta/privado/laminas/`, que no se sube: estilo del cartel de Banxico de Emi (fondo marino, franja amarilla, rayas, tarjetas) con su paleta personal y la institucional que pidió combinar; maquetas con datos inventados y rotulados; sin decir que algo lo hizo una IA.
+- Archivos: `puente/{PETICION-vox,README}.md` y este registro.
+- Verificación: `python3 ia/verificar.py ci` → aprobado; láminas revisadas en hoja de contacto (sin textos encimados).
+- Pendiente: correcciones de Emi a la muestra; MP4 del video del DOF.
+
 ## 2026-11-13 · Claude publica con el sí final de Emi; petición a Vox enviada
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 13/11/2026, en el chat de Claude Code: «que lo publique Claude (con previa confirmación final mía)»; «no muevas nada» del titular, «Acerca de» y experiencia; destacados: «no sé si quitarla»; petición a Vox Studio: «Sí, autorizo ahora mismo».
