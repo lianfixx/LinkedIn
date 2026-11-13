@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-13 · Límite del título de documento (58 caracteres)
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: al programar las láminas de pagos digitales, el editor de LinkedIn mostró que «Título del documento» admite 58 caracteres; el título aprobado tenía 63.
+- Cambios: `data/limites.json` (documento) pasa de `max_titulo: null` a 58, con la fuente de dónde se observó; el ejemplo de `assets/semana.ejemplo.json` tenía un título de 62 caracteres y se acortó.
+- Archivos: `skills/linkedin-pro/data/limites.json`, `skills/linkedin-pro/assets/semana.ejemplo.json` y este registro.
+- Verificación: `python3 ia/verificar.py ci` → aprobado; `revisar` marca ahora el título de 63 caracteres.
+- Pendiente: que Emi apruebe el título corto antes de programar la pieza.
+
 ## 2026-11-13 · Estilo de láminas y tono aprobados por Emi
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 13/11/2026, en el chat de Claude Code, sobre la muestra nueva de láminas: «en vez de poner mi nombre pon solo MILLA y recuerda que no deben dar hueva leer, polémicas, con algo de humor, pero serias, creíbles, profesionales y que generen interacción. HASTA AHORA ESTÁN PERFECTAS EN ESTA PRIMERA VERSIÓN».

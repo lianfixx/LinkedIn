@@ -18,7 +18,8 @@
     },
     "documento": {
       "max_texto": 3000,
-      "max_titulo": null,
+      "max_titulo": 58,
+      "max_titulo_fuente": "contador del campo «Título del documento» en el editor de LinkedIn (0/58), observado con la sesión de Emi el 13/11/2026",
       "max_paginas": 300,
       "max_mb": 100,
       "tipos": ["PDF", "PPT", "PPTX", "DOC", "DOCX"],
