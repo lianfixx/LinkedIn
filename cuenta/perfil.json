@@ -1,0 +1,128 @@
+{
+  "url": "https://www.linkedin.com/in/emiliano-milla",
+  "tipo": "personal",
+  "activa": true,
+  "observado": {
+    "fecha": "2026-11-13",
+    "titular": "Abogado en Formación | Enlace Universitario Banxico 2026",
+    "seguidores": 212,
+    "contactos": 215,
+    "posts": 20,
+    "acerca_de": "empieza «Licenciado en Derecho cursando actualmente la Maestría en Alta Dirección»; menciona experiencia judicial, legislativa y corporativa, Enlace Universitario Banxico 2026 y MILLA ABOGADOS como proyecto fundador",
+    "experiencia": "actual: pasante en un despacho (no se nombra) y servicio social en el Senado; antes: auxiliar de litigio, becario notarial, becario legal en una empresa, auxiliar de secretario de acuerdos en el Poder Judicial de la CDMX",
+    "destacados": "4: post de la Reunión de Enlaces Banxico, constancia de un programa de formación política de otro partido, un post sobre stickers y violencia digital, visita al TEPJF",
+    "panel_7_dias": {
+      "visualizaciones_perfil": 47,
+      "apariciones_busqueda": 13
+    },
+    "analitica_365_dias": {
+      "impresiones": 2874,
+      "interacciones": 47,
+      "reacciones": 38,
+      "comentarios": 2,
+      "compartidos": 0,
+      "guardados": 6,
+      "envios": 1
+    },
+    "fuente": "perfil y Análisis de contenido con la sesión de Emi en box, 13/11/2026"
+  },
+  "objetivos": [
+    "autoridad profesional en IA + Derecho",
+    "red y oportunidades (empleo, alianzas, academia)"
+  ],
+  "captacion_milla": false,
+  "captacion_nota": "Emi, 13/11/2026: «Ahora no». Cambiarlo requiere su confirmación y fijar límites éticos",
+  "balance": {
+    "ia-derecho": 0.6,
+    "carrera": 0.25,
+    "opinion": 0.15
+  },
+  "tolerancia_balance": 0.15,
+  "max_por_semana": 2,
+  "max_por_dia": 1,
+  "separacion_min_h": 24,
+  "gancho_max": 140,
+  "max_hashtags": 3,
+  "formatos": [
+    "texto",
+    "imagen",
+    "documento",
+    "video",
+    "articulo",
+    "boletin",
+    "encuesta"
+  ],
+  "tono": "profesional y cercano, con algo de humor",
+  "zona_horaria": "America/Mexico_City (UTC-6)",
+  "revision_fuentes": "semanal",
+  "modo": "la IA entrega cada pieza aprobada lista para copiar con fecha y hora; Emi la publica; las métricas las pasa Emi con capturas",
+  "sesion": "sesión de LinkedIn abierta por Emi en box «main» el 13/11/2026; solo lectura salvo orden expresa",
+  "minutos_emi_por_pieza": {
+    "texto": 10,
+    "imagen": 15,
+    "documento": 25,
+    "video": 15,
+    "articulo": 40,
+    "boletin": 40,
+    "encuesta": 5
+  },
+  "minutos_nota": "estimación de criterio: tiempo de Emi para reescribir, aprobar y publicar; se ajusta con lo real",
+  "pendientes_de_emi": [
+    {
+      "que": "Crear el repositorio público lianfixx/LinkedIn y autorizar a la sesión a conectarlo",
+      "desde": "2026-11-13",
+      "bloquea": "subir la skill"
+    },
+    {
+      "que": "Material y postura para las dos primeras piezas",
+      "desde": "2026-11-13",
+      "bloquea": "primera semana"
+    },
+    {
+      "que": "Elegir y reescribir el texto del post del video del DOF y mandar el enlace cuando salga",
+      "desde": "2026-11-13",
+      "bloquea": "anotar la primera pieza"
+    },
+    {
+      "que": "Bajar la copia de sus datos de LinkedIn y pasar solo Profile.csv y Shares.csv (sin contactos ni mensajes)",
+      "desde": "2026-11-13",
+      "bloquea": "propuesta de «Acerca de» y voz real"
+    },
+    {
+      "que": "Confirmar si ya tiene título y cédula de licenciado en Derecho, para poner «Abogado» en el titular sin riesgo",
+      "desde": "2026-11-13",
+      "bloquea": "titular"
+    },
+    {
+      "que": "Dar los nombres de los licenciados que no se nombran, para vetarlos por huella",
+      "desde": "2026-11-13",
+      "bloquea": "filtro de nombres"
+    }
+  ],
+  "actualizado": "2026-11-13",
+  "presentacion": {
+    "fecha": "2026-11-13",
+    "texto": "«soy abogado y estudio una maestría en alta dirección»; tono de marca personal, no de currículum; tono fuerte permitido sin cosas ilegales; frase guía «la IA reemplaza tareas, no criterio»; empezó «full IA» el 07/11/2026; tiene foto profesional; con empresas, primero prestigio y después empleo",
+    "titular_propuesto": "Abogado | Maestría en Alta Dirección (en curso) | IA + Derecho",
+    "fuente": "Emi a la sesión Matriz de Redes, 13/11/2026, retransmitido a esta sesión; el titular lo cambia él"
+  },
+  "aprobacion": "paquete semanal; lo urgente va aparte (Emi a la Matriz de Redes, 13/11/2026)",
+  "regla_ia": "Jamás decir en ninguna pieza que la hizo, armó o editó una IA; las herramientas las construyó Emi; sí se nombran las IA que usa (Emi a la Matriz de Redes, 13/11/2026)",
+  "campana_lanzamiento": {
+    "fecha": "2026-11-13",
+    "fuente": "respuestas de Emi retransmitidas por la Matriz de Redes",
+    "colores": "base de su marca personal (papel #F4ECD6, tinta #20180F, acento #FF5A1F, apoyo #FFD23F) combinada con la paleta institucional de su otro espacio de trabajo (papel #F7F5F0, tinta #0D1B2A, acento #8A6D3B, apoyo #C8A96B); puede haber tonos nuevos",
+    "referencia_visual": "su post de LinkedIn del 28/10/2026 (Enlace Universitario Banxico); pedir captura si no se ve sin sesión",
+    "estilo": "capturas y maquetas; natural, humano, claro, útil, polémico, a veces con humor",
+    "nombra_ias": true,
+    "enlace_github": false,
+    "cierre": "abierto a conversar con equipos legales que quieran trabajar así",
+    "video_dof_subtitulos": true
+  },
+  "decisiones_13_11": {
+    "repositorio": "lo crea Muse",
+    "lectura_semanal_de_fuentes": true,
+    "sello_automatico_en_main": true,
+    "metricas_publicas": true
+  }
+}

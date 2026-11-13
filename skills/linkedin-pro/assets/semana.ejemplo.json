@@ -1,0 +1,30 @@
+{
+  "semana": "ejemplo",
+  "nota": "Ejemplo de formato. Fechas de enero de 2026 a propósito, para que no choquen con lo publicado de verdad. Los textos son de muestra: ninguno lo escribió ni aprobó Emi.",
+  "posts": [
+    {
+      "id": "ejemplo-a",
+      "fecha": "2026-01-06",
+      "hora": "08:30",
+      "pilar": "ia-derecho",
+      "formato": "documento",
+      "titulo": "Cinco preguntas antes de confiar en una cita que propone la IA",
+      "paginas": 7,
+      "media": "PDF propio de 7 páginas, una pregunta por página (se diseña aparte)",
+      "texto": "La IA me propuso una tesis que no existe.\n\nNo fue la primera vez. Desde entonces reviso cinco cosas antes de usar cualquier cita que sugiere una herramienta: registro digital, época, instancia, rubro completo y si sigue vigente.\n\nLas dejo en el documento. ¿Qué revisan ustedes antes de citar?",
+      "para_quien": "abogados y estudiantes de derecho que ya usan IA para investigar",
+      "aporta": "una lista de verificación de citas que se puede usar ese mismo día",
+      "cita_legal": false
+    },
+    {
+      "id": "ejemplo-b",
+      "fecha": "2026-01-08",
+      "hora": "13:00",
+      "pilar": "carrera",
+      "formato": "texto",
+      "texto": "Lo que más me ha servido de la maestría no fue una materia.\n\nFue aprender a decidir con información incompleta. En el derecho pasa todos los días: el plazo corre aunque no tengas todos los documentos.\n\nMi método, por ahora: escribir qué sé, qué supongo y qué me falta, y decidir con lo primero.",
+      "para_quien": "profesionistas jóvenes que estudian y trabajan a la vez",
+      "aporta": "un método sencillo para decidir con información incompleta"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+name: Vigencia de las fuentes
+
+# Cada lunes: comprueba que la última verificación de las fuentes oficiales no tenga más de
+# 10 días (la hace la tarea semanal de Emi en Claude). Marca en rojo si venció.
+# GitHub no descarga páginas de LinkedIn (ver ia/REGLAS.md).
+on:
+  schedule:
+    - cron: "17 15 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fuentes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - name: Verificación vigente
+        run: python3 skills/linkedin-pro/scripts/linkedin.py fuentes ver

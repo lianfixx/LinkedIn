@@ -1,0 +1,32 @@
+# Voz de Emi en LinkedIn
+
+**Estado: candidato.** Todavía no hay piezas publicadas ni corregidas por Emi en LinkedIn. Este archivo se llena con sus correcciones; hasta entonces vale lo de abajo.
+
+## De dónde sale
+
+1. Lo que Emi diga y corrija en cada borrador. Manda sobre todo lo demás.
+2. Su elección del 13/11/2026: profesional y cercano, con algo de humor.
+3. El espacio `personal` de Vox Studio (`linkedin.py vox leer`) y la skill `estilo-emi`: sirven para el vocabulario y la persona, no para el registro. En LinkedIn no va el humor en el gancho ni el gym como tema.
+
+## Punto de partida
+
+- Primera persona, español de México, frases cortas, de tú y con respeto de colega.
+- Una idea por pieza; la primera línea ya dice algo.
+- Experiencia propia y criterio, no consejos genéricos.
+- Un guiño de humor como máximo, nunca a costa del dato ni de una persona.
+- Sin plantillas de LinkedIn («me complace anunciar», «apasionado por»), sin rayas largas, sin listas de emojis.
+
+## Cómo escribe ya en LinkedIn (observado)
+
+Leído el 13/11/2026 en dos posts públicos suyos sobre la Reunión Anual de Enlaces Universitarios Banxico 2026, sin iniciar sesión. Son su voz real; sirven de base hasta que corrija borradores.
+
+- Abre con una pregunta de fondo («¿La autonomía constitucional de un banco central basta, por sí sola…?») o con una vivencia («Ayer viví una experiencia…»).
+- Cuenta qué hizo y en qué contexto, en primera persona, con nombres de instituciones y personas públicas.
+- Argumenta como abogado: matiza («condición necesaria, pero no suficiente»), resalta con mayúsculas una sola palabra («NO determina»).
+- Cierra con una pregunta abierta al lector o con un compromiso («compartiré la convocatoria y ayudaré personalmente…»).
+- Cuando representa a una institución, aclara que la opinión es personal.
+- Usa de 3 a 7 hashtags al final. La skill avisa con más de 3; es decisión suya.
+
+## Correcciones de Emi
+
+(vacío: añadir aquí cada corrección con fecha y el antes y después)

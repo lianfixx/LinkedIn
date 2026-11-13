@@ -1,0 +1,831 @@
+{
+  "verificado": "2026-11-13",
+  "max_dias": 10,
+  "nota": "Fuentes que sostienen las referencias. «marcas» son frases literales que deben seguir en la página: si una desaparece, «fuentes revisar --red» lo marca como cambio. Las de terceros no se vigilan por frase: se revisan en la revisión semanal.",
+  "fuentes": [
+    {
+      "id": "a528176",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a528176?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md",
+        "limites.json"
+      ],
+      "que_dice": "Límite de 3,000 caracteres; límite de frecuencia sin cifra",
+      "marcas": [
+        "Posts can contain up to 3,000 characters"
+      ],
+      "estable": true,
+      "huella": "644970182ef1"
+    },
+    {
+      "id": "a516930",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a516930?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "playbook.md",
+        "perfil.md"
+      ],
+      "que_dice": "Distribución inicial a una parte de la red; relevancia profesional; consejos oficiales",
+      "marcas": [
+        "connection strength",
+        "professionally relevant",
+        "Avoid being overly promotional"
+      ],
+      "estable": true,
+      "huella": "fef0a4432a3d"
+    },
+    {
+      "id": "a1481496",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1481496?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "mitos.md",
+        "redaccion.md"
+      ],
+      "que_dice": "IA: voz propia, contenido genérico se distribuye menos, avisar si se usó mucha IA",
+      "marcas": [
+        "less likely to be widely distributed",
+        "AI slop"
+      ],
+      "estable": true,
+      "huella": "84f54ed906ce"
+    },
+    {
+      "id": "a1340752",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1340752?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Contenido falso o engañoso no se distribuye fuera de la red; medios sintéticos",
+      "marcas": [
+        "not eligible for distribution beyond the author"
+      ],
+      "estable": true,
+      "huella": "a8fddf796ba3"
+    },
+    {
+      "id": "politicas",
+      "url": "https://www.linkedin.com/legal/professional-community-policies",
+      "tipo": "politica",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "mitos.md"
+      ],
+      "que_dice": "Prohíbe inflar la interacción artificialmente y los acuerdos de reacción mutua; medios sintéticos",
+      "marcas": [
+        "artificially increase engagement",
+        "synthetic or manipulated media"
+      ],
+      "estable": true,
+      "huella": "b024e89b3b6c"
+    },
+    {
+      "id": "acuerdo",
+      "url": "https://www.linkedin.com/legal/user-agreement",
+      "tipo": "politica",
+      "certeza": "oficial",
+      "sostiene": [
+        "entrega.md",
+        "REGLAS.md"
+      ],
+      "que_dice": "§8.2: prohíbe bots, scraping y automatizar interacciones",
+      "marcas": [
+        "unauthorized automated methods",
+        "scrape or copy the Services"
+      ],
+      "estable": true,
+      "huella": "e855ecdda335"
+    },
+    {
+      "id": "a518909",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a518909?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md",
+        "limites.json"
+      ],
+      "que_dice": "Documentos: 100 MB y 300 páginas",
+      "marcas": [
+        "100MB and 300 pages"
+      ],
+      "estable": true,
+      "huella": "7b55c10e3e60"
+    },
+    {
+      "id": "a548372",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a548372?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md",
+        "limites.json"
+      ],
+      "que_dice": "Video: 3 s a 15 min, 5 GB, 1:2.4 a 2.4:1",
+      "marcas": [
+        "Maximum video duration: 15 minutes"
+      ],
+      "estable": true,
+      "huella": "f198674e1385"
+    },
+    {
+      "id": "a554001",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a554001?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md",
+        "conexion-vox.md"
+      ],
+      "que_dice": "Un video por post; feed vertical no admite publicar directo",
+      "marcas": [
+        "immersive video feed"
+      ],
+      "estable": true,
+      "huella": "03d31cc53409"
+    },
+    {
+      "id": "a522483",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a522483?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md",
+        "limites.json"
+      ],
+      "que_dice": "Artículos: 125,000 caracteres",
+      "marcas": [
+        "125,000 characters"
+      ],
+      "estable": true,
+      "huella": "9b296aa3b911"
+    },
+    {
+      "id": "a591266",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a591266?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md"
+      ],
+      "que_dice": "Boletín para todos los miembros",
+      "marcas": [
+        "All LinkedIn members have access to create a newsletter"
+      ],
+      "estable": true,
+      "huella": "2d31b9170297"
+    },
+    {
+      "id": "a527273",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a527273?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md",
+        "pilares.md",
+        "limites.json"
+      ],
+      "que_dice": "Encuestas: duraciones; prohibido pedir opiniones políticas",
+      "marcas": [
+        "political opinions"
+      ],
+      "estable": true,
+      "huella": "ebd151c1f723"
+    },
+    {
+      "id": "a522948",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a522948?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md",
+        "limites.json"
+      ],
+      "que_dice": "Encuestas: de 2 a 4 opciones",
+      "marcas": [
+        "maximum of four options"
+      ],
+      "estable": true,
+      "huella": "cbdf50d4a966"
+    },
+    {
+      "id": "a1347212",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1347212?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "entrega.md",
+        "limites.json"
+      ],
+      "que_dice": "Programación nativa de 10 minutos a 3 meses",
+      "marcas": [
+        "between 10 minutes and 3 months"
+      ],
+      "estable": true,
+      "huella": "6158f3676f07"
+    },
+    {
+      "id": "a516971",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a516971?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "medicion.md"
+      ],
+      "que_dice": "Métricas de cada post y conservación de datos",
+      "marcas": [
+        "Members reached",
+        "Your own views"
+      ],
+      "estable": true,
+      "huella": "67acce2c3a0b"
+    },
+    {
+      "id": "a554351",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a554351?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "Perfil completo, foto 2X vistas, Acerca de",
+      "marcas": [
+        "up to 2X more profile views"
+      ],
+      "estable": true,
+      "huella": "65111dbb0d06"
+    },
+    {
+      "id": "a5999182",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a5999182?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md",
+        "playbook.md"
+      ],
+      "que_dice": "Modo creador eliminado; Seguir o Conectar como acción principal",
+      "marcas": [
+        "creator mode"
+      ],
+      "estable": true,
+      "huella": "a8703b682d2f"
+    },
+    {
+      "id": "mejora-feed-2026",
+      "url": "https://news.linkedin.com/2026/ImprovingTheFeed",
+      "tipo": "comunicado",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "mitos.md"
+      ],
+      "que_dice": "Menos anzuelos y posts repetitivos; pods ineficaces; ranking con LLM",
+      "marcas": [
+        "engagement bait",
+        "engagement pods"
+      ],
+      "estable": true,
+      "huella": "8a88b9a82485"
+    },
+    {
+      "id": "autenticidad-2026",
+      "url": "https://news.linkedin.com/2026/authentic-content-and-conversations",
+      "tipo": "comunicado",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "mitos.md"
+      ],
+      "que_dice": "Pods no permitidos; alcance limitado a lo inflado; comentarios automatizados",
+      "marcas": [
+        "artificially boosted"
+      ],
+      "estable": true,
+      "huella": "ab42954b9066"
+    },
+    {
+      "id": "lorenzetti-2026",
+      "url": "https://www.linkedin.com/pulse/keeping-conversations-real-linkedin-laura-lorenzetti-9821e/",
+      "tipo": "directivo",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "mitos.md"
+      ],
+      "que_dice": "Usar IA está bien si representa tu voz; lo genérico se distribuye menos",
+      "marcas": [
+        "represent your voice"
+      ],
+      "estable": false
+    },
+    {
+      "id": "jurka-2026",
+      "url": "https://www.linkedin.com/pulse/technology-behind-linkedins-fight-against-ai-slop-tim-jurka-7ojbc/",
+      "tipo": "directivo",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "mitos.md"
+      ],
+      "que_dice": "Clasificadores de AI slop: 94 % de precisión, 40 % menos vistas",
+      "marcas": [
+        "AI slop"
+      ],
+      "estable": false
+    },
+    {
+      "id": "jobanputra-2025",
+      "url": "https://www.linkedin.com/posts/rishij_i-shared-last-week-some-thoughts-on-what-activity-7358999334173990912-EI0Q/",
+      "tipo": "directivo",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "mitos.md",
+        "playbook.md"
+      ],
+      "que_dice": "LinkedIn no está diseñado para la viralidad; conversaciones sobre likes",
+      "marcas": [
+        "not designed for virality"
+      ],
+      "estable": false
+    },
+    {
+      "id": "dwell-2020",
+      "url": "https://engineering.linkedin.com/blog/2020/understanding-feed-dwell-time",
+      "tipo": "ingenieria",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "El tiempo de permanencia es señal del ranking",
+      "marcas": [
+        "dwell time"
+      ],
+      "estable": true,
+      "huella": "2ea5bc029c2c"
+    },
+    {
+      "id": "a523360",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a523360?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Señales para recomendar: calidad y relevancia profesional; desinterés y reportes",
+      "marcas": [
+        "high quality and professionally relevant",
+        "disinterest signals"
+      ],
+      "estable": true,
+      "huella": "85cf83c390e3"
+    },
+    {
+      "id": "a1499047",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1499047?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Posts recomendados: interacciones previas, tiempo en la plataforma, perfil y probabilidad de interactuar",
+      "marcas": [
+        "time spent on the platform",
+        "How likely you are to engage"
+      ],
+      "estable": true,
+      "huella": "d2df05c2782d"
+    },
+    {
+      "id": "a1480504",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1480504?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Vista «Top» personalizada por defecto; «Recent» sin personalización",
+      "marcas": [
+        "will not be used to sort the feed"
+      ],
+      "estable": true,
+      "huella": "bcd0bea82a5b"
+    },
+    {
+      "id": "a1338787",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1338787?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "mitos.md"
+      ],
+      "que_dice": "Spam: retirar o limitar la distribución de lo que infla la interacción (encuestas de emojis, cadenas)",
+      "marcas": [
+        "artificially increase engagement",
+        "chain letter"
+      ],
+      "estable": true,
+      "huella": "189ffc4a14aa"
+    },
+    {
+      "id": "a1678508",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1678508?lang=en",
+      "tipo": "dsa",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "fuentes.md"
+      ],
+      "que_dice": "Informes de transparencia DSA (arts. 15, 24 y 42)",
+      "marcas": [
+        "Article 15(1)"
+      ],
+      "estable": true,
+      "huella": "784eb7310ec3"
+    },
+    {
+      "id": "danchev-2026",
+      "url": "https://www.linkedin.com/blog/engineering/feed/engineering-the-next-generation-of-linkedins-feed",
+      "tipo": "ingenieria",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Recuperación con embeddings de LLM y modelo generativo; predice clic, saltar, lectura larga, reacción, comentario y compartir; sin atributos demográficos",
+      "marcas": [
+        "dual encoder"
+      ],
+      "estable": true,
+      "huella": "808464823013"
+    },
+    {
+      "id": "jain-2025",
+      "url": "https://www.linkedin.com/blog/engineering/feed/putting-members-first-testing-and-measuring-how-content-appears-in-your-feed",
+      "tipo": "ingenieria",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Cientos de señales; no usa datos demográficos para la visibilidad",
+      "marcas": [
+        "hundreds of other signals"
+      ],
+      "estable": true,
+      "huella": "908135ad1d61"
+    },
+    {
+      "id": "jurka-mar-2026",
+      "url": "https://www.linkedin.com/pulse/updates-linkedin-feed-focusing-authentic-relevant-tim-jurka-umwnc",
+      "tipo": "directivo",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Señales de perfil e interacción; anzuelos y pods",
+      "marcas": [
+        "have not) reviewed"
+      ],
+      "estable": false,
+      "nota": "Pulse: a veces responde 403 a lectores automáticos; frases marca encontradas en la lectura del 13/11/2026"
+    },
+    {
+      "id": "jobanputra-2024",
+      "url": "https://www.linkedin.com/pulse/understanding-how-linkedin-feed-works-rishi-jobanputra-tshdc",
+      "tipo": "directivo",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Pasar de largo u ocultar también enseña al feed; se quieren posts de conocimiento",
+      "marcas": [
+        "knowledge-based posts"
+      ],
+      "estable": false,
+      "nota": "Pulse: a veces responde 403 a lectores automáticos; frases marca encontradas en la lectura del 13/11/2026"
+    },
+    {
+      "id": "editores-2026",
+      "url": "https://news.linkedin.com/2026/HumansHelpingShapeLinkedInsFeed",
+      "tipo": "comunicado",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Más de 150 editores humanos influyen en qué temas y voces se muestran",
+      "marcas": [
+        "emerging experts"
+      ],
+      "estable": true,
+      "huella": "3daf623ca1e3"
+    },
+    {
+      "id": "mythbusting-2022",
+      "url": "https://www.linkedin.com/blog/member/product/mythbusting-the-feed-how-the-algorithm-works",
+      "tipo": "comunicado",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Los algoritmos filtran el contenido de baja calidad",
+      "marcas": [
+        "low-quality and unsafe content"
+      ],
+      "estable": true,
+      "huella": "5e2d70e25482"
+    },
+    {
+      "id": "a527229",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a527229?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md",
+        "limites.json"
+      ],
+      "que_dice": "Imágenes: hasta 20 por post, 5 MB",
+      "marcas": [
+        "maximum of 20 photos"
+      ],
+      "estable": true,
+      "huella": "1e4017fc30d1"
+    },
+    {
+      "id": "a542926",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a542926?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "El titular sale en búsquedas",
+      "marcas": [
+        "displayed in search results"
+      ],
+      "estable": true,
+      "huella": "a18fabc75822"
+    },
+    {
+      "id": "a593695",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a593695?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "Experiencia: solo organizaciones con experiencia profesional real",
+      "marcas": [
+        "must reflect professional experience"
+      ],
+      "estable": true,
+      "huella": "3179c8fcfd54"
+    },
+    {
+      "id": "a552452",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a552452?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "Destacados: ilimitados, se muestran 400",
+      "marcas": [
+        "only 400 items will be displayed"
+      ],
+      "estable": true,
+      "huella": "f5847833a87a"
+    },
+    {
+      "id": "a549049",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a549049?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "Foto de perfil: tamaños y reflejar la imagen real",
+      "marcas": [
+        "must reflect your likeness"
+      ],
+      "estable": true,
+      "huella": "c1bbf3e66a73"
+    },
+    {
+      "id": "a568217",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a568217?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "Portada: 1584×396 px",
+      "marcas": [
+        "1584"
+      ],
+      "estable": true,
+      "huella": "22e47fd01006"
+    },
+    {
+      "id": "a542685",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a542685?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "URL personalizada: 3 a 100 caracteres, 5 cambios en 6 meses",
+      "marcas": [
+        "five times within six months"
+      ],
+      "estable": true,
+      "huella": "416717abf1fd"
+    },
+    {
+      "id": "a1484520",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1484520?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "Botón personalizado solo para algunos Premium",
+      "marcas": [
+        "select group of LinkedIn Premium"
+      ],
+      "estable": true,
+      "huella": "0d5188dd1f62"
+    },
+    {
+      "id": "a1444194",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1444194?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "Asistente de redacción del perfil solo para algunos Premium",
+      "marcas": [
+        "select group of LinkedIn Premium subscribers"
+      ],
+      "estable": true,
+      "huella": "414dfd1bcc94"
+    },
+    {
+      "id": "a568503",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a568503?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md"
+      ],
+      "que_dice": "LinkedIn Live: más de 150 seguidores, 30 días, buen historial",
+      "marcas": [
+        "more than 150 followers"
+      ],
+      "estable": true,
+      "huella": "a48af796cf7c"
+    },
+    {
+      "id": "a1432051",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1432051?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md",
+        "medicion.md"
+      ],
+      "que_dice": "Analytics & tools; analítica del boletín",
+      "marcas": [
+        "newsletter authors only"
+      ],
+      "estable": true,
+      "huella": "121685496b83"
+    },
+    {
+      "id": "a525196",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a525196?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "medicion.md"
+      ],
+      "que_dice": "Dónde ver la analítica de cada post; video 180 días (contradice a a516971)",
+      "marcas": [
+        "180 days"
+      ],
+      "estable": true,
+      "huella": "be058f9b8851"
+    },
+    {
+      "id": "srinivasan-fortune-2026",
+      "url": "https://fortune.com/2026/08/25/1-million-people-clicked-linkedin-ai-slop/",
+      "tipo": "directivo",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "mitos.md"
+      ],
+      "que_dice": "Hari Srinivasan (LinkedIn), citado por Fortune: 40 % menos vistas para lo ya clasificado como AI slop, frente a semanas antes (declaración de segunda mano)",
+      "marcas": [],
+      "estable": false
+    },
+    {
+      "id": "buffer-frecuencia-2025",
+      "url": "https://buffer.com/resources/how-often-to-post-on-linkedin/",
+      "tipo": "estudio",
+      "certeza": "terceros",
+      "sostiene": [
+        "mitos.md",
+        "playbook.md"
+      ],
+      "que_dice": "Frecuencia: más posts no castigan cada post (≈2 millones de posts, efectos fijos por cuenta); solidez alta",
+      "marcas": [],
+      "estable": false
+    },
+    {
+      "id": "socialinsider-2026",
+      "url": "https://www.socialinsider.io/blog/linkedin-engagement-report/",
+      "tipo": "estudio",
+      "certeza": "terceros",
+      "sostiene": [
+        "formatos.md",
+        "mitos.md"
+      ],
+      "que_dice": "Interacción por formato en páginas de empresa (2.45 millones de posts); solidez media-alta",
+      "marcas": [],
+      "estable": false
+    },
+    {
+      "id": "metricool-2026",
+      "url": "https://newsletter.metricool.com/p/5-linkedin-stats-in-2026-you-probably-didn-t-see-coming",
+      "tipo": "estudio",
+      "certeza": "terceros",
+      "sostiene": [
+        "formatos.md",
+        "mitos.md"
+      ],
+      "que_dice": "Enlaces −27 % en perfiles y +51 % en páginas; 48 horas; hashtags (≈670,000 posts); solidez media",
+      "marcas": [],
+      "estable": false
+    },
+    {
+      "id": "authoredup-estadisticas",
+      "url": "https://authoredup.com/blog/linkedin-post-statistics",
+      "tipo": "estudio",
+      "certeza": "terceros",
+      "sostiene": [
+        "formatos.md",
+        "mitos.md"
+      ],
+      "que_dice": "Longitud, formato y tamaño de cuenta en perfiles (≈370,000 posts); solidez media donde declara muestra",
+      "marcas": [],
+      "estable": false
+    },
+    {
+      "id": "buffer-algoritmo-2025",
+      "url": "https://buffer.com/resources/linkedin-algorithm/",
+      "tipo": "estudio",
+      "certeza": "terceros",
+      "sostiene": [
+        "mitos.md"
+      ],
+      "que_dice": "Cita a Lorenzetti sobre hashtags y etiquetas (segunda mano de una declaración oficial)",
+      "marcas": [],
+      "estable": false
+    },
+    {
+      "id": "usera-2025",
+      "url": "https://consensus.app/papers/details/w:60a05833-ac52-42cb-9bb1-91f2033bd949/",
+      "tipo": "estudio",
+      "certeza": "terceros",
+      "sostiene": [
+        "mitos.md"
+      ],
+      "que_dice": "Usera et al. 2025, revisado por pares: etiquetas y hashtags asociados a más reacciones (991 posts)",
+      "marcas": [],
+      "estable": false
+    },
+    {
+      "id": "vanderblom-2026",
+      "url": "https://creatorscience.com/podcast/richard-van-der-blom-2/",
+      "tipo": "estudio",
+      "certeza": "terceros",
+      "sostiene": [
+        "mitos.md"
+      ],
+      "que_dice": "Caída del alcance y frecuencia de 2 a 4 por semana; método no publicado; solidez media-baja",
+      "marcas": [],
+      "estable": false
+    }
+  ]
+}
