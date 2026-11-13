@@ -9,6 +9,7 @@ Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 - Archivos: `cuenta/voz.md` y este registro.
 - Verificación: `python3 ia/verificar.py ci` → aprobado; textos citados cotejados con dof.gob.mx el 13/11/2026.
 - Pendiente: texto del post de las láminas, aprobación de Emi y fecha (semana 47).
+- Añadido (mismo día): Emi pidió no usar dos puntos («suena muy IA, lo quiero fluido»); anotado en `cuenta/voz.md`.
 
 ## 2026-11-13 · Primer post publicado: video del DOF (pagos digitales); Panel leído
 - Agente: Claude Code (sesión en la nube)
