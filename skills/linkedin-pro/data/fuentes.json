@@ -375,6 +375,174 @@
       "huella": "2ea5bc029c2c"
     },
     {
+      "id": "a523360",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a523360?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Señales para recomendar: calidad y relevancia profesional; desinterés y reportes",
+      "marcas": [
+        "high quality and professionally relevant",
+        "disinterest signals"
+      ],
+      "estable": true,
+      "huella": "85cf83c390e3"
+    },
+    {
+      "id": "a1499047",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1499047?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Posts recomendados: interacciones previas, tiempo en la plataforma, perfil y probabilidad de interactuar",
+      "marcas": [
+        "time spent on the platform",
+        "How likely you are to engage"
+      ],
+      "estable": true,
+      "huella": "d2df05c2782d"
+    },
+    {
+      "id": "a1480504",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1480504?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Vista «Top» personalizada por defecto; «Recent» sin personalización",
+      "marcas": [
+        "will not be used to sort the feed"
+      ],
+      "estable": true,
+      "huella": "bcd0bea82a5b"
+    },
+    {
+      "id": "a1338787",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1338787?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "mitos.md"
+      ],
+      "que_dice": "Spam: retirar o limitar la distribución de lo que infla la interacción (encuestas de emojis, cadenas)",
+      "marcas": [
+        "artificially increase engagement",
+        "chain letter"
+      ],
+      "estable": true,
+      "huella": "189ffc4a14aa"
+    },
+    {
+      "id": "a1678508",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1678508?lang=en",
+      "tipo": "dsa",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "fuentes.md"
+      ],
+      "que_dice": "Informes de transparencia DSA (arts. 15, 24 y 42)",
+      "marcas": [
+        "Article 15(1)"
+      ],
+      "estable": true,
+      "huella": "784eb7310ec3"
+    },
+    {
+      "id": "danchev-2026",
+      "url": "https://www.linkedin.com/blog/engineering/feed/engineering-the-next-generation-of-linkedins-feed",
+      "tipo": "ingenieria",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Recuperación con embeddings de LLM y modelo generativo; predice clic, saltar, lectura larga, reacción, comentario y compartir; sin atributos demográficos",
+      "marcas": [
+        "dual encoder"
+      ],
+      "estable": true,
+      "huella": "808464823013"
+    },
+    {
+      "id": "jain-2025",
+      "url": "https://www.linkedin.com/blog/engineering/feed/putting-members-first-testing-and-measuring-how-content-appears-in-your-feed",
+      "tipo": "ingenieria",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Cientos de señales; no usa datos demográficos para la visibilidad",
+      "marcas": [
+        "hundreds of other signals"
+      ],
+      "estable": true,
+      "huella": "908135ad1d61"
+    },
+    {
+      "id": "jurka-mar-2026",
+      "url": "https://www.linkedin.com/pulse/updates-linkedin-feed-focusing-authentic-relevant-tim-jurka-umwnc",
+      "tipo": "directivo",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Señales de perfil e interacción; anzuelos y pods",
+      "marcas": [
+        "have not) reviewed"
+      ],
+      "estable": false
+    },
+    {
+      "id": "jobanputra-2024",
+      "url": "https://www.linkedin.com/pulse/understanding-how-linkedin-feed-works-rishi-jobanputra-tshdc",
+      "tipo": "directivo",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Pasar de largo u ocultar también enseña al feed; se quieren posts de conocimiento",
+      "marcas": [
+        "knowledge-based posts"
+      ],
+      "estable": false
+    },
+    {
+      "id": "editores-2026",
+      "url": "https://news.linkedin.com/2026/HumansHelpingShapeLinkedInsFeed",
+      "tipo": "comunicado",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Más de 150 editores humanos influyen en qué temas y voces se muestran",
+      "marcas": [
+        "emerging experts"
+      ],
+      "estable": true,
+      "huella": "3daf623ca1e3"
+    },
+    {
+      "id": "mythbusting-2022",
+      "url": "https://www.linkedin.com/blog/member/product/mythbusting-the-feed-how-the-algorithm-works",
+      "tipo": "comunicado",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md"
+      ],
+      "que_dice": "Los algoritmos filtran el contenido de baja calidad",
+      "marcas": [
+        "low-quality and unsafe content"
+      ],
+      "estable": true,
+      "huella": "5e2d70e25482"
+    },
+    {
       "id": "buffer-frecuencia-2025",
       "url": "https://buffer.com/resources/how-often-to-post-on-linkedin/",
       "tipo": "estudio",

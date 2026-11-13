@@ -10,9 +10,15 @@ LinkedIn **no publica el código ni los pesos de su ranking**. Lo que sigue es l
 | «Content that's professionally relevant will benefit from organic distribution through your network». | [a516930](https://www.linkedin.com/help/linkedin/answer/a516930) | [oficial] |
 | Consejos oficiales para la distribución: «Avoid being overly promotional», completar y verificar el perfil, interactuar con lo que publican otros miembros. | [a516930](https://www.linkedin.com/help/linkedin/answer/a516930) | [oficial] |
 | «LinkedIn is not designed for virality»; las reacciones indican buena dirección, pero «authentic conversations and connection signify great engagement». Recomienda medir visitas al perfil y seguidores ganados por post. | Rishi Jobanputra, director sénior de producto del feed, [post de 2025](https://www.linkedin.com/posts/rishij_i-shared-last-week-some-thoughts-on-what-activity-7358999334173990912-EI0Q/) | [oficial] |
+| Para recomendar, LinkedIn considera, entre otras señales, «whether the content is high quality and professionally relevant» y la retroalimentación del lector, «such as disinterest signals and content reports». | Centro de ayuda, [a523360](https://www.linkedin.com/help/linkedin/answer/a523360) | [oficial] |
+| Los posts recomendados de fuera de la red dependen de las interacciones previas del lector («comments, reactions, and time spent on the platform»), de su perfil (puesto, ubicación, sector) y de «How likely you are to engage with the content». | [a1499047](https://www.linkedin.com/help/linkedin/answer/a1499047) | [oficial] |
+| Pasar de largo un post u ocultarlo también le enseña al feed; los miembros quieren más «knowledge-based posts» y menos clickbait. | Rishi Jobanputra, [23/10/2024](https://www.linkedin.com/pulse/understanding-how-linkedin-feed-works-rishi-jobanputra-tshdc) | [oficial] |
+| El modelo de ranking actual (2026) procesa más de 1,000 interacciones previas del lector y predice acciones pasivas (clic, pasar de largo, lectura larga) y activas (reacción, comentario, compartir); usa señales profesionales y de interacción, «never demographic attributes». No publica pesos. | LinkedIn Engineering, Hristo Danchev, [12/03/2026](https://www.linkedin.com/blog/engineering/feed/engineering-the-next-generation-of-linkedins-feed) | [oficial] |
+| El feed usa «hundreds of other signals» y no usa edad, raza ni género para decidir la visibilidad. | LinkedIn Engineering, Sakshi Jain, [20/11/2025](https://www.linkedin.com/blog/engineering/feed/putting-members-first-testing-and-measuring-how-content-appears-in-your-feed) | [oficial] |
+| Más de 150 editores y responsables de creadores, en 12 países y 7 idiomas, validan qué temas y voces salen a la superficie y la visibilidad de «emerging experts». | Comunicado, [marzo de 2026](https://news.linkedin.com/2026/HumansHelpingShapeLinkedInsFeed) | [oficial] |
 | El tiempo que alguien se detiene en un post («dwell time») es una señal del ranking. | LinkedIn Engineering, [2020](https://engineering.linkedin.com/blog/2020/understanding-feed-dwell-time) | [oficial] |
 | Desde 2026 el ranking usa modelos de lenguaje (LLM) para entender el contenido. | Comunicado del [12/03/2026](https://news.linkedin.com/2026/ImprovingTheFeed) | [oficial] |
-| Cuánto pesa cada señal, y en qué orden, no lo publica LinkedIn. Cualquier porcentaje que circule es de terceros o inventado. | Ausencia en todas las fuentes revisadas | [criterio] |
+| Cuánto pesa cada señal, y en qué orden, no lo publica LinkedIn. Cualquier porcentaje que circule (por ejemplo, un reparto «40/30/15/15» que aparece en sitios de terceros) no tiene sustento en LinkedIn. | Ausencia en todas las fuentes revisadas | [criterio] |
 
 ## Qué degrada o castiga
 
@@ -26,7 +32,16 @@ LinkedIn **no publica el código ni los pesos de su ranking**. Lo que sigue es l
 | Los clasificadores de «AI slop» revisan los posts que se distribuyen fuera de la red inmediata, con 94 % de precisión; desde agosto de 2026 ese contenido tiene 40 % menos vistas. | Tim Jurka, LinkedIn, [08/10/2026](https://www.linkedin.com/pulse/technology-behind-linkedins-fight-against-ai-slop-tim-jurka-7ojbc/) | [oficial] |
 | El contenido falso o sustancialmente engañoso que no causa daño «is not eligible for distribution beyond the author's network». Los medios sintéticos que muestran a alguien diciendo o haciendo lo que no hizo, sin aclararlo, se retiran (salvo parodia evidente). | Centro de ayuda, [a1340752](https://www.linkedin.com/help/linkedin/answer/a1340752); Políticas | [oficial] |
 | Bots, scraping, extensiones y cualquier método automatizado no autorizado para publicar, comentar, reaccionar, compartir, invitar o mandar mensajes están prohibidos; el riesgo es la restricción o el cierre de la cuenta. | [Acuerdo de usuario](https://www.linkedin.com/legal/user-agreement), §8.2 (vigente desde el 3/11/2025) | [oficial] |
+| LinkedIn puede «remove or limit the distribution of content designed to artificially increase engagement»; ejemplos: encuestas de emojis o reacciones y cadenas que piden «likes, reactions, and shares». | Centro de ayuda (spam), [a1338787](https://www.linkedin.com/help/linkedin/answer/a1338787) | [oficial] |
 | LinkedIn puede limitar cuántos posts publica un miembro en un periodo, sin dar cifra. | [a528176](https://www.linkedin.com/help/linkedin/answer/a528176) | [oficial] |
+
+## Transparencia (Ley de Servicios Digitales de la UE)
+
+| Afirmación | Fuente | Certeza |
+|---|---|---|
+| LinkedIn publica informes de transparencia por los artículos 15, 24 y 42 de la Ley de Servicios Digitales (de octubre de 2023 a agosto de 2026). No se encontró una página propia que explique los «parámetros principales» de su recomendador (art. 27); la explicación está repartida en el Centro de ayuda (a523360, a1499047, a1480504) y en el Acuerdo de usuario §3.6, que dice que los datos se usan «to organize content in your feed». | [a1678508](https://www.linkedin.com/help/linkedin/answer/a1678508); búsqueda en el centro de transparencia | [oficial] [criterio] |
+| El feed muestra por defecto «Top posts», personalizados; el lector puede cambiar a «Recent posts», donde «Your interests and activity data will not be used to sort the feed». Que sea la opción sin perfilado de la DSA es inferencia. | [a1480504](https://www.linkedin.com/help/linkedin/answer/a1480504) | [oficial] [criterio] |
+| Los informes DSA son de moderación (retiros, cuentas falsas, limitaciones de visibilidad), no de ranking: no dan pesos ni señales del feed. | Informe DSA de agosto de 2025, enlazado desde a1678508 | [oficial] |
 
 ## Lo que LinkedIn no dice
 
