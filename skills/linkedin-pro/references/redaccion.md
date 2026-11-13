@@ -41,7 +41,8 @@ Un JSON por pieza (o una semana con `"posts": [...]`) en `cuenta/privado/`, que 
 | `excepcion_limite` | solo si aplica | Por qué un ejemplo hipotético o un asunto público no rompe el límite de clientes. |
 | `uso_ia_visible`, `nota_ia` | si hay imagen o video hecho con IA | Cuál y cómo se identifica. LinkedIn pide decirlo si no es obvio (a1481496) y prohíbe medios sintéticos que muestren a alguien haciendo lo que no hizo sin aclararlo. |
 | `idea_matriz` | opcional | Id de la idea en la Matriz de Redes, si viene de ahí. |
-| `estado`, `aprobado_por_emi`, `aprobado_huella`, `reescrito` | los pone `aprobar` | No se escriben a mano. |
+| `imagenes` | imagen | Cuántas imágenes lleva el post (máximo 20). |
+| `estado`, `aprobado_por_emi`, `aprobado_huella`, `reescrito`, `entregado`, `publicado_url` | los ponen `aprobar`, `entregar` y `publicado` | No se escriben a mano. Todos los demás campos entran en la huella de aprobación. |
 
 ## Revisión
 
@@ -50,9 +51,9 @@ python3 skills/linkedin-pro/scripts/linkedin.py revisar cuenta/privado/2026-W47.
 python3 skills/linkedin-pro/scripts/linkedin.py semana  cuenta/privado/2026-W47.json --contra-x
 ```
 
-**Errores** (no pasa): anzuelos de interacción, captación de clientes, Castorena, clientes o asuntos, insultos, cita legal sin fuente, falta de `para_quien` o `aporta`, opinión sin postura de Emi, gym sin lección en el pilar carrera, encuesta en el pilar opinión, límites técnicos del formato, texto casi idéntico a uno ya publicado (también en X), cadencia (más de 1 al día, de 2 por semana o menos de 24 horas entre piezas), aprobación que no corresponde al texto.
+**Errores** (no pasa): anzuelos de interacción, captación de clientes, Castorena (también en hashtag o dominio) y los nombres de la lista privada `cuenta/privado/nombres-vetados.txt`, clientes o asuntos (los números de expediente y nombres de clientes no se salvan ni con excepción, salvo asunto público con fuente oficial), encuestas que pregunten por partidos o votos, insultos, cita legal sin fuente, falta de `para_quien` o `aporta`, opinión sin postura de Emi, gym sin lección en el pilar carrera, encuesta en el pilar opinión, límites técnicos del formato, texto casi idéntico a uno ya publicado (también en X), cadencia (más de 1 al día, de 2 por semana o menos de 24 horas entre piezas), aprobación que no corresponde al texto.
 
-**Avisos** (se atienden o se explican): primera línea larga, frases de plantilla, raya larga, más de 3 hashtags, más de 5 menciones, mención de MILLA o del partido, «en tu caso debes…», texto que parece citar derecho sin `cita_legal`, fuente que no es de un dominio oficial conocido, video sin subtítulos, desbalance de pilares.
+**Avisos** (se atienden o se explican): «escríbeme» (confirmar que es para conversar, no para atender casos), «los clientes» de terceros, insultos leves (ladrones, corruptos…), primera línea larga, frases de plantilla, raya larga, más de 3 hashtags, más de 5 menciones, mención de MILLA o del partido, «en tu caso debes…», texto que parece citar derecho sin `cita_legal`, fuente que no es de un dominio oficial conocido, video sin subtítulos, desbalance de pilares.
 
 `linkedin.py` no juzga la calidad de la idea ni la verdad de lo que se afirma: eso lo hacen la IA que redacta, verificando, y Emi.
 

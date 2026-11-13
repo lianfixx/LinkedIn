@@ -27,7 +27,7 @@ Lo que «todo el mundo dice» sin sustento va a [mitos.md](references/mitos.md).
 4. **Límites de Emi**: nunca clientes ni asuntos, no nombrar a Castorena ni a sus licenciados, sin ataques personales, toda cita legal con fuente oficial verificada, un post informa u opina y no asesora un caso. Detalle en [pilares.md](references/pilares.md).
 5. **Sin captación de clientes de MILLA** mientras Emi no la abra (`captacion_milla: false`).
 6. **En opinión, primero su postura**, en `opinion_emi`. El perfil no habla a nombre del PAN.
-7. **Nada de anzuelos, grupos de interacción ni automatización.** LinkedIn los prohíbe y los degrada.
+7. **Nada de anzuelos, grupos de interacción ni automatización.** LinkedIn los prohíbe y los degrada [oficial].
 8. **Cada skill en su carril**: linkedin-pro no produce video, no edita Vox Studio ni las skills de otras redes, y no pega en LinkedIn el mismo texto de otra red.
 
 ## Estado de la cuenta
@@ -55,9 +55,9 @@ Al 13/11/2026, lo que se ve sin sesión (ficha pública en Google): titular «Ab
 3. **Fuente**: si hay derecho o datos, verificar en la fuente oficial y guardar el enlace.
 4. **Borrador** en `cuenta/privado/` con el formato de [redaccion.md](references/redaccion.md): texto, pilar, formato, `para_quien`, `aporta`.
 5. **Revisar**: `lk revisar ARCHIVO --contra-x`. Corregir hasta que no haya errores; atender los avisos.
-6. **Emi lo reescribe y aprueba** ese texto exacto y su archivo. Solo entonces: `lk aprobar ARCHIVO ID --medio "dónde lo aprobó"`, que anota la fecha y la huella del contenido. Si cambia, la aprobación deja de valer.
+6. **Emi lo reescribe y aprueba** esa pieza exacta: texto, archivo, pilar, fecha, hora, postura y fuentes. Solo entonces: `lk aprobar ARCHIVO ID [ID…] --medio "dónde lo aprobó" --reescrito` (varias piezas a la vez si aprueba el paquete semanal). Anota la fecha y una huella de todo el contenido, y compara también con lo publicado en X. Si cambia cualquier campo, la aprobación deja de valer. La huella es una compuerta de honor: detecta cambios, no impide que una IA la falsifique; por eso las reglas prohíben anotar una aprobación que Emi no dio.
 7. **Entregar**: `lk entregar ARCHIVO ID` imprime el bloque listo para copiar ([entrega.md](references/entrega.md)). Emi lo publica o lo programa en LinkedIn y manda el enlace.
-8. **Anotar**: `lk publicado ARCHIVO ID --url URL`; a los 7 días, `lk metricas ID … --fuente "captura"`; la lección con `lk aprender "…"`; y `lk estado` para la Matriz de Redes.
+8. **Anotar**, cuando Emi confirme que ya salió: `lk publicado ARCHIVO ID --url URL` (solo piezas aprobadas, con la fecha real); a los 7 días, `lk metricas ID … --fuente "captura"`; la lección con `lk aprender "…"`; y `lk estado` para la Matriz de Redes.
 
 Para una semana: lo mismo con `lk semana ARCHIVO --contra-x`, que además valida cadencia (1 al día, 2 por semana, 24 horas entre piezas) y balance.
 
@@ -70,7 +70,7 @@ Resumen de [feed.md](references/feed.md), verificado el 13/11/2026:
 - Lo genérico, repetitivo o sin punto de vista, incluido lo hecho con IA sin voz propia, se distribuye menos fuera de la red [oficial].
 - Anzuelos («comenta SÍ»), grupos de interacción y comentarios automatizados están prohibidos o degradados [oficial].
 - Contenido falso o engañoso no se distribuye más allá de la red del autor [oficial].
-- No hay ventaja oficial por formato, hashtag ni hora; los estudios de terceros dan correlaciones, a veces contradictorias [terceros].
+- No se encontró ventaja oficial por formato, hashtag ni hora [criterio]; los estudios de terceros dan correlaciones, a veces contradictorias [terceros].
 
 ## Mantener al día
 
@@ -81,7 +81,7 @@ python3 skills/linkedin-pro/scripts/linkedin.py fuentes revisar --red   # busca 
 python3 skills/linkedin-pro/scripts/linkedin.py fuentes sellar --red    # solo si no cambió nada
 ```
 
-`revisar` sale con 1 si una frase marca desapareció. Una fuente que no se pudo descargar es aviso: se revisa a mano. **No detecta páginas nuevas**: la tarea semanal busca además comunicados recientes. Si algo cambió: corregir cada afirmación afectada con su certeza, actualizar `data/limites.json` si cambió un límite, correr `python3 ia/verificar.py ci`, subir `metadata.version` y `VERSION` del script y registrar en `CHANGELOG.md`. GitHub marca en rojo cada lunes si la verificación tiene más de 10 días (`fuentes.yml`).
+`revisar` sale con 1 si una frase marca desapareció; si el texto de una página cambió pero sus frases siguen, avisa. `sellar` no sella mientras haya cambios, páginas sin leer o con texto distinto, salvo las que se nombren en `--leidas-a-mano` tras leerlas de verdad (queda registrado). **No detecta páginas nuevas**: la tarea semanal busca además comunicados recientes. Esta lectura semanal de páginas públicas, sin sesión, está pendiente de que Emi la confirme (ver `ia/REGLAS.md`). Si algo cambió: corregir cada afirmación afectada con su certeza, actualizar `data/limites.json` si cambió un límite, correr `python3 ia/verificar.py ci`, subir `metadata.version` y `VERSION` del script y registrar en `CHANGELOG.md`. Después, `lk estado`. GitHub marca en rojo cada lunes si la verificación tiene más de 10 días (`fuentes.yml`).
 
 ## Aprender
 

@@ -2,7 +2,7 @@
 
 Qué dice LinkedIn de cada formato y qué dicen los estudios de terceros. Leído el 13/11/2026. Certeza de cada afirmación: **[oficial]** (Centro de ayuda, políticas o declaraciones de LinkedIn), **[terceros]** (estudio externo con método, con su solidez) o **[criterio]** (decisión de esta skill). Los límites que aplica `linkedin.py` están en [data/limites.json](../data/limites.json).
 
-**Lo primero:** LinkedIn **no publica ninguna ventaja de alcance por formato** [oficial: no aparece en el Centro de ayuda ni en sus comunicados]. Las cifras de «el PDF tiene más alcance» son de terceros, casi todas de páginas de empresa o de clientes de herramientas, y muestran correlación, no causa.
+**Lo primero:** no se encontró ninguna ventaja de alcance por formato en el Centro de ayuda ni en los comunicados de LinkedIn [criterio: ausencia en las fuentes revisadas]. Las cifras de «el PDF tiene más alcance» son de terceros, casi todas de páginas de empresa o de clientes de herramientas, y muestran correlación, no causa.
 
 ## Límites técnicos (perfil personal)
 
@@ -25,13 +25,13 @@ Qué dice LinkedIn de cada formato y qué dicen los estudios de terceros. Leído
 
 | Formato | Qué dicen los estudios | Certeza |
 |---|---|---|
-| Documento | Lidera en interacción por impresión en páginas de empresa (Socialinsider 2026: 7.00 % en 2025, n = 2.45 millones de posts de páginas; solidez media-alta). **En perfiles de 0 a 1,000 seguidores rinde 0.86× la mediana** y 1.49× con más de 50,000 (AuthoredUp, ~370,000 posts de perfiles; solidez media). Emi está en la franja chica: no es el formato por defecto. | [terceros] |
+| Documento | Lidera en interacción por impresión en páginas de empresa (Socialinsider 2026: 7.00 % en 2025, n = 2.45 millones de posts de páginas; solidez media-alta) y, según Metricool 2026, también en perfiles. Pero **en perfiles de 0 a 1,000 seguidores rinde 0.86× la mediana de alcance** y 1.49× con más de 50,000 (AuthoredUp, ~370,000 posts de perfiles; solidez media). Emi está en la franja chica: se prueba con sus propias métricas. | [terceros] |
 | Multi-imagen e imagen | Por encima del texto en interacción (Socialinsider 2026: 6.45 % y 5.30 %). Imagen vertical con más impresiones que horizontal o cuadrada (AuthoredUp; solidez media). | [terceros] |
 | Texto | Por debajo de documento e imagen en interacción en páginas (4.50 %). En perfiles, los posts de 2,001 a 2,500 caracteres tienen las impresiones medianas más altas y los de menos de 400 las más bajas (AuthoredUp; solidez media). | [terceros] |
 | Video | 6.00 % de interacción en páginas; las vistas por video cayeron 36 % interanual (Socialinsider). AuthoredUp le da 0.86 de alcance. | [terceros] |
 | Encuesta | Alcance alto y poca interacción real (AuthoredUp: 1.78 de alcance, 0.37 de interacción). Votar no es conversar. | [terceros] |
 | Enlace en el post | El formato con menos interacción en páginas (Socialinsider: 3.25 %). En perfiles, −27 % de impresiones (Metricool 2026). Ver [mitos.md](mitos.md). | [terceros] |
-| Artículo y boletín | Sin estudio sólido de alcance en el feed. El boletín avisa a sus suscriptores, que es su ventaja propia. | [oficial] [a1432051](https://www.linkedin.com/help/linkedin/answer/a1432051) |
+| Artículo y boletín | Sin estudio sólido de alcance en el feed. La analítica del boletín muestra suscriptores y vistas de artículos (a1432051); que cada edición llegue a los suscriptores como aviso es la idea del formato, pero esta skill no encontró la página oficial que lo diga. | [oficial] [criterio] |
 
 ## Cómo los usa Emi
 

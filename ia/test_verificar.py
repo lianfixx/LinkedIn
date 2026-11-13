@@ -30,6 +30,20 @@ class Certeza(unittest.TestCase):
         malas = v.afirmaciones_sin_certeza(texto)
         self.assertEqual(len(malas), 2, malas)
 
+    def test_enlaces(self):
+        import tempfile
+        from pathlib import Path
+        d = Path(tempfile.mkdtemp(dir=v.RAIZ))
+        try:
+            (d / "a.md").write_text("[bien](b.md) [mal](no.md) [web](https://x.y) ```\n[codigo](z.md)\n```", encoding="utf-8")
+            (d / "b.md").write_text("ok", encoding="utf-8")
+            rotos = v.enlaces_rotos([d / "a.md", d / "b.md"])
+            self.assertEqual(len(rotos), 1, rotos)
+            self.assertIn("no.md", rotos[0])
+        finally:
+            import shutil
+            shutil.rmtree(d)
+
     def test_fuentes_legibles(self):
         texto, dias = v.edad_fuentes()
         self.assertIsInstance(dias, int, texto)

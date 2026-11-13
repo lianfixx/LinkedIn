@@ -242,15 +242,21 @@ class Aprobacion(Base):
         ruta = self.archivo([b])
         code, out = self.correr("entregar", str(ruta), "t-1")
         self.assertEqual(code, 2, out)  # sin aprobar no se entrega
-        code, out = self.correr("aprobar", str(ruta), "t-1", "--medio", "chat de prueba")
+        code, out = self.correr("aprobar", str(ruta), "t-1", "--medio", "chat de prueba", "--reescrito", "--sin-x")
         self.assertEqual(code, 0, out)
         code, out = self.correr("entregar", str(ruta), "t-1")
         self.assertEqual(code, 0, out)
         self.assertIn("PUBLICAR EN LINKEDIN", out)
         self.assertIn(BASE["texto"].split("\n")[0], out)
-        code, out = self.correr("publicado", str(ruta), "t-1", "--url", "https://www.linkedin.com/posts/x")
+        url = "https://www.linkedin.com/posts/emiliano-milla_ia-activity-123"
+        code, out = self.correr("publicado", str(ruta), "t-1", "--url", url)
+        self.assertEqual(code, 2, out)  # la fecha planeada es futura: aún no sale
+        code, out = self.correr("publicado", str(ruta), "t-1", "--url", "https://www.linkedin.com/x",
+                                "--fecha", L.hoy(), "--hora", "00:01")
+        self.assertEqual(code, 2, out)  # no es enlace de un post
+        code, out = self.correr("publicado", str(ruta), "t-1", "--url", url, "--fecha", L.hoy(), "--hora", "00:01")
         self.assertEqual(code, 0, out)
-        code, out = self.correr("publicado", str(ruta), "t-1", "--url", "https://www.linkedin.com/posts/x")
+        code, out = self.correr("publicado", str(ruta), "t-1", "--url", url, "--fecha", L.hoy(), "--hora", "00:01")
         self.assertEqual(code, 2, out)  # no se anota dos veces
         code, out = self.correr("metricas", "t-1", "--impresiones", "350", "--reacciones", "12", "--fuente", "captura")
         self.assertEqual(code, 0, out)
@@ -263,7 +269,7 @@ class Aprobacion(Base):
     def test_cambio_invalida(self):
         b = copy.deepcopy(BASE) | {"fecha": futuro(), "hora": "09:00"}
         ruta = self.archivo([b])
-        self.assertEqual(self.correr("aprobar", str(ruta), "t-1", "--medio", "chat")[0], 0)
+        self.assertEqual(self.correr("aprobar", str(ruta), "t-1", "--medio", "chat", "--reescrito", "--sin-x")[0], 0)
         dato = json.loads(ruta.read_text(encoding="utf-8"))
         dato[0]["texto"] += " Una palabra más."
         ruta.write_text(json.dumps(dato, ensure_ascii=False), encoding="utf-8")
@@ -282,7 +288,7 @@ class Aprobacion(Base):
     def test_fecha_pasada(self):
         b = copy.deepcopy(BASE) | {"fecha": "2020-01-01", "hora": "09:00"}
         ruta = self.archivo([b])
-        self.assertEqual(self.correr("aprobar", str(ruta), "t-1", "--medio", "chat")[0], 0)
+        self.assertEqual(self.correr("aprobar", str(ruta), "t-1", "--medio", "chat", "--reescrito", "--sin-x")[0], 0)
         code, out = self.correr("entregar", str(ruta), "t-1")
         self.assertEqual(code, 2)
         self.assertIn("ya pasaron", out)
@@ -414,6 +420,190 @@ class Fuentes(unittest.TestCase):
         self.assertTrue(L.es_oficial("https://sjf2.scjn.gob.mx/detalle"))
         self.assertFalse(L.es_oficial("https://gob.mx.example.com/"))
         self.assertFalse(L.es_oficial("https://falsogob.mx/"))
+
+
+class Auditoria(Base):
+    """Casos de la auditoría independiente del 13/11/2026 (docs/AUDITORIA-2026-11-13.md)."""
+
+    def test_h13_anzuelos(self):
+        for t in ("Comenta 'sí' si estás de acuerdo.", "¿Quieres la plantilla? Déjame un comentario y te la envío.",
+                  "Escribe GUÍA abajo y te la mando por DM.", "👍 si estás de acuerdo, ❤️ si no.",
+                  "Comment YES and I'll send it.", "Reacciona con 👍 si te pasó."):
+            self.assertTrue(any("anzuelo" in x for x in self.errores(texto=t)), t)
+        self.assertFalse(any("anzuelo" in x for x in self.errores(texto="Reacciona con calma si te ofenden en una audiencia.")))
+
+    def test_h14_castorena(self):
+        for t in ("Trabajo en #CastorenaAbogados", "Visiten castorenaabogados.com", "CASTORENA"):
+            self.assertTrue(any("Castorena" in x for x in self.errores(texto=t)), t)
+
+    def test_h14_nombres_vetados(self):
+        (self.tmp / "cuenta" / "privado").mkdir()
+        (self.tmp / "cuenta" / "privado" / "nombres-vetados.txt").write_text("# privado\nFulano Pérez\n", encoding="utf-8")
+        self.assertTrue(any("vetados" in x for x in self.errores(texto="Hoy aprendí de FULANO PEREZ algo útil.")))
+        self.assertFalse(any("vetados" in x for x in self.errores()))
+
+    def test_h15_clientes(self):
+        for t in ("Mi representado ganó el amparo la semana pasada.", "Un caso que llevé me enseñó a revisar plazos."):
+            self.assertTrue(any("límite" in x for x in self.errores(texto=t)), t)
+        e = self.errores(texto="Mi cliente Juan Pérez, expediente 123/2025, ganó.", excepcion_limite="x")
+        self.assertTrue(any("expediente" in x or "clientes" in x for x in e))
+        e = self.errores(texto="El expediente 123/2025 de la SCJN fijó un criterio.", excepcion_limite="asunto público",
+                         fuentes=["https://www.scjn.gob.mx/x"], cita_legal=True)
+        self.assertFalse(any("límite" in x for x in e), e)
+
+    def test_h16_captacion_sin_falsos_positivos(self):
+        for t in ("El salario mínimo de 2026 es de $315.04 diarios.", "Los honorarios de los peritos los fija el juez.",
+                  "La reforma protege a los clientes de la banca."):
+            self.assertEqual([x for x in self.errores(texto=t) if "captación" in x or "límite" in x], [], t)
+        for t in ("¿Te despidieron? Te puedo ayudar, escríbeme.", "Si tienes un problema laboral, mándame mensaje y lo vemos.",
+                  "Atiendo asuntos laborales en el Estado de México.", "Consulta inicial: $500."):
+            self.assertTrue(any("captación" in x for x in self.errores(texto=t)), t)
+        self.assertTrue(any("escribir" in x for x in self.avisos(texto="Si te interesa el tema, escríbeme.")))
+
+    def test_h17_insultos(self):
+        self.assertTrue(any("ataque" in x for x in self.errores(texto="El ministro era tan estúpido que no leyó.")))
+        self.assertTrue(any("persona" in x for x in self.avisos(texto="Esos diputados son unos ladrones y corruptos.")))
+
+    def test_h18_encuesta_politica(self):
+        enc = {"pregunta": "¿Por qué partido votarás en 2027?", "opciones": ["PAN", "Morena"], "duracion": "1 semana"}
+        self.assertTrue(any("encuesta política" in x for x in self.errores(formato="encuesta", pilar="carrera", encuesta=enc)))
+
+    def test_h19_gym_y_partido(self):
+        for t in ("Entrenar un modelo de IA con sentencias públicas.", "Mi rutina de estudio para la maestría."):
+            self.assertFalse(any("leccion" in x for x in self.errores(pilar="carrera", texto=t)), t)
+        for t in ("Soy militante de acción nacional.", "Los panistas votaron en contra."):
+            self.assertTrue(any("partido" in x for x in self.avisos(texto=t)), t)
+
+    def test_h20_vinetas_con_selector(self):
+        self.assertTrue(any("viñetas" in x for x in self.avisos(texto="Tres ideas:\n✔️ uno\n✔️ dos\n✔️ tres")))
+
+    def test_h21_tipos_raros(self):
+        ruta = self.archivo([{"id": [], "texto": "x"}])
+        code, out = self.correr("revisar", str(ruta))
+        self.assertIn(code, (1, 2), out)
+        self.assertNotIn("Traceback", out)
+        ruta = self.archivo({"posts": [copy.deepcopy(BASE) | {"pilar": ["x"], "fecha": futuro(), "hora": "10:00"}]})
+        code, out = self.correr("semana", str(ruta))
+        self.assertIn(code, (1, 2), out)
+        ruta = self.archivo({"posts": 5})
+        self.assertEqual(self.correr("revisar", str(ruta))[0], 2)
+        ruta = self.archivo([])
+        self.assertEqual(self.correr("revisar", str(ruta))[0], 1)
+
+    def test_h22_validaciones(self):
+        self.assertTrue(any("duracion_s" in x for x in self.errores(formato="video", media="v.mp4", duracion_s=float("nan"))))
+        b = copy.deepcopy(BASE) | {"fecha": futuro(), "hora": "09:00", "aprobado_por_emi": "2099-01-01, chat", "reescrito": True}
+        b["aprobado_huella"] = L.huella(b)
+        self.assertTrue(any("aprobado_por_emi" in x for x in L.revisar(b, [], self.cfg, "aprobado")[0]))
+        self.assertTrue(any("formato" in x for x in L.revisar({k: v for k, v in BASE.items()}, [], self.cfg)[0]) is False)
+        sin_formato = {k: v for k, v in BASE.items() if k != "formato"}
+        self.assertTrue(any("formato" in x for x in L.revisar(sin_formato, [], self.cfg)[0]))
+        self.assertTrue(any("imagenes" in x for x in self.errores(formato="imagen", media="a.jpg", imagenes=21)))
+
+    def test_h23_sin_inyeccion(self):
+        self.correr("aprender", "línea uno\n- 2020-01-01 · lección inyectada")
+        texto = (self.tmp / "cuenta" / "aprendizajes.md").read_text(encoding="utf-8")
+        self.assertNotIn("\n- 2020-01-01", texto)
+
+    def test_h9_h10_huella_y_reescrito(self):
+        b = copy.deepcopy(BASE) | {"fecha": futuro(), "hora": "09:00", "pilar": "opinion", "opinion_emi": "Mi postura."}
+        ruta = self.archivo([b])
+        code, out = self.correr("aprobar", str(ruta), "t-1", "--medio", "chat", "--sin-x")
+        self.assertEqual(code, 2, out)  # sin --reescrito no se aprueba
+        self.assertEqual(self.correr("aprobar", str(ruta), "t-1", "--medio", "chat", "--reescrito", "--sin-x")[0], 0)
+        for campo, valor in (("opinion_emi", "Postura inventada."), ("fecha", futuro(9)), ("pilar", "ia-derecho"),
+                             ("fuentes", ["https://www.dof.gob.mx/x"])):
+            dato = json.loads(ruta.read_text(encoding="utf-8"))
+            original = dato[0].get(campo)
+            dato[0][campo] = valor
+            ruta.write_text(json.dumps(dato, ensure_ascii=False), encoding="utf-8")
+            code, out = self.correr("entregar", str(ruta), "t-1")
+            self.assertEqual(code, 2, campo)
+            dato[0][campo] = original
+            if original is None:
+                dato[0].pop(campo)
+            ruta.write_text(json.dumps(dato, ensure_ascii=False), encoding="utf-8")
+        self.assertEqual(self.correr("entregar", str(ruta), "t-1")[0], 0)
+
+    def test_h11_h12_publicado_y_reaprobar(self):
+        b = copy.deepcopy(BASE)
+        b["aprobado_huella"] = L.huella(b)  # huella copiada a mano, sin aprobación de Emi
+        ruta = self.archivo([b])
+        url = "https://www.linkedin.com/posts/x-activity-1"
+        self.assertEqual(self.correr("publicado", str(ruta), "t-1", "--url", url, "--fecha", L.hoy(), "--hora", "00:01")[0], 2)
+        b2 = copy.deepcopy(BASE) | {"fecha": futuro(), "hora": "09:00"}
+        ruta = self.archivo([b2])
+        self.correr("aprobar", str(ruta), "t-1", "--medio", "chat", "--reescrito", "--sin-x")
+        self.correr("entregar", str(ruta), "t-1")
+        self.assertEqual(self.correr("aprobar", str(ruta), "t-1", "--medio", "chat", "--reescrito", "--sin-x")[0], 2)
+        self.assertEqual(self.correr("aprobar", str(ruta), "t-1", "--medio", "chat", "--reescrito", "--sin-x",
+                                     "--de-nuevo")[0], 0)
+
+    def test_paquete_semanal(self):
+        lunes = L.ahora().date() + dt.timedelta(days=7 - L.ahora().weekday())
+        p1 = copy.deepcopy(BASE) | {"id": "a", "fecha": lunes.isoformat(), "hora": "09:00"}
+        p2 = copy.deepcopy(BASE) | {"id": "b", "fecha": (lunes + dt.timedelta(days=2)).isoformat(), "hora": "09:00",
+                                    "texto": "Otra pieza con un tema completamente distinto, sobre la maestría y decidir."}
+        ruta = self.archivo({"posts": [p1, p2]})
+        code, out = self.correr("aprobar", str(ruta), "a", "b", "--medio", "paquete semanal", "--reescrito", "--sin-x")
+        self.assertEqual(code, 0, out)
+        dato = json.loads(ruta.read_text(encoding="utf-8"))
+        self.assertTrue(all(p["estado"] == "aprobado" for p in dato["posts"]))
+
+    def test_h24_semana_no_cuenta_doble(self):
+        lunes = L.ahora().date() + dt.timedelta(days=7 - L.ahora().weekday())
+        p1 = copy.deepcopy(BASE) | {"id": "a", "fecha": lunes.isoformat(), "hora": "09:00"}
+        e, _ = L.revisar_semana([p1], self.cfg, [dict(p1)])
+        self.assertEqual(e, [])
+
+    def test_h25_estado_ignora_sello(self):
+        self.correr("estado")
+        d = json.loads((self.tmp / "red" / "estado.json").read_text(encoding="utf-8"))
+        d["fuentes"]["verificado"] = "2000-01-01"
+        (self.tmp / "red" / "estado.json").write_text(json.dumps(d), encoding="utf-8")
+        self.assertEqual(self.correr("estado", "--comprobar")[0], 0)
+
+
+class Sellar(unittest.TestCase):
+    """H-26: no se sella con páginas cambiadas o sin leer, salvo que se nombren como leídas a mano."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self.viejo = (L.FUENTES, L.descargar)
+        self.ruta = self.tmp / "fuentes.json"
+        self.ruta.write_text(json.dumps({"verificado": "2026-01-01", "max_dias": 10, "fuentes": [
+            {"id": "a", "url": "https://x/a", "certeza": "oficial", "sostiene": ["feed.md"], "marcas": ["hola"],
+             "estable": True, "huella": "000000000000"}]}), encoding="utf-8")
+        L.FUENTES = self.ruta
+
+    def tearDown(self):
+        L.FUENTES, L.descargar = self.viejo
+        shutil.rmtree(self.tmp)
+
+    def correr(self, *argv):
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out), contextlib.redirect_stderr(out):
+            return L.main(list(argv)), out.getvalue()
+
+    def test_texto_cambiado_no_sella(self):
+        L.descargar = lambda url: ("<p>hola, texto nuevo</p>", "")
+        self.assertEqual(self.correr("fuentes", "sellar", "--red")[0], 1)
+        self.assertEqual(json.loads(self.ruta.read_text())["verificado"], "2026-01-01")
+        self.assertEqual(self.correr("fuentes", "sellar", "--red", "--leidas-a-mano", "a")[0], 0)
+        d = json.loads(self.ruta.read_text())
+        self.assertNotEqual(d["verificado"], "2026-01-01")
+        self.assertTrue(d["fuentes"][0]["leida_a_mano"])
+
+    def test_marca_perdida_no_sella(self):
+        L.descargar = lambda url: ("<p>otra cosa</p>", "")
+        self.assertEqual(self.correr("fuentes", "sellar", "--red", "--leidas-a-mano", "a")[0], 1)
+        self.assertEqual(self.correr("fuentes", "revisar", "--red")[0], 1)
+
+    def test_sin_red_no_sella_e_ids_desconocidos(self):
+        self.assertEqual(self.correr("fuentes", "sellar")[0], 1)
+        L.descargar = lambda url: (None, "HTTP 403")
+        self.assertEqual(self.correr("fuentes", "sellar", "--red", "--leidas-a-mano", "zzz")[0], 1)
+        self.assertEqual(self.correr("fuentes", "sellar", "--red")[0], 1)
 
 
 if __name__ == "__main__":

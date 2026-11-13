@@ -12,7 +12,7 @@ La skill es Markdown plano, JSON y un script de Python sin dependencias. No usa 
 
 ## Con terminal y sin terminal
 
-Con terminal: `python3 skills/linkedin-pro/scripts/linkedin.py …` desde la raíz del repositorio clonado (Python 3.9 o posterior; el control de GitHub lo prueba con 3.9 y 3.12). El script necesita el repositorio completo: lee y escribe en `cuenta/`, `red/` y `puente/`.
+Con terminal: `python3 skills/linkedin-pro/scripts/linkedin.py …` desde la raíz del repositorio clonado (Python 3.9 o posterior; probado con 3.9 y 3.13 en local, 3.10 y 3.12 en GitHub). El script necesita el repositorio completo: lee y escribe en `cuenta/`, `red/` y `puente/`.
 
 Sin terminal, la IA aplica a mano lo mismo que el script, en este orden:
 

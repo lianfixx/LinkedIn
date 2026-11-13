@@ -27,4 +27,4 @@ Plan de arranque para el perfil personal de Emi, con lo que eligió el 13/11/202
 
 ## Lo que no se promete
 
-LinkedIn dice que no está diseñado para la viralidad (declaración de su director de producto del feed). No hay atajos verificados: la skill busca que las personas correctas lean a Emi y conversen con él, no números grandes.
+LinkedIn dice que no está diseñado para la viralidad (Rishi Jobanputra, del equipo de producto del feed). No hay atajos verificados: la skill busca que las personas correctas lean a Emi y conversen con él, no números grandes.

@@ -30,6 +30,12 @@ CON_CERTEZA = ["skills/linkedin-pro/references/feed.md", "skills/linkedin-pro/re
                "skills/linkedin-pro/references/mitos.md", "skills/linkedin-pro/references/perfil.md"]
 CERTEZA = re.compile(r"\[(oficial|terceros|criterio)\]")
 MAX_DIAS_FUENTES = 10
+MX = dt.timezone(dt.timedelta(hours=-6))  # misma fecha que linkedin.py: centro de México
+ENLACE = re.compile(r"\]\(([^)#\s]+)(?:#[^)]*)?\)")
+
+
+def hoy_mx() -> dt.date:
+    return dt.datetime.now(MX).date()
 
 
 def git(*args: str) -> str:
@@ -41,7 +47,10 @@ def edad_fuentes() -> tuple[str, int | None]:
     try:
         d = json.loads((RAIZ / "skills/linkedin-pro/data/fuentes.json").read_text(encoding="utf-8"))
         fecha = d["verificado"]
-        dias = (dt.date.today() - dt.date.fromisoformat(fecha)).days
+        dias = (hoy_mx() - dt.date.fromisoformat(fecha)).days
+        if dias < -1:
+            return f"fecha de verificación futura ({fecha})", None
+        dias = max(dias, 0)
         return f"{len(d['fuentes'])} fuentes, verificadas el {fecha} (hace {dias} días)", dias
     except (OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
         return f"no se pudieron leer ({exc})", None
@@ -97,6 +106,21 @@ def afirmaciones_sin_certeza(texto: str) -> list[str]:
     return malas
 
 
+def enlaces_rotos(rutas: list[Path]) -> list[str]:
+    """Enlaces relativos de los Markdown que no llevan a un archivo existente."""
+    rotos = []
+    for ruta in rutas:
+        if ruta.suffix != ".md" or not ruta.is_file():
+            continue
+        texto = re.sub(r"(?s)```.*?```", "", ruta.read_text(encoding="utf-8"))
+        for destino in ENLACE.findall(texto):
+            if re.match(r"^[a-z]+:", destino):
+                continue
+            if not (ruta.parent / destino).exists():
+                rotos.append(f"{ruta.relative_to(RAIZ).as_posix()}: enlace roto a {destino}")
+    return rotos
+
+
 def ci() -> int:
     fallas: list[str] = []
 
@@ -142,6 +166,7 @@ def ci() -> int:
         if not re.search(r"^- Agente: \S", e, re.M):
             fallas.append(f"CHANGELOG.md: la entrada «{e.splitlines()[0]}» no tiene línea «Agente:»")
 
+    fallas += enlaces_rotos(rastreados())
     for ruta in rastreados():
         rel = ruta.relative_to(RAIZ).as_posix()
         if rel.startswith("cuenta/privado/") and rel != "cuenta/privado/.gitkeep":

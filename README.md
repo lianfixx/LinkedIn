@@ -6,7 +6,7 @@ Objetivos: **autoridad en IA + Derecho en México** y **red y oportunidades**. P
 
 ## De dónde sale
 
-Del método de la skill hermana x-viral (`lianfixx/X`), que partió del código público del algoritmo de X. **LinkedIn no publica el suyo**, así que aquí las fuentes son, en este orden: Centro de ayuda y políticas de LinkedIn, sus comunicados y su blog de ingeniería, declaraciones de sus directivos y, después, estudios de terceros con método explícito. Cada regla dice si es **oficial**, **de terceros** o **criterio**, y el control de GitHub falla si una afirmación de las referencias no lo dice. Lo que no tiene sustento está en [mitos.md](skills/linkedin-pro/references/mitos.md). Detalle de la revisión en la [auditoría](docs/AUDITORIA-2026-11-13.md).
+Del método de la skill hermana x-viral (`lianfixx/X`), que partió del código público del algoritmo de X. **LinkedIn no publica el suyo**, así que aquí las fuentes son, en este orden: Centro de ayuda y políticas de LinkedIn, sus comunicados y su blog de ingeniería, declaraciones de sus directivos y, después, estudios de terceros con método explícito. Cada regla dice si es **oficial**, **de terceros** o **criterio**; el control de GitHub falla si una viñeta o fila de `feed.md`, `formatos.md`, `mitos.md` o `perfil.md` no lo dice. Lo que no tiene sustento está en [mitos.md](skills/linkedin-pro/references/mitos.md). Detalle de la revisión en la [auditoría](docs/AUDITORIA-2026-11-13.md).
 
 ## Mapa
 
@@ -41,19 +41,19 @@ Del método de la skill hermana x-viral (`lianfixx/X`), que partió del código 
 python3 skills/linkedin-pro/scripts/linkedin.py balance                                   # qué pilar toca
 python3 skills/linkedin-pro/scripts/linkedin.py revisar cuenta/privado/b.json --contra-x  # revisar una pieza
 python3 skills/linkedin-pro/scripts/linkedin.py semana cuenta/privado/2026-W47.json       # revisar una semana
-python3 skills/linkedin-pro/scripts/linkedin.py aprobar cuenta/privado/2026-W47.json ID --medio "chat"
+python3 skills/linkedin-pro/scripts/linkedin.py aprobar cuenta/privado/2026-W47.json ID [ID…] --medio "chat" --reescrito
 python3 skills/linkedin-pro/scripts/linkedin.py entregar cuenta/privado/2026-W47.json ID  # bloque listo para copiar
 python3 skills/linkedin-pro/scripts/linkedin.py fuentes ver                               # vigencia de las fuentes
 python3 skills/linkedin-pro/scripts/linkedin.py estado                                    # regenera red/estado.json
 python3 ia/verificar.py ci                                                                # control completo antes de un commit
 ```
 
-Python 3.9 o posterior, sin dependencias. Sin terminal: [portabilidad.md](skills/linkedin-pro/references/portabilidad.md).
+Python 3.9 o posterior, sin dependencias (probado con 3.9 y 3.13 en local, 3.10 y 3.12 en GitHub). Sin terminal: [portabilidad.md](skills/linkedin-pro/references/portabilidad.md).
 
 ## Cómo se mantiene al día
 
-- Cada push pasa el control de [`control.yml`](.github/workflows/control.yml) con Python 3.9 y 3.12.
-- Cada lunes, [`fuentes.yml`](.github/workflows/fuentes.yml) marca en rojo si la verificación de fuentes tiene más de 10 días o si una frase marca de una fuente oficial desapareció. GitHub pausa los workflows programados tras 60 días sin actividad en el repositorio.
+- Cada push pasa el control de [`control.yml`](.github/workflows/control.yml) con Python 3.10 y 3.12.
+- Cada lunes, [`fuentes.yml`](.github/workflows/fuentes.yml) marca en rojo si la verificación de fuentes tiene más de 10 días. GitHub no descarga páginas de LinkedIn. GitHub pausa los workflows programados tras 60 días sin actividad en el repositorio.
 - Emi eligió una revisión semanal: una tarea programada en su cuenta de Claude lee las fuentes y busca comunicados nuevos; si nada cambió, sella la fecha; si algo cambió, abre un pull request.
 
 ## Estado

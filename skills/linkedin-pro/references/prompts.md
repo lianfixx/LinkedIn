@@ -13,7 +13,7 @@ ni asuntos), qué noticia jurídica me importa y mi postura. Con eso propón dos
 (máximo una al día, 24 horas de separación), cada una con para_quien y aporta.
 Valida con «linkedin.py semana ARCHIVO --contra-x» hasta que no haya errores y
 enséñame cada texto para reescribirlo con mis palabras. Anota mi visto bueno con
-«linkedin.py aprobar» solo cuando te lo dé y entrégame cada pieza con
+«linkedin.py aprobar … --reescrito» solo cuando te lo dé (el paquete de la semana puede ir en una sola orden) y entrégame cada pieza con
 «linkedin.py entregar»: yo la publico.
 ```
 
@@ -64,8 +64,9 @@ búscala por su título) y compárala con lo que afirman references/feed.md,
 formatos.md, mitos.md y perfil.md. Busca además comunicados nuevos de LinkedIn
 (news.linkedin.com, blog de ingeniería, Centro de ayuda) sobre el feed, los formatos,
 la IA o el spam desde la fecha de «verificado».
-- Si nada cambió: «linkedin.py fuentes sellar --red», registra en CHANGELOG.md
-  y sube a main solo data/fuentes.json y CHANGELOG.md.
+- Si nada cambió: «linkedin.py fuentes sellar --red» (con «--leidas-a-mano ID,ID» solo
+  para las que de verdad leíste tú), «linkedin.py estado», registra en CHANGELOG.md
+  y sube a main solo data/fuentes.json, red/estado.json y CHANGELOG.md.
 - Si algo cambió: corrige las afirmaciones afectadas con su certeza, actualiza
   data/limites.json si cambió un límite, corre «python3 ia/verificar.py ci» y abre un
   pull request que explique en lenguaje llano qué cambió y qué cambia para Emi.

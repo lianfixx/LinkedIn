@@ -496,7 +496,8 @@
       "marcas": [
         "have not) reviewed"
       ],
-      "estable": false
+      "estable": false,
+      "nota": "Pulse: a veces responde 403 a lectores automáticos; frases marca encontradas en la lectura del 13/11/2026"
     },
     {
       "id": "jobanputra-2024",
@@ -510,7 +511,8 @@
       "marcas": [
         "knowledge-based posts"
       ],
-      "estable": false
+      "estable": false,
+      "nota": "Pulse: a veces responde 403 a lectores automáticos; frases marca encontradas en la lectura del 13/11/2026"
     },
     {
       "id": "editores-2026",
@@ -541,6 +543,201 @@
       ],
       "estable": true,
       "huella": "5e2d70e25482"
+    },
+    {
+      "id": "a527229",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a527229?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md",
+        "limites.json"
+      ],
+      "que_dice": "Imágenes: hasta 20 por post, 5 MB",
+      "marcas": [
+        "maximum of 20 photos"
+      ],
+      "estable": true,
+      "huella": "1e4017fc30d1"
+    },
+    {
+      "id": "a542926",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a542926?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "El titular sale en búsquedas",
+      "marcas": [
+        "displayed in search results"
+      ],
+      "estable": true,
+      "huella": "a18fabc75822"
+    },
+    {
+      "id": "a593695",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a593695?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "Experiencia: solo organizaciones con experiencia profesional real",
+      "marcas": [
+        "must reflect professional experience"
+      ],
+      "estable": true,
+      "huella": "3179c8fcfd54"
+    },
+    {
+      "id": "a552452",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a552452?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "Destacados: ilimitados, se muestran 400",
+      "marcas": [
+        "only 400 items will be displayed"
+      ],
+      "estable": true,
+      "huella": "f5847833a87a"
+    },
+    {
+      "id": "a549049",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a549049?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "Foto de perfil: tamaños y reflejar la imagen real",
+      "marcas": [
+        "must reflect your likeness"
+      ],
+      "estable": true,
+      "huella": "c1bbf3e66a73"
+    },
+    {
+      "id": "a568217",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a568217?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "Portada: 1584×396 px",
+      "marcas": [
+        "1584"
+      ],
+      "estable": true,
+      "huella": "22e47fd01006"
+    },
+    {
+      "id": "a542685",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a542685?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "URL personalizada: 3 a 100 caracteres, 5 cambios en 6 meses",
+      "marcas": [
+        "five times within six months"
+      ],
+      "estable": true,
+      "huella": "416717abf1fd"
+    },
+    {
+      "id": "a1484520",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1484520?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "Botón personalizado solo para algunos Premium",
+      "marcas": [
+        "select group of LinkedIn Premium"
+      ],
+      "estable": true,
+      "huella": "0d5188dd1f62"
+    },
+    {
+      "id": "a1444194",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1444194?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "perfil.md"
+      ],
+      "que_dice": "Asistente de redacción del perfil solo para algunos Premium",
+      "marcas": [
+        "select group of LinkedIn Premium subscribers"
+      ],
+      "estable": true,
+      "huella": "414dfd1bcc94"
+    },
+    {
+      "id": "a568503",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a568503?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md"
+      ],
+      "que_dice": "LinkedIn Live: más de 150 seguidores, 30 días, buen historial",
+      "marcas": [
+        "more than 150 followers"
+      ],
+      "estable": true,
+      "huella": "a48af796cf7c"
+    },
+    {
+      "id": "a1432051",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1432051?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "formatos.md",
+        "medicion.md"
+      ],
+      "que_dice": "Analytics & tools; analítica del boletín",
+      "marcas": [
+        "newsletter authors only"
+      ],
+      "estable": true,
+      "huella": "121685496b83"
+    },
+    {
+      "id": "a525196",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a525196?lang=en",
+      "tipo": "ayuda",
+      "certeza": "oficial",
+      "sostiene": [
+        "medicion.md"
+      ],
+      "que_dice": "Dónde ver la analítica de cada post; video 180 días (contradice a a516971)",
+      "marcas": [
+        "180 days"
+      ],
+      "estable": true,
+      "huella": "be058f9b8851"
+    },
+    {
+      "id": "srinivasan-fortune-2026",
+      "url": "https://fortune.com/2026/08/25/1-million-people-clicked-linkedin-ai-slop/",
+      "tipo": "directivo",
+      "certeza": "oficial",
+      "sostiene": [
+        "feed.md",
+        "mitos.md"
+      ],
+      "que_dice": "Hari Srinivasan (LinkedIn), citado por Fortune: 40 % menos vistas para lo ya clasificado como AI slop, frente a semanas antes (declaración de segunda mano)",
+      "marcas": [],
+      "estable": false
     },
     {
       "id": "buffer-frecuencia-2025",

@@ -39,7 +39,7 @@
     },
     {
       "id": "video",
-      "que_premia": "El feed de video vertical elige videos ya publicados por calidad y relevancia (oficial); no se publica directo en él",
+      "que_premia": "El feed de video vertical elige videos ya publicados por calidad y relevancia; no se publica directo en él",
       "fuente": "https://www.linkedin.com/help/linkedin/answer/a548372",
       "certeza": "oficial"
     },
@@ -51,9 +51,9 @@
     },
     {
       "id": "boletin",
-      "que_premia": "Suscriptores que reciben aviso de cada edición (oficial: el boletín notifica a suscriptores); no hay dato de alcance en el feed",
+      "que_premia": "Suscriptores propios; no hay dato oficial de alcance en el feed",
       "fuente": "https://www.linkedin.com/help/linkedin/answer/a591266",
-      "certeza": "oficial"
+      "certeza": "criterio"
     },
     {
       "id": "encuesta",

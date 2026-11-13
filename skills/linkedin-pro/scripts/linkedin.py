@@ -26,6 +26,7 @@ import difflib
 import hashlib
 import html
 import json
+import math
 import os
 import re
 import sys
@@ -52,46 +53,66 @@ MX = dt.timezone(dt.timedelta(hours=-6))  # Centro de México, sin horario de ve
 # ---------------------------------------------------------------- patrones
 
 # Anzuelos de interacción: pedir la reacción o el comentario a cambio de algo, o como voto.
-# Las Políticas de la Comunidad Profesional los tratan como spam (ver references/feed.md).
-_REACCION = r"(?:like|me gusta|un like|tu like|reacci[oó]n|reacciona\w*|comenta\w*|comparte\w*|repost\w*|republica\w*)"
+# LinkedIn los degrada y su página de spam pone ejemplos (ver references/feed.md).
+_EMOJI = "[\U0001F300-\U0001FAFF☀-➿⭐❤]"
+_PIDE = r"(?:comenta|comenten|escribe|escriban|pon|pongan|responde|respondan|deja|dejen|d[eé]ja(?:me|nos)|d[eé]jenme)"
+_DOY = r"(?:mando|paso|env[ií]o|regalo|comparto)"
 ANZUELOS = [
-    r"\b(?:dale|denle|deja|dejen|regala|regalen|da|den)\s+(?:un\s+|tu\s+|su\s+)?(?:like|me gusta|reacci[oó]n|❤️?|👍)",
-    r"\b(?:comenta|comenten|escribe|escriban|pon|pongan|responde|respondan)\s+(?:la\s+palabra\s+|con\s+)?[\"«“']?[A-Za-zÁÉÍÓÚÑáéíóúñ0-9]{2,20}[\"»”']?\s+(?:y|para)\s+(?:te|les|recib\w+|obten\w+)",
-    r"\b(?:comenta|comenten|reacciona|reaccionen|comparte|compartan|dale|denle)\b[^.\n]{0,40}\by\s+(?:te|les)\s+(?:l[oa]s?\s+)?(?:mando|paso|env[ií]o|regalo|comparto)\b",
-    r"\b(?:reacciona|reaccionen)\s+con\b[^.\n]{0,30}\bsi\b",
+    r"\b(?:dale|denle|deja|dejen|regala|regalen|da|den)\s+(?:un\s+|tu\s+|su\s+)?(?:like|me gusta|reacci[oó]n)\b",
+    rf"\b{_PIDE}\s+(?:la\s+palabra\s+|con\s+)?[\"«“'‘]?[A-Za-zÁÉÍÓÚÑáéíóúñ0-9]{{1,20}}[\"»”'’]?\s+(?:y|para|si)\s",
+    rf"\b(?:{_PIDE}|reacciona|reaccionen|comparte|compartan|dale|denle)\b[^.\n]{{0,45}}\by\s+(?:te|les)\s+(?:l[oa]s?\s+)?{_DOY}\b",
+    rf"\b(?:reacciona|reaccionen)\s+con\s+(?:un\s+|el\s+)?(?:emoji|{_EMOJI})",
+    rf"{_EMOJI}️?\s*si\s+(?:est[aá]s|crees|piensas|te|eres|has|opinas)\b",
     r"(?:^|[.!?¿¡\n]\s*)(?:dale like|comparte|compartan|comenta|comenten|reacciona|reaccionen)\s+si\b",
-    r"\bsi\s+est[aá]s?\s+de\s+acuerdo,?\s+(?:dale|reacciona|comenta|comparte|escribe)\b",
+    r"\bsi\s+est[aá]s?\s+de\s+acuerdo,?\s+(?:dale|reacciona|comenta|comparte|escribe|pon)\b",
     r"(?:^|[.!?¿¡\n]\s*)etiqueta(?:n)?\s+a\s+(?:ese|esa|tu|tus|un|una|alguien|quien|aquel|aquella|\d|tres|dos)",
-    r"\b(?:con[eé]ctate|conecta|agr[eé]game|s[ií]gueme)\b[^.\n]{0,30}\by\s+te\s+(?:mando|env[ií]o|paso|regalo)\b",
+    rf"\b(?:con[eé]ctate|conecta|agr[eé]game|s[ií]gueme)\b[^.\n]{{0,30}}\by\s+te\s+{_DOY}\b",
     r"\bescribe\s+[\"«“']?(?:s[ií]|yo|quiero)[\"»”']?\s+en\s+(?:los\s+)?comentarios\b",
+    r"\bcomment\s+[\"'“‘]?\w{1,20}[\"'”’]?\s+(?:and|if|to|below)\b|\blike\s+if\b|\btag\s+(?:a|someone|\d)\b",
 ]
-SIGUEME = r"\bs[ií]gueme\s+para\s+m[aá]s\b|\bactiva\s+la\s+campan\w+"
+SIGUEME = r"\bs[ií]gueme\s+para\s+m[aá]s\b|\bactiva\s+la\s+campan\w+|\bfollow\s+(?:me\s+)?for\s+more\b"
 
 # Captación de clientes: Emi decidió el 13/11/2026 no captar clientes de MILLA desde LinkedIn «por ahora».
+_SERVICIO = r"(?:consulta|asesor[ií]a|servicio|paquete|cobro|cobramos|cobro|tarifa|precio)s?"
 CAPTACION = [
     r"\bagend[ae]n?\s+(?:tu|su|una)\s+(?:cita|consulta|asesor[ií]a|llamada)\b",
     r"\b(?:primera\s+)?(?:consulta|asesor[ií]a)\s+(?:gratis|gratuita|sin\s+costo)\b",
     r"\bcontr[aá]t(?:a|e|en)(?:me|nos)\b",
-    r"\b(?:escr[ií]beme|m[aá]ndame|env[ií]ame|escr[ií]banme)\b[^.\n]{0,40}\b(?:dm|inbox|privado|whats\w*|mensaje)\b[^.\n]{0,40}\b(?:caso|asesor\w*|consulta\w*|demanda|despido|divorcio)\b",
-    r"\bte\s+ayudo\s+con\s+tu\s+(?:caso|demanda|divorcio|despido|juicio|asunto|pensi[oó]n)\b",
-    r"\bhonorarios\b",
-    r"(?:\$|mxn\s*)\s?\d[\d,.]*\s*(?:pesos|mxn|\+\s*iva)?",
+    r"\b(?:te|les)\s+puedo\s+ayudar\b|\bpuedo\s+ayudarte\b|\bte\s+ayudo\s+con\s+tu\b",
+    r"\b(?:escr[ií]beme|m[aá]ndame|env[ií]ame|escr[ií]banme)\b[^.\n]{0,40}\b(?:caso|asesor\w*|consulta\w*|demanda|despido|divorcio|problema)\b",
+    r"\b(?:escr[ií]beme|m[aá]ndame\s+(?:un\s+)?mensaje|m[aá]ndame\s+dm)\b[^.\n]{0,40}\by\s+(?:lo\s+vemos|lo\s+revisamos|te\s+oriento|te\s+asesoro)\b",
+    r"\batiendo\s+(?:asuntos|casos|juicios|demandas)\b|\btomo\s+(?:asuntos|casos)\b",
+    r"\b(?:mis|nuestros)\s+honorarios\b|\bhonorarios\s+(?:accesibles|bajos|desde|preferenciales|justos|competitivos)\b",
+    rf"\b{_SERVICIO}\b[^.\n]{{0,40}}(?:\$|mxn)\s?\d|(?:\$|mxn)\s?\d[\d,.]*[^.\n]{{0,40}}\b{_SERVICIO}\b",
     r"\bcotiza(?:ci[oó]n)?\s+(?:sin|gratis)\b",
+    r"(?:\$|mxn)\s?\d[\d,.]*\s*(?:\+\s*iva|m[aá]s\s+iva)\b",
 ]
+ESCRIBEME = r"\b(?:escr[ií]beme|m[aá]ndame\s+(?:un\s+)?(?:mensaje|dm|inbox))\b"
 MILLA = r"\bmilla\s+abogados\b"
 ASESORIA = r"\ben\s+tu\s+caso\s+(?:debes|tienes\s+que|te\s+conviene|lo\s+mejor\s+es)\b"
-DESPACHO_VETADO = r"\bcastorena\b"
-ASUNTOS = [
-    r"\b(?:mis?|nuestr[oa]s?|un|una|unos|unas|el|la|los|las|ese|esa|este|esta)\s+client[ea]s?\b",
+DESPACHO_VETADO = r"castorena"  # sin \b final: también #CastorenaAbogados y castorenaabogados.com
+# Siempre error, aunque haya excepción, salvo asunto público con fuente oficial.
+ASUNTOS_DUROS = [
     r"\b(?:expediente|exp\.)\s*(?:n[uú]m(?:ero|\.)?\s*)?\d",
     r"\b(?:amparo|juicio|toca|asunto|causa)\s+(?:(?:directo|indirecto|laboral|penal|civil|en revisi[oó]n)\s+)?(?:n[uú]m(?:ero|\.)?\s*)?\d+/\d{4}\b",
+    r"\b[Cc]lient[ea]s?\s+(?:[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+\s*){1,3}",
+]
+ASUNTOS = [
+    r"\b(?:mis?|nuestr[oa]s?|un|una|unos|unas|ese|esa|este|esta)\s+client[ea]s?\b",
+    r"\b(?:mis?|nuestr[oa]s?)\s+(?:representad[oa]s?|patrocinad[oa]s?|quejos[oa]s?|asuntos?)\b",
+    r"\bun\s+(?:caso|asunto|juicio)\s+que\s+(?:llev[eé]|llevamos|llevo|tuve|tuvimos|gan[eé]|perd[ií])\b",
     r"\ben el despacho\s+(?:llevamos|tenemos|vimos|lleg[oó]|atendimos|ganamos|perdimos)\b",
 ]
+CLIENTES_TERCEROS = r"\b(?:el|la|los|las)\s+client[ea]s?\b"
 INSULTOS = r"\b(?:idiotas?|imb[eé]cil(?:es)?|pendej[oa]s?|est[uú]pid[oa]s?|tarad[oa]s?|mierdas?)\b"
-INSULTOS_LEVES = r"\b(?:rat(?:a|ero|era)s?|payas[oa]s?|inept[oa]s?|basuras?|delincuentes?|c[ií]nic[oa]s?|vendid[oa]s?)\b"
-PRIMERA_PERSONA = re.compile(r"\b(?:fui|soy|era|estuve|me sent[ií]|me vi|qued[eé] como)\s+(?:un|una|tan|muy|bien)?\s*$")
-PARTIDO = r"\b(?:PAN|Acci[oó]n Nacional|Acci[oó]n (?:Pol[ií]tica )?Juvenil)\b"
-GYM = r"\b(?:gym|gimnasio|entren(?:o|ar|amiento|é)|pesas|rutina de|cardio|dieta|prote[ií]na|sentadillas?|press de banca|peso muerto)\b"
+INSULTOS_LEVES = (r"\b(?:rat(?:a|ero|era)s?|payas[oa]s?|inept[oa]s?|basuras?|delincuentes?|c[ií]nic[oa]s?|vendid[oa]s?"
+                  r"|ladr[oó]n(?:es)?|ladronas?|corrupt[oa]s?|traidor(?:es|as?)?|lacras?)\b")
+PRIMERA_PERSONA = re.compile(r"\b(?:fui|soy|me sent[ií]|me vi|qued[eé] como)\s+(?:un|una|tan|muy|bien)?\s*$")
+PARTIDO_MAYUS = r"\bPAN\b"
+PARTIDO = r"\b(?:panistas?|acci[oó]n nacional|acci[oó]n (?:pol[ií]tica )?juvenil)\b"
+POLITICA_ENCUESTA = (r"\b(?:partidos?|vot(?:o|os|ar|ar[aá]s|aste|ar[ií]as)|candidat[oa]s?|elecci[oó]n(?:es)?|electoral"
+                     r"|morena|panistas?|pri[ií]stas?|izquierda|derecha)\b")
+GYM = r"\b(?:gym|gimnasio|pesas|cardio|dieta|prote[ií]na|sentadillas?|press de banca|peso muerto|hipertrofia|crossfit)\b"
 DERECHO = re.compile(
     r"\bart[ií]culos?\s+\d+|\bart\.\s*\d+|\btesis\s+(?:aislada|de jurisprudencia|\d|[a-z0-9./]+\s*\d)"
     r"|\bjurisprudencia\b|\bconstituci[oó]n\b|\bley\s+(?:federal|general|org[aá]nica|de|del)\b"
@@ -192,20 +213,34 @@ def plano(texto: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"[^\w\s]", " ", sin)).strip()
 
 
+def una_linea(texto: str) -> str:
+    """Quita saltos de línea: una lección o idea no puede fabricar otras entradas fechadas."""
+    return re.sub(r"\s+", " ", texto).strip()
+
+
 def es_texto(v) -> bool:
     return isinstance(v, str) and bool(v.strip())
 
 
+# Campos que no forman parte de lo que Emi aprueba: los escribe el flujo (aprobar, entregar, publicado).
+CAMPOS_DE_ESTADO = {"estado", "aprobado_por_emi", "aprobado_huella", "reescrito", "entregado", "publicado_url"}
+
+
+def _normalizar(v):
+    if isinstance(v, str):
+        return nfc(v).strip()
+    if isinstance(v, list):
+        return [_normalizar(x) for x in v]
+    if isinstance(v, dict):
+        return {str(k): _normalizar(x) for k, x in v.items()}
+    return v
+
+
 def contenido_aprobable(b: dict) -> str:
-    """Todo lo que Emi aprueba de una pieza: si algo de esto cambia, la aprobación deja de valer."""
-    partes = [b.get("texto", "")]
-    for campo in ("titulo", "cuerpo", "media"):
-        if isinstance(b.get(campo), str):
-            partes.append(f"{campo}:{b[campo]}")
-    enc = b.get("encuesta")
-    if isinstance(enc, dict):
-        partes.append("encuesta:" + json.dumps(enc, ensure_ascii=False, sort_keys=True))
-    return "\n".join(nfc(str(p)).strip() for p in partes)
+    """Todo lo que Emi aprueba de una pieza (texto, archivo, pilar, fecha, hora, postura, fuentes…):
+    si cualquiera de esos campos cambia, la aprobación deja de valer."""
+    resto = {k: v for k, v in b.items() if k not in CAMPOS_DE_ESTADO}
+    return json.dumps(_normalizar(resto), ensure_ascii=False, sort_keys=True)
 
 
 def huella(b: dict) -> str:
@@ -324,12 +359,31 @@ def publicados_x() -> tuple[list[dict], str]:
 
 # ---------------------------------------------------------------- revisión
 
-def limites_emi(texto: str, excepcion: str) -> tuple[list[str], list[str]]:
+def nombres_vetados() -> list[str]:
+    """Nombres que nunca se publican (licenciados de Castorena y otros que Emi indique).
+    Viven en un archivo privado, una línea por nombre; no se suben a GitHub."""
+    ruta = CUENTA / "privado" / "nombres-vetados.txt"
+    if not ruta.is_file():
+        return []
+    return [plano(l) for l in ruta.read_text(encoding="utf-8").splitlines() if plano(l) and not l.startswith("#")]
+
+
+def limites_emi(texto: str, excepcion: str, fuente_publica: bool) -> tuple[list[str], list[str]]:
     e: list[str] = []
     w: list[str] = []
-    m = buscar(DESPACHO_VETADO, texto)
-    if m:
-        e.append(f"límite de Emi («{m.group(0)}»): ese despacho y sus licenciados no se nombran")
+    llano = plano(texto)
+    if re.search(DESPACHO_VETADO, llano):
+        e.append("límite de Emi («Castorena»): ese despacho y sus licenciados no se nombran, tampoco en hashtag o dominio")
+    for nombre in nombres_vetados():
+        if re.search(rf"\b{re.escape(nombre)}\b", llano):
+            e.append("límite de Emi: aparece un nombre de la lista privada de nombres vetados")
+            break
+    for patron in ASUNTOS_DUROS:
+        m = re.search(patron, texto, 0 if patron.startswith(r"\b[Cc]") else re.I)
+        if m and not (excepcion and fuente_publica):
+            e.append(f"límite de Emi («{m.group(0).strip()}»): números de expediente y nombres de clientes nunca van, "
+                     "salvo asunto público con fuente oficial en «fuentes» y «excepcion_limite»")
+            break
     for patron in ASUNTOS:
         m = buscar(patron, texto)
         if not m:
@@ -339,6 +393,10 @@ def limites_emi(texto: str, excepcion: str) -> tuple[list[str], list[str]]:
         else:
             e.append(f"límite de Emi («{m.group(0)}»): nunca clientes ni asuntos, ni anonimizados. Si es un ejemplo "
                      "hipotético o un asunto público con fuente, decirlo en «excepcion_limite»")
+        break
+    m = buscar(CLIENTES_TERCEROS, texto)
+    if m and not any("cliente" in x for x in e + w):
+        w.append(f"«{m.group(0)}»: confirmar que no son clientes de un despacho (los de un banco o una empresa, sí pueden ir)")
     for m in re.finditer(INSULTOS, texto, re.I):
         if PRIMERA_PERSONA.search(texto[:m.start()].lower()):
             continue
@@ -360,7 +418,7 @@ def revisar(b, historial: list[dict], cfg: dict, para: str = "") -> tuple[list[s
     if not es_texto(texto):
         return ["texto: falta (el texto del post; en artículo o boletín, el que acompaña al compartir)"], []
     texto = nfc(texto)
-    pilar, formato, estado = b.get("pilar"), b.get("formato", "texto"), para or b.get("estado", "borrador")
+    pilar, formato, estado = b.get("pilar"), b.get("formato"), para or b.get("estado", "borrador")
     if not isinstance(pilar, str) or pilar not in PILARES:
         e.append(f"pilar: debe ser uno de {', '.join(PILARES)}")
     if not isinstance(formato, str) or formato not in FORMATOS:
@@ -369,6 +427,8 @@ def revisar(b, historial: list[dict], cfg: dict, para: str = "") -> tuple[list[s
     if not isinstance(estado, str) or estado not in ESTADOS:
         e.append(f"estado: debe ser uno de {', '.join(ESTADOS)}")
         estado = "borrador"
+    if not isinstance(pilar, str):
+        pilar = ""
     if not es_texto(b.get("id")):
         e.append("id: falta (por ejemplo «2026-W47-a»)")
 
@@ -431,7 +491,7 @@ def revisar(b, historial: list[dict], cfg: dict, para: str = "") -> tuple[list[s
             e.append(f"paginas: {pags}; máximo {lim['max_paginas']} (data/limites.json)")
     if formato == "video":
         dur = b.get("duracion_s")
-        if not isinstance(dur, (int, float)) or isinstance(dur, bool) or dur <= 0:
+        if not isinstance(dur, (int, float)) or isinstance(dur, bool) or not math.isfinite(dur) or dur <= 0:
             e.append("duracion_s: en video, la duración en segundos")
         else:
             mn, mx = lim.get("min_s"), lim.get("max_s")
@@ -441,6 +501,13 @@ def revisar(b, historial: list[dict], cfg: dict, para: str = "") -> tuple[list[s
                 e.append(f"duracion_s = {dur}: el máximo de LinkedIn es {mx} s")
         if b.get("subtitulos") is not True:
             w.append("subtitulos: muchos ven el video sin sonido; confirmar subtítulos quemados o archivo .srt [criterio]")
+    if formato == "imagen":
+        n_img = b.get("imagenes", 1)
+        mx_img = lim.get("max_imagenes")
+        if not isinstance(n_img, int) or isinstance(n_img, bool) or n_img < 1:
+            e.append("imagenes: número de imágenes del post (entero de 1 en adelante)")
+        elif isinstance(mx_img, int) and n_img > mx_img:
+            e.append(f"imagenes: {n_img}; máximo {mx_img} por post (data/limites.json)")
     if formato in ("imagen", "documento", "video") and not es_texto(b.get("media")):
         e.append("media: describir o enlazar el archivo propio que acompaña al post")
 
@@ -464,6 +531,11 @@ def revisar(b, historial: list[dict], cfg: dict, para: str = "") -> tuple[list[s
                 e.append(f"captación («{m.group(0).strip()}»): Emi decidió no captar clientes desde LinkedIn por ahora "
                          "(cuenta/perfil.json, captacion_milla)")
                 break
+        else:
+            m = buscar(ESCRIBEME, todo)
+            if m:
+                w.append(f"«{m.group(0)}»: invitar a escribir está bien para conversar o colaborar; confirmar que no "
+                         "es para atender casos")
         m = buscar(MILLA, todo)
         if m:
             w.append("menciona MILLA ABOGADOS: puede ir como trayectoria, nunca como oferta de servicios")
@@ -472,12 +544,20 @@ def revisar(b, historial: list[dict], cfg: dict, para: str = "") -> tuple[list[s
         w.append(f"«{m.group(0)}»: un post informa u opina; no asesora un caso concreto")
     excepcion = b.get("excepcion_limite", "")
     excepcion = excepcion.strip() if isinstance(excepcion, str) else ""
-    le, lw = limites_emi(todo, excepcion)
+    fuentes_b = b.get("fuentes")
+    fuente_publica = isinstance(fuentes_b, list) and any(isinstance(f, str) and es_oficial(f) for f in fuentes_b)
+    le, lw = limites_emi(todo, excepcion, fuente_publica)
     e += le
     w += lw
-    m = buscar(PARTIDO, todo, distingue=True)
+    m = buscar(PARTIDO_MAYUS, todo, distingue=True) or buscar(PARTIDO, todo)
     if m:
         w.append(f"menciona «{m.group(0)}»: la cuenta personal no habla a nombre del partido ni usa sus logotipos")
+    if isinstance(b.get("encuesta"), dict):
+        enc_txt = json.dumps(b["encuesta"], ensure_ascii=False)
+        m = buscar(POLITICA_ENCUESTA, enc_txt) or buscar(PARTIDO_MAYUS, enc_txt, distingue=True) or buscar(PARTIDO, enc_txt)
+        if m:
+            e.append(f"encuesta política («{m.group(0)}»): LinkedIn prohíbe que una encuesta pida opiniones políticas "
+                     "[oficial, a527273]")
 
     # Estilo.
     for patron in PLANTILLA_IA:
@@ -486,7 +566,8 @@ def revisar(b, historial: list[dict], cfg: dict, para: str = "") -> tuple[list[s
             w.append(f"suena a plantilla («{m.group(0)}»): reescribir con la voz de Emi")
     if "—" in todo:
         w.append("raya larga (—): marca típica de texto de IA; usar comas o puntos")
-    if len(re.findall(r"(?m)^\s*[^\w\s¿¡\"«(#@•-]\s", texto)) >= 3:
+    sin_selectores = re.sub("[\ufe0e\ufe0f\u200d]", "", texto)
+    if len(re.findall(r"(?m)^\s*[^\w\s¿¡\"«(#@•-]\s", sin_selectores)) >= 3:
         w.append("lista con viñetas de emoji: se lee como plantilla")
     etiquetas = re.findall(r"(?<![\w#])#\w+", texto)
     if len(etiquetas) > cfg.get("max_hashtags", 3):
@@ -549,7 +630,7 @@ def revisar(b, historial: list[dict], cfg: dict, para: str = "") -> tuple[list[s
     if estado in ("aprobado", "entregado", "publicado"):
         aprobado = b.get("aprobado_por_emi")
         if not (isinstance(aprobado, str) and re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2},\s*\S.{2,}", aprobado.strip())
-                and fecha_ok(aprobado.strip()[:10])):
+                and fecha_ok(aprobado.strip()[:10]) and aprobado.strip()[:10] <= hoy()):
             e.append(f"aprobado_por_emi: para «{estado}» hace falta «AAAA-MM-DD, medio» del visto bueno de Emi "
                      "(se anota con «linkedin.py aprobar»)")
         if b.get("aprobado_huella") != huella(b):
@@ -571,7 +652,9 @@ def informe(nombre: str, e: list[str], w: list[str]) -> None:
 def lista_de(dato) -> list:
     if isinstance(dato, list):
         return dato
-    if isinstance(dato, dict) and isinstance(dato.get("posts"), list):
+    if isinstance(dato, dict) and "posts" in dato:
+        if not isinstance(dato["posts"], list):
+            raise Falla("«posts» debe ser una lista de piezas")
         return dato["posts"]
     if isinstance(dato, dict):
         return [dato]
@@ -593,14 +676,19 @@ def revisar_lista(posts: list, cfg: dict, para: str = "", contra_x: bool = False
     hist, avisos = historial_para(posts, contra_x)
     for a in avisos:
         print(f"aviso: {a}")
+    if not posts:
+        print("El archivo no tiene piezas.")
+        return 1
     malos = 0
     vistos: set = set()
     for i, b in enumerate(posts):
         e, w = revisar(b, hist, cfg, para)
         ident = b.get("id") if isinstance(b, dict) else None
-        if ident in vistos:
+        ident = ident if isinstance(ident, str) else None
+        if ident is not None and ident in vistos:
             e.append(f"id «{ident}» repetido en el archivo")
-        vistos.add(ident)
+        if ident is not None:
+            vistos.add(ident)
         informe(str(ident or f"#{i + 1}"), e, w)
         malos += bool(e)
     return 1 if malos else 0
@@ -615,6 +703,8 @@ def revisar_semana(posts: list[dict], cfg: dict, ya: list[dict] | None = None) -
     e: list[str] = []
     w: list[str] = []
     ya = publicados() if ya is None else ya
+    ids_semana = {p.get("id") for p in posts if isinstance(p, dict) and isinstance(p.get("id"), str)}
+    ya = [p for p in ya if isinstance(p, dict) and p.get("id") not in ids_semana]  # no contar dos veces
     validos = [p for p in posts if isinstance(p, dict) and fecha_ok(p.get("fecha")) and hora_ok(p.get("hora"))]
     if len(validos) != len(posts):
         e.append("cada pieza de la semana necesita fecha y hora válidas")
@@ -641,7 +731,7 @@ def revisar_semana(posts: list[dict], cfg: dict, ya: list[dict] | None = None) -
                      f"{cfg['separacion_min_h']} h [criterio]")
     cuenta = {k: 0 for k in PILARES}
     for p in validos + ya:
-        if p.get("pilar") in cuenta:
+        if isinstance(p.get("pilar"), str) and p["pilar"] in cuenta:
             cuenta[p["pilar"]] += 1
     total = sum(cuenta.values())
     if total >= 4:
@@ -662,27 +752,55 @@ def cmd_semana(a) -> int:
 
 
 def buscar_pieza(dato, ident: str) -> dict:
-    for p in lista_de(dato):
-        if isinstance(p, dict) and p.get("id") == ident:
-            return p
+    hallados = [p for p in lista_de(dato) if isinstance(p, dict) and p.get("id") == ident]
+    if len(hallados) > 1:
+        raise Falla(f"hay {len(hallados)} piezas con id «{ident}»; corregir el archivo")
+    if hallados:
+        return hallados[0]
     raise Falla(f"no hay pieza con id «{ident}»")
 
 
 def cmd_aprobar(a) -> int:
-    dato = leer_json(a.archivo)
-    p = buscar_pieza(dato, a.id)
+    """Anota el visto bueno de Emi sobre una o varias piezas (paquete semanal), cada una con su huella."""
     if not es_texto(a.medio):
         raise Falla("--medio: dónde aprobó Emi (por ejemplo «chat de Claude Code»)")
-    p["reescrito"] = True
-    p["aprobado_por_emi"] = f"{hoy()}, {a.medio.strip()}"
-    p["aprobado_huella"] = huella(p)
-    e, w = revisar(p, publicados() + [x for x in lista_de(dato) if isinstance(x, dict)], perfil(), "aprobado")
-    if e:
-        informe(a.id, e, w)
-        raise Falla("no se anota la aprobación mientras haya errores")
-    p["estado"] = "aprobado"
+    if not a.reescrito:
+        raise Falla("--reescrito: confirmar que Emi reescribió o hizo suyo cada texto. Si no, que lo haga antes")
+    dato = leer_json(a.archivo)
+    todas = [x for x in lista_de(dato) if isinstance(x, dict)]
+    hist = publicados() + todas
+    avisos_x = []
+    if not a.sin_x:
+        filas_x, aviso = publicados_x()
+        hist += filas_x
+        if aviso:
+            avisos_x.append(aviso)
+    for x in avisos_x:
+        print(f"aviso: {x} (no se pudo comparar con X)")
+    piezas = [buscar_pieza(dato, i) for i in a.id]
+    malos = 0
+    for p in piezas:
+        if p.get("estado") == "publicado":
+            raise Falla(f"«{p['id']}» ya está publicada; no se vuelve a aprobar")
+        if p.get("estado") == "entregado" and not a.de_nuevo:
+            raise Falla(f"«{p['id']}» ya se entregó; para aprobar una versión nueva usar --de-nuevo")
+        prueba = dict(p, reescrito=True, aprobado_por_emi=f"{hoy()}, {a.medio.strip()}")
+        prueba["aprobado_huella"] = huella(prueba)
+        e, w = revisar(prueba, hist, perfil(), "aprobado")
+        if e:
+            informe(str(p.get("id")), e, w)
+            malos += 1
+    if malos:
+        raise Falla("no se anota ninguna aprobación mientras haya errores")
+    for p in piezas:
+        p["reescrito"] = True
+        p["aprobado_por_emi"] = f"{hoy()}, {a.medio.strip()}"
+        p["aprobado_huella"] = huella(p)
+        p["estado"] = "aprobado"
+        p.pop("entregado", None)
+        print(f"Aprobado «{p['id']}» con huella {p['aprobado_huella']}.")
     escribir_json(Path(a.archivo), dato)
-    print(f"Aprobado «{a.id}» con huella {p['aprobado_huella']}. Si el texto cambia, hay que aprobarlo de nuevo.")
+    print("Si cambia cualquier campo de una pieza (texto, fecha, hora, pilar, postura, fuentes…), hay que aprobarla de nuevo.")
     return 0
 
 
@@ -731,17 +849,26 @@ def cmd_entregar(a) -> int:
     return 0
 
 
+URL_POST = re.compile(r"https://(?:www\.|[a-z]{2}\.)?linkedin\.com/(?:posts/|feed/update/|pulse/|newsletters/)\S+")
+
+
 def cmd_publicado(a) -> int:
     dato = leer_json(a.archivo)
     p = buscar_pieza(dato, a.id)
-    if p.get("aprobado_huella") != huella(p):
-        raise Falla("el texto no coincide con lo aprobado; no se anota como publicado")
-    if not (isinstance(a.url, str) and re.match(r"https://(www\.)?linkedin\.com/", a.url.strip())):
-        raise Falla("--url: enlace del post en linkedin.com")
+    if p.get("estado") not in ("aprobado", "entregado"):
+        raise Falla(f"«{a.id}» no está aprobada ni entregada; no se anota como publicada")
+    e, w = revisar(p, publicados(), perfil(), "publicado")
+    if e:
+        informe(a.id, e, w)
+        raise Falla("no se anota como publicada mientras haya errores (¿cambió algo después de aprobarla?)")
+    if not (isinstance(a.url, str) and URL_POST.fullmatch(a.url.strip())):
+        raise Falla("--url: enlace del post en linkedin.com (/posts/, /feed/update/, /pulse/ o /newsletters/)")
     fecha = a.fecha or p.get("fecha")
     hora = a.hora or p.get("hora")
     if not fecha_ok(fecha) or not hora_ok(hora):
         raise Falla("fecha u hora de publicación inválidas (--fecha AAAA-MM-DD --hora HH:MM)")
+    if dt.datetime.fromisoformat(f"{fecha}T{hora}").replace(tzinfo=MX) > ahora() + dt.timedelta(minutes=5):
+        raise Falla("la fecha de publicación es futura: se anota cuando Emi confirma que ya salió")
     filas = publicados()
     if any(f.get("id") == p["id"] for f in filas):
         raise Falla(f"«{p['id']}» ya está anotado como publicado")
@@ -753,6 +880,7 @@ def cmd_publicado(a) -> int:
     })
     guardar_publicados(filas)
     p["estado"] = "publicado"
+    p["publicado_url"] = a.url.strip()
     escribir_json(Path(a.archivo), dato)
     print(f"Anotado «{p['id']}» como publicado el {fecha} {hora}. Pedir métricas a Emi a los 7 días.")
     return 0
@@ -772,7 +900,10 @@ def cmd_metricas(a) -> int:
         raise Falla("las métricas no pueden ser negativas")
     if not es_texto(a.fuente):
         raise Falla("--fuente: de dónde salen (por ejemplo «captura de Emi del 25/11»)")
-    f.setdefault("metricas", []).append({"capturado": a.capturado or hoy(), "fuente": a.fuente.strip(), "valores": valores})
+    capturado = a.capturado or hoy()
+    if not fecha_ok(capturado) or capturado > hoy() or capturado < str(f.get("fecha", "")):
+        raise Falla("--capturado: AAAA-MM-DD, no futura ni anterior a la publicación")
+    f.setdefault("metricas", []).append({"capturado": capturado, "fuente": a.fuente.strip(), "valores": valores})
     guardar_publicados(filas)
     print(f"Métricas de «{a.id}» anotadas: " + ", ".join(f"{k} {v}" for k, v in valores.items()))
     return 0
@@ -783,7 +914,7 @@ def cmd_balance(a) -> int:
     filas = publicados()
     cuenta = {k: 0 for k in PILARES}
     for f in filas:
-        if f.get("pilar") in cuenta:
+        if isinstance(f.get("pilar"), str) and f["pilar"] in cuenta:
             cuenta[f["pilar"]] += 1
     total = sum(cuenta.values())
     print(f"Publicado en LinkedIn: {total} pieza(s)")
@@ -802,7 +933,7 @@ def cmd_aprender(a) -> int:
         raise Falla("la lección está vacía")
     ruta = CUENTA / "aprendizajes.md"
     previo = ruta.read_text(encoding="utf-8") if ruta.is_file() else "# Aprendizajes de LinkedIn\n\n"
-    escribir(ruta, previo.rstrip("\n") + f"\n- {hoy()} · {a.texto.strip()}\n")
+    escribir(ruta, previo.rstrip("\n") + f"\n- {hoy()} · {una_linea(a.texto)}\n")
     print("Lección guardada en cuenta/aprendizajes.md")
     return 0
 
@@ -846,6 +977,9 @@ def edad_fuentes() -> tuple[str, int | None]:
         d = cargar_fuentes()
         fecha = d["verificado"]
         dias = (dt.date.fromisoformat(hoy()) - dt.date.fromisoformat(fecha)).days
+        if dias < -1:  # un día de margen: las fechas a mano pueden ir en UTC
+            return f"fecha de verificación futura ({fecha}); corregirla", None
+        dias = max(dias, 0)
         return f"{len(d['fuentes'])} fuentes, verificadas el {fecha} (hace {dias} días)", dias
     except (Falla, KeyError, ValueError, TypeError) as exc:
         return f"no se pudieron leer ({exc})", None
@@ -881,7 +1015,7 @@ def cmd_fuentes(a) -> int:
                 if a.accion == "sellar":
                     f["huella"] = h
     for c in caidas:
-        print(f"aviso  {c} (LinkedIn suele bloquear lectores automáticos; revisar a mano o desde box)")
+        print(f"aviso  {c} (leerla a mano en un navegador, sin iniciar sesión)")
     for c in movidas:
         print(f"aviso  {c}")
     for c in cambios:
@@ -891,10 +1025,18 @@ def cmd_fuentes(a) -> int:
             print("Para sellar hay que revisar de verdad: usar --red (o leer cada fuente a mano y sellar con --red).")
             return 1
         a_mano = {x.strip() for x in (a.leidas_a_mano or "").split(",") if x.strip()}
-        sin_leer = [c for c in caidas if c.split(":")[0] not in a_mano]
-        if cambios or sin_leer:
-            print("No se sella: hay cambios o fuentes sin leer (las leídas a mano van en --leidas-a-mano ID,ID).")
+        ids = {f["id"] for f in d["fuentes"]}
+        if a_mano - ids:
+            print(f"--leidas-a-mano: ids desconocidos: {', '.join(sorted(a_mano - ids))}")
             return 1
+        pendientes = [c for c in caidas + movidas if c.split(":")[0] not in a_mano]
+        if cambios or pendientes:
+            print("No se sella: hay cambios, fuentes sin leer o páginas con texto distinto. Leerlas, corregir lo que "
+                  "haga falta y nombrarlas en --leidas-a-mano ID,ID (queda registrado quién y cuándo).")
+            return 1
+        for f in d["fuentes"]:
+            if f["id"] in a_mano:
+                f["leida_a_mano"] = hoy()
         d["verificado"] = hoy()
         escribir_json(FUENTES, d)
         print(f"Sellado: fuentes verificadas el {d['verificado']}.")
@@ -972,7 +1114,12 @@ def cmd_estado(a) -> int:
         except Falla:
             print("red/estado.json no existe o no se lee; correr «linkedin.py estado»")
             return 1
-        sin_fecha = lambda d: {k: v for k, v in d.items() if k != "actualizado"}  # noqa: E731
+        def sin_fecha(d: dict) -> dict:
+            d = {k: v for k, v in d.items() if k != "actualizado"}
+            if isinstance(d.get("fuentes"), dict):
+                d["fuentes"] = {k: v for k, v in d["fuentes"].items() if k != "verificado"}
+            return d
+
         if sin_fecha(viejo) != sin_fecha(nuevo):
             print("red/estado.json está desactualizado; correr «linkedin.py estado»")
             return 1
@@ -996,7 +1143,7 @@ def cmd_vox(a) -> int:
             raise Falla("la idea está vacía")
         ruta = PUENTE / "para-vox.md"
         previo = ruta.read_text(encoding="utf-8") if ruta.is_file() else "# Ideas de linkedin-pro para Vox Studio\n\n"
-        escribir(ruta, previo.rstrip("\n") + f"\n- {hoy()} · {a.texto.strip()}\n")
+        escribir(ruta, previo.rstrip("\n") + f"\n- {hoy()} · {una_linea(a.texto)}\n")
         print("Idea guardada en puente/para-vox.md (Vox Studio decide si la produce).")
         return 0
     leidos = 0
@@ -1034,8 +1181,11 @@ def main(argv: list[str] | None = None) -> int:
     s.set_defaults(f=cmd_semana)
     s = sub.add_parser("aprobar")
     s.add_argument("archivo")
-    s.add_argument("id")
+    s.add_argument("id", nargs="+", help="una o varias piezas (paquete semanal)")
     s.add_argument("--medio", required=True)
+    s.add_argument("--reescrito", action="store_true", help="Emi reescribió o hizo suyo cada texto")
+    s.add_argument("--de-nuevo", action="store_true", help="aprobar otra vez una pieza ya entregada")
+    s.add_argument("--sin-x", action="store_true", help="no comparar con lo publicado en X")
     s.set_defaults(f=cmd_aprobar)
     s = sub.add_parser("entregar")
     s.add_argument("archivo")
@@ -1079,6 +1229,9 @@ def main(argv: list[str] | None = None) -> int:
         return a.f(a)
     except Falla as exc:
         print(f"Error: {exc}", file=sys.stderr)
+        return 2
+    except (TypeError, ValueError, KeyError, AttributeError) as exc:
+        print(f"Error: dato con forma inesperada ({type(exc).__name__}: {exc}); revisar el archivo", file=sys.stderr)
         return 2
 
 

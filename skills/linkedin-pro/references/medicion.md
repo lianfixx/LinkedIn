@@ -1,11 +1,11 @@
 # Medir
 
-Las estadísticas de un post son privadas: solo las ve Emi (Centro de ayuda, a516971). Ninguna IA entra a su cuenta, así que **las métricas llegan por captura** que Emi manda.
+Las estadísticas de un post son privadas: solo las ve Emi (Centro de ayuda, a516971) [oficial]. Esta skill guarda sus cifras en el repositorio público porque son de Emi y sirven a la Matriz de Redes; **pendiente de que Emi confirme** que acepta publicarlas (si no, `cuenta/publicados.jsonl` pasa a `privado/`). Ninguna IA entra a su cuenta, así que **las métricas llegan por captura** que Emi manda.
 
 ## Cuándo pedirlas
 
 - **A los 7 días de publicar**, captura de «Ver estadísticas» del post. Es criterio de la skill: da tiempo a que el post termine de circular y es fácil de recordar.
-- **Cada mes**, captura de «Analytics & tools» del perfil (desde el perfil: Analytics → Show all): impresiones de todos los posts, seguidores nuevos y visitas al perfil. Va en `cuenta/diagnosticos/AAAA-MM.md`.
+- **Cada mes**, captura de «Analytics & tools» del perfil (desde el perfil: Analytics → Show all): impresiones de todos los posts, seguidores nuevos y visitas al perfil. El resumen va en `cuenta/diagnosticos/AAAA-MM.md` **solo con cifras agregadas**: nunca nombres de quienes vieron el perfil o el post (son datos de terceros y el repositorio es público). Las capturas no se suben.
 
 ## Qué se anota
 

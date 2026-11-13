@@ -1,6 +1,6 @@
 # Fuentes
 
-Todas las fuentes que sostienen la skill, verificadas el 2026-11-13. La lista que se vigila cada semana está en [data/fuentes.json](../data/fuentes.json); este archivo es su versión legible. Orden de prioridad: Centro de ayuda y políticas, comunicados e ingeniería, directivos y, al final, estudios de terceros.
+Las fuentes que sostienen la skill, verificadas el 2026-11-13. La lista que se vigila cada semana está en [data/fuentes.json](../data/fuentes.json); este archivo es su versión legible. Orden de prioridad: Centro de ayuda y políticas, comunicados e ingeniería, directivos y, al final, estudios de terceros.
 
 **Transparencia DSA (Unión Europea).** LinkedIn publica informes de transparencia por los artículos 15, 24 y 42 de la Ley de Servicios Digitales ([a1678508](https://www.linkedin.com/help/linkedin/answer/a1678508)). No se encontró una página propia sobre los parámetros del recomendador (art. 27): lo que hay está en [feed.md](feed.md), sección «Transparencia». Los informes de 2026 se publican en .zip y no se abrieron; tampoco el informe de implementación de la auditoría DSA. Se revisan en la tarea semanal.
 
@@ -27,6 +27,18 @@ Todas las fuentes que sostienen la skill, verificadas el 2026-11-13. La lista qu
 | [a1499047](https://www.linkedin.com/help/linkedin/answer/a1499047?lang=en) | Posts recomendados: interacciones previas, tiempo en la plataforma, perfil y probabilidad de interactuar | feed.md |
 | [a1480504](https://www.linkedin.com/help/linkedin/answer/a1480504?lang=en) | Vista «Top» personalizada por defecto; «Recent» sin personalización | feed.md |
 | [a1338787](https://www.linkedin.com/help/linkedin/answer/a1338787?lang=en) | Spam: retirar o limitar la distribución de lo que infla la interacción (encuestas de emojis, cadenas) | feed.md, mitos.md |
+| [a527229](https://www.linkedin.com/help/linkedin/answer/a527229?lang=en) | Imágenes: hasta 20 por post, 5 MB | formatos.md, limites.json |
+| [a542926](https://www.linkedin.com/help/linkedin/answer/a542926?lang=en) | El titular sale en búsquedas | perfil.md |
+| [a593695](https://www.linkedin.com/help/linkedin/answer/a593695?lang=en) | Experiencia: solo organizaciones con experiencia profesional real | perfil.md |
+| [a552452](https://www.linkedin.com/help/linkedin/answer/a552452?lang=en) | Destacados: ilimitados, se muestran 400 | perfil.md |
+| [a549049](https://www.linkedin.com/help/linkedin/answer/a549049?lang=en) | Foto de perfil: tamaños y reflejar la imagen real | perfil.md |
+| [a568217](https://www.linkedin.com/help/linkedin/answer/a568217?lang=en) | Portada: 1584×396 px | perfil.md |
+| [a542685](https://www.linkedin.com/help/linkedin/answer/a542685?lang=en) | URL personalizada: 3 a 100 caracteres, 5 cambios en 6 meses | perfil.md |
+| [a1484520](https://www.linkedin.com/help/linkedin/answer/a1484520?lang=en) | Botón personalizado solo para algunos Premium | perfil.md |
+| [a1444194](https://www.linkedin.com/help/linkedin/answer/a1444194?lang=en) | Asistente de redacción del perfil solo para algunos Premium | perfil.md |
+| [a568503](https://www.linkedin.com/help/linkedin/answer/a568503?lang=en) | LinkedIn Live: más de 150 seguidores, 30 días, buen historial | formatos.md |
+| [a1432051](https://www.linkedin.com/help/linkedin/answer/a1432051?lang=en) | Analytics & tools; analítica del boletín | formatos.md, medicion.md |
+| [a525196](https://www.linkedin.com/help/linkedin/answer/a525196?lang=en) | Dónde ver la analítica de cada post; video 180 días (contradice a a516971) | medicion.md |
 
 ## Políticas y Acuerdo de usuario
 
@@ -67,6 +79,7 @@ Todas las fuentes que sostienen la skill, verificadas el 2026-11-13. La lista qu
 | [jobanputra-2025](https://www.linkedin.com/posts/rishij_i-shared-last-week-some-thoughts-on-what-activity-7358999334173990912-EI0Q/) | LinkedIn no está diseñado para la viralidad; conversaciones sobre likes | feed.md, mitos.md, playbook.md |
 | [jurka-mar-2026](https://www.linkedin.com/pulse/updates-linkedin-feed-focusing-authentic-relevant-tim-jurka-umwnc) | Señales de perfil e interacción; anzuelos y pods | feed.md |
 | [jobanputra-2024](https://www.linkedin.com/pulse/understanding-how-linkedin-feed-works-rishi-jobanputra-tshdc) | Pasar de largo u ocultar también enseña al feed; se quieren posts de conocimiento | feed.md |
+| [srinivasan-fortune-2026](https://fortune.com/2026/08/25/1-million-people-clicked-linkedin-ai-slop/) | Hari Srinivasan (LinkedIn), citado por Fortune: 40 % menos vistas para lo ya clasificado como AI slop, frente a semanas antes (declaración de segunda mano) | feed.md, mitos.md |
 
 ## Estudios de terceros
 
