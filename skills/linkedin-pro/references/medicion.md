@@ -1,6 +1,6 @@
 # Medir
 
-Las estadísticas de un post son privadas: solo las ve Emi (Centro de ayuda, a516971) [oficial]. Esta skill guarda sus cifras en el repositorio público porque son de Emi y sirven a la Matriz de Redes; **pendiente de que Emi confirme** que acepta publicarlas (si no, `cuenta/publicados.jsonl` pasa a `privado/`). Ninguna IA entra a su cuenta, así que **las métricas llegan por captura** que Emi manda.
+Las estadísticas de un post son privadas: solo las ve Emi (Centro de ayuda, a516971) [oficial]. Esta skill guarda sus cifras en el repositorio público porque son de Emi y sirven a la Matriz de Redes; Emi lo autorizó el 13/11/2026. Ninguna IA entra a su cuenta, así que **las métricas llegan por captura** que Emi manda.
 
 ## Cuándo pedirlas
 

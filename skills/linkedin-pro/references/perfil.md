@@ -40,6 +40,26 @@ Para lo demás («Acerca de», experiencia, formación, destacados, aptitudes, f
 | Aptitudes | Las que de verdad ejerce y puede sostener; ordenar las de IA + Derecho primero. | [oficial] [criterio] |
 | Verificación | Si LinkedIn ofrece verificar identidad o lugar de trabajo, Emi lo hace él mismo desde su teléfono. | [oficial] |
 
+## Propuesta de titular (13/11/2026)
+
+Emi pidió la mejor opción vista como la verían un analista de marketing, un director general y un estratega de redes: natural, humana, realista y que nadie le pueda criticar.
+
+| Regla | Detalle | Certeza |
+|---|---|---|
+| Lo que LinkedIn dice | El titular sale en los resultados de búsqueda y puede ser distinto del puesto. | [oficial] [a542926](https://www.linkedin.com/help/linkedin/answer/a542926) |
+| Mirada de marketing | Que empiece por las palabras con que lo buscarían (abogado, IA, derecho, México) y diga qué aporta, sin adjetivos vacíos ni exceso de palabras clave. | [terceros] guías de perfil para reclutadores, sin método |
+| Mirada de dirección | Credenciales verificables y vigentes (la maestría en curso, Enlace Universitario Banxico 2026) dan prestigio; un cargo inflado lo quita. | [criterio] |
+| Mirada de redes | Que suene a persona y no a anuncio; nada que ofrezca servicios (captación cerrada). | [criterio] |
+| Que nadie lo pueda criticar | «Abogado» solo con título profesional. Atribuirse el carácter de profesionista sin título se sanciona con uno a seis años de prisión (Código Penal Federal, art. 250, fracc. II, inciso a; texto vigente con última reforma del 13/03/2026, [Cámara de Diputados](https://www.diputados.gob.mx/LeyesBiblio/pdf/CPF.pdf)). Sus posts de hace unos tres meses decían «Como estudiante de Derecho», así que hay que confirmarlo. | [oficial] [criterio] |
+
+Opciones (Emi elige y la cambia él):
+
+1. **Recomendada, si ya tiene título:** «Abogado | IA aplicada al Derecho en México | Maestría en Alta Dirección (en curso) | Enlace Universitario Banxico 2026»
+2. Más personal: «Abogado que construye herramientas de IA para el trabajo jurídico | Maestría en Alta Dirección (en curso)»
+3. Con su frase: «Abogado | IA + Derecho: la IA reemplaza tareas, no criterio | Maestría en Alta Dirección (en curso)»
+
+Si el título está en trámite, la misma opción 1 con «Licenciado en Derecho (titulación en trámite)» o «Pasante en Derecho» en lugar de «Abogado».
+
 ## Pasos
 
 1. Emi manda capturas del perfil completo (o copia el texto de cada sección).

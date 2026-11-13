@@ -5,10 +5,11 @@
   "observado": {
     "fecha": "2026-11-13",
     "titular": "Abogado en Formación | Enlace Universitario Banxico 2026",
-    "seguidores": "más de 180",
+    "seguidores": 212,
     "contactos": 192,
     "ubicacion": "Área metropolitana de Ciudad de México",
-    "fuente": "ficha pública que muestra Google; LinkedIn pide iniciar sesión para ver el perfil y ninguna IA inicia sesión"
+    "fuente": "páginas públicas de sus posts en LinkedIn (sin sesión) y ficha de Google; titular aún «Abogado en Formación | Enlace Universitario Banxico 2026»",
+    "posts": 20
   },
   "objetivos": [
     "autoridad profesional en IA + Derecho",
@@ -58,11 +59,6 @@
       "bloquea": "subir la skill"
     },
     {
-      "que": "Pasar capturas de su perfil completo (titular, Acerca de, experiencia, destacados) para la propuesta de perfil",
-      "desde": "2026-11-13",
-      "bloquea": "optimización del perfil"
-    },
-    {
       "que": "Material y postura para las dos primeras piezas",
       "desde": "2026-11-13",
       "bloquea": "primera semana"
@@ -71,6 +67,21 @@
       "que": "Elegir y reescribir el texto del post del video del DOF y mandar el enlace cuando salga",
       "desde": "2026-11-13",
       "bloquea": "anotar la primera pieza"
+    },
+    {
+      "que": "Bajar la copia de sus datos de LinkedIn y pasar solo Profile.csv y Shares.csv (sin contactos ni mensajes)",
+      "desde": "2026-11-13",
+      "bloquea": "propuesta de «Acerca de» y voz real"
+    },
+    {
+      "que": "Confirmar si ya tiene título y cédula de licenciado en Derecho, para poner «Abogado» en el titular sin riesgo",
+      "desde": "2026-11-13",
+      "bloquea": "titular"
+    },
+    {
+      "que": "Dar los nombres de los licenciados que no se nombran, para vetarlos por huella",
+      "desde": "2026-11-13",
+      "bloquea": "filtro de nombres"
     }
   ],
   "actualizado": "2026-11-13",
@@ -92,5 +103,11 @@
     "enlace_github": false,
     "cierre": "abierto a conversar con equipos legales que quieran trabajar así",
     "video_dof_subtitulos": true
+  },
+  "decisiones_13_11": {
+    "repositorio": "lo crea Muse",
+    "lectura_semanal_de_fuentes": true,
+    "sello_automatico_en_main": true,
+    "metricas_publicas": true
   }
 }

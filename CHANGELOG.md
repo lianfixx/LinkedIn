@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-13 · Decisiones de Emi, nombres vetados por huella y propuesta de titular
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 13/11/2026, en el chat de Claude Code: Muse crea el repositorio; sí a la lectura semanal de páginas públicas, al sello automático en `main` y a que sus métricas vayan en el repositorio público; preguntó si una IA puede entrar a su cuenta (box o API); no entendió lo de los nombres vetados; pidió la mejor propuesta de titular, natural y que no se le pueda criticar.
+- Cambios: (1) Las tres autorizaciones quedan en `ia/REGLAS.md`, `SKILL.md`, `medicion.md` y `cuenta/perfil.json`. (2) `linkedin.py vetar "Nombre"` guarda solo la huella del nombre en `cuenta/vetados.json` y el revisor la busca en cada pieza (prueba nueva). (3) Propuesta de titular en `perfil.md` con tres opciones y la condición de tener título para decir «Abogado» (Código Penal Federal, art. 250, verificado en el texto vigente de la Cámara de Diputados). (4) Voz real observada en dos posts públicos suyos (`cuenta/voz.md`) y perfil observado: 212 seguidores y 20 posts.
+- Archivos: `skills/linkedin-pro/scripts/{linkedin.py,test_linkedin.py}`, `skills/linkedin-pro/references/{perfil,pilares,redaccion,medicion}.md`, `skills/linkedin-pro/SKILL.md`, `ia/REGLAS.md`, `cuenta/{perfil.json,voz.md}`, `red/estado.json` y este registro.
+- Verificación: 71 pruebas → aprobado; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: repositorio (Muse); título y cédula para el titular; copia de datos de LinkedIn (Profile.csv y Shares.csv); nombres por vetar.
+
 ## 2026-11-13 · Segunda pasada de la auditoría
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: encargo del 13/11/2026: corregir todo lo que encuentre la auditoría independiente; el revisor volvió a atacar las correcciones.

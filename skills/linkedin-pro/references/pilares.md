@@ -30,7 +30,7 @@ Decididos por Emi el 13/11/2026. Cambiar cualquiera de estos puntos requiere su 
 ## Límites permanentes (valen para todo lo que salga en su perfil)
 
 1. **Nunca clientes ni asuntos** de ningún despacho, ni anonimizados. Un ejemplo hipotético o un asunto público con fuente se declara en `excepcion_limite`.
-2. **No nombrar a Castorena Abogados ni a sus licenciados.** `linkedin.py` marca cualquier aparición de «Castorena», también en hashtag, dominio o como apellido de otra persona: si se trata de alguien más, se reformula sin el apellido. Los nombres de los licenciados van en la lista privada `cuenta/privado/nombres-vetados.txt` (una línea por nombre; no se sube a GitHub).
+2. **No nombrar a Castorena Abogados ni a sus licenciados.** `linkedin.py` marca cualquier aparición de «Castorena», también en hashtag, dominio o como apellido de otra persona: si se trata de alguien más, se reformula sin el apellido. Los nombres de los licenciados se vetan con `linkedin.py vetar "Nombre Apellido"`, que guarda solo una huella en `cuenta/vetados.json`: el nombre nunca queda escrito en el repositorio público.
 3. **Sin ataques personales.**
 4. **Toda cita legal con fuente oficial verificada** (DOF, SCJN, Cámara de Diputados, órganos oficiales). Se marca `cita_legal: true` y se ponen los enlaces en `fuentes`.
 5. **Un post informa u opina, no asesora un caso concreto.** Nada de «en tu caso debes…».

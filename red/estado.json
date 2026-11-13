@@ -88,11 +88,6 @@
       "bloquea": "subir la skill"
     },
     {
-      "que": "Pasar capturas de su perfil completo (titular, Acerca de, experiencia, destacados) para la propuesta de perfil",
-      "desde": "2026-11-13",
-      "bloquea": "optimización del perfil"
-    },
-    {
       "que": "Material y postura para las dos primeras piezas",
       "desde": "2026-11-13",
       "bloquea": "primera semana"
@@ -101,6 +96,21 @@
       "que": "Elegir y reescribir el texto del post del video del DOF y mandar el enlace cuando salga",
       "desde": "2026-11-13",
       "bloquea": "anotar la primera pieza"
+    },
+    {
+      "que": "Bajar la copia de sus datos de LinkedIn y pasar solo Profile.csv y Shares.csv (sin contactos ni mensajes)",
+      "desde": "2026-11-13",
+      "bloquea": "propuesta de «Acerca de» y voz real"
+    },
+    {
+      "que": "Confirmar si ya tiene título y cédula de licenciado en Derecho, para poner «Abogado» en el titular sin riesgo",
+      "desde": "2026-11-13",
+      "bloquea": "titular"
+    },
+    {
+      "que": "Dar los nombres de los licenciados que no se nombran, para vetarlos por huella",
+      "desde": "2026-11-13",
+      "bloquea": "filtro de nombres"
     }
   ],
   "fuentes": {

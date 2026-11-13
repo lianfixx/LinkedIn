@@ -377,16 +377,42 @@ def nombres_vetados() -> list[str]:
     return [plano(l) for l in ruta.read_text(encoding="utf-8").splitlines() if plano(l) and not l.startswith("#")]
 
 
+VETADOS_PUBLICOS = "vetados.json"  # en cuenta/: solo huellas, nunca nombres en claro
+
+
+def huella_nombre(nombre: str) -> str:
+    return hashlib.sha256(("linkedin-pro|" + plano(nombre)).encode("utf-8")).hexdigest()
+
+
+def huellas_vetadas() -> set:
+    ruta = CUENTA / VETADOS_PUBLICOS
+    if not ruta.is_file():
+        return set()
+    d = leer_json(ruta)
+    return set(d.get("huellas", [])) if isinstance(d, dict) else set()
+
+
+def nombre_vetado_en(texto: str) -> bool:
+    """Busca en el texto, de 1 a 5 palabras seguidas, algún nombre cuya huella esté vetada."""
+    huellas = huellas_vetadas()
+    if not huellas:
+        return False
+    palabras = plano(texto).split()
+    for n in range(1, 6):
+        for i in range(len(palabras) - n + 1):
+            if huella_nombre(" ".join(palabras[i:i + n])) in huellas:
+                return True
+    return False
+
+
 def limites_emi(texto: str, excepcion: str, fuente_publica: bool) -> tuple[list[str], list[str]]:
     e: list[str] = []
     w: list[str] = []
     llano = plano(texto)
     if re.search(DESPACHO_VETADO, llano):
         e.append("límite de Emi («Castorena»): ese despacho y sus licenciados no se nombran, tampoco en hashtag o dominio")
-    for nombre in nombres_vetados():
-        if re.search(rf"\b{re.escape(nombre)}\b", llano):
-            e.append("límite de Emi: aparece un nombre de la lista privada de nombres vetados")
-            break
+    if nombre_vetado_en(texto) or any(re.search(rf"\b{re.escape(n)}\b", llano) for n in nombres_vetados()):
+        e.append("límite de Emi: aparece un nombre vetado (cuenta/vetados.json o la lista privada)")
     for patron in ASUNTOS_DUROS:
         m = re.search(patron, texto, 0 if patron.startswith(r"\b[Cc]") else re.I)
         if m and not (excepcion and fuente_publica):
@@ -951,6 +977,21 @@ def cmd_balance(a) -> int:
     return 0
 
 
+def cmd_vetar(a) -> int:
+    """Veta un nombre guardando solo su huella: el repositorio público nunca lo muestra en claro."""
+    if not es_texto(a.nombre) or len(plano(a.nombre).split()) > 5:
+        raise Falla("nombre: de 1 a 5 palabras (nombre y apellidos, o solo el apellido si es poco común)")
+    ruta = CUENTA / VETADOS_PUBLICOS
+    d = leer_json(ruta) if ruta.is_file() else {"nota": "Huellas SHA-256 de nombres que nunca se publican. Se añaden con «linkedin.py vetar». No contiene nombres.", "huellas": []}
+    h = huella_nombre(a.nombre)
+    if h not in d["huellas"]:
+        d["huellas"].append(h)
+        d["huellas"].sort()
+    escribir_json(ruta, d)
+    print(f"Vetado ({len(d['huellas'])} en total). El nombre no se guardó, solo su huella.")
+    return 0
+
+
 def cmd_aprender(a) -> int:
     if not es_texto(a.texto):
         raise Falla("la lección está vacía")
@@ -1233,6 +1274,9 @@ def main(argv: list[str] | None = None) -> int:
     s.set_defaults(f=cmd_metricas)
     s = sub.add_parser("balance")
     s.set_defaults(f=cmd_balance)
+    s = sub.add_parser("vetar", help="veta un nombre guardando solo su huella")
+    s.add_argument("nombre")
+    s.set_defaults(f=cmd_vetar)
     s = sub.add_parser("aprender")
     s.add_argument("texto")
     s.set_defaults(f=cmd_aprender)

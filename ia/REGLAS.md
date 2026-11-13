@@ -8,10 +8,11 @@ Valen igual en Claude, ChatGPT, Codex, Gemini o cualquier otra IA, y para person
 
 - Intentar iniciar sesión en LinkedIn desde box, una máquina virtual o cualquier otro entorno (regla de Emi tras los bloqueos de X del 10 y 11/11/2026).
 - Publicar, programar o interactuar en LinkedIn (reaccionar, comentar, compartir, invitar, mandar mensajes, seguir) por Emi, o usar extensiones, bots o scraping de perfiles, posts o datos de miembros (además, el Acuerdo de usuario de LinkedIn lo prohíbe, §8.2).
-- Única lectura automática permitida, **pendiente de que Emi la confirme**: una vez por semana, la tarea de revisión de fuentes descarga sin sesión las páginas públicas citadas en `data/fuentes.json` (Centro de ayuda, `/legal`, comunicados y blog de ingeniería; unas 50 páginas) para comprobar sus frases marca. GitHub no las descarga. Si Emi dice que no, se leen a mano.
+- Única lectura automática permitida (autorizada por Emi el 13/11/2026): una vez por semana, la tarea de revisión de fuentes descarga sin sesión las páginas públicas citadas en `data/fuentes.json` (Centro de ayuda, `/legal`, comunicados y blog de ingeniería; unas 50 páginas) para comprobar sus frases marca. GitHub no las descarga. 
 - Correr `linkedin.py aprobar` (o usar `--reescrito`) o escribir a mano `aprobado_por_emi`, `aprobado_huella` o `reescrito` sin que Emi haya aprobado y hecho suya esa pieza. La huella detecta cambios, pero cualquiera puede calcularla: la compuerta depende de que ninguna IA la falsifique.
 - Anotar con `--leidas-a-mano` una fuente que no se leyó de verdad.
 - Publicar texto crudo de una IA, o inventar vivencias, opiniones, cifras, citas o pesos del algoritmo.
+- Escribir en el repositorio nombres vetados en claro: se vetan con `linkedin.py vetar`, que guarda solo una huella.
 - Decir en cualquier pieza que la hizo, armó o editó una IA (regla absoluta de Emi, 13/11/2026), o publicar medios sintéticos que muestren a una persona real diciendo o haciendo algo que no hizo.
 - Afirmar algo sobre cómo funciona LinkedIn sin su certeza («oficial», «de terceros» o «criterio») y su fuente.
 - Mencionar clientes o asuntos de cualquier despacho, ni siquiera anonimizados; nombrar a Castorena Abogados o a sus licenciados; atacar a personas.
@@ -32,7 +33,7 @@ Valen igual en Claude, ChatGPT, Codex, Gemini o cualquier otra IA, y para person
 - Publicar en LinkedIn un video de un espacio de Vox Studio, o cualquier video del espacio `personal` (su tono es otro).
 - Publicar sobre candidatos o partidos en periodo electoral.
 - Cambiar estas reglas, los workflows o el protocolo.
-- Fusionar a `main` cambios de contenido, o abrir un pull request. Excepciones: (1) la tarea semanal de fuentes puede abrir su pull request cuando algo cambió, nunca fusionarlo; (2) cuando no cambió nada, puede subir a `main` solo el sello de fecha (`data/fuentes.json`), `red/estado.json` regenerado y su entrada de `CHANGELOG.md`, por la regla general de Emi de que todo se actualice solo (11/11/2026). Esta segunda excepción está pendiente de que Emi la confirme; si dice que no, se quita.
+- Fusionar a `main` cambios de contenido, o abrir un pull request. Excepciones: (1) la tarea semanal de fuentes puede abrir su pull request cuando algo cambió, nunca fusionarlo; (2) cuando no cambió nada, puede subir a `main` solo el sello de fecha (`data/fuentes.json`), `red/estado.json` regenerado y su entrada de `CHANGELOG.md`, por la regla general de Emi de que todo se actualice solo (11/11/2026). Emi autorizó esta segunda excepción el 13/11/2026.
 - Enviar la petición de `puente/PETICION-vox.md` a Vox Studio.
 
 ## Qué del protocolo común no aplica aquí

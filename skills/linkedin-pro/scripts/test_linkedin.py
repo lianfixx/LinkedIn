@@ -439,8 +439,15 @@ class Auditoria(Base):
     def test_h14_nombres_vetados(self):
         (self.tmp / "cuenta" / "privado").mkdir()
         (self.tmp / "cuenta" / "privado" / "nombres-vetados.txt").write_text("# privado\nFulano Pérez\n", encoding="utf-8")
-        self.assertTrue(any("vetados" in x for x in self.errores(texto="Hoy aprendí de FULANO PEREZ algo útil.")))
-        self.assertFalse(any("vetados" in x for x in self.errores()))
+        self.assertTrue(any("vetado" in x for x in self.errores(texto="Hoy aprendí de FULANO PEREZ algo útil.")))
+        self.assertFalse(any("vetado" in x for x in self.errores()))
+
+    def test_vetar_por_huella(self):
+        self.assertEqual(self.correr("vetar", "Mengano Zutánez")[0], 0)
+        texto = (self.tmp / "cuenta" / "vetados.json").read_text(encoding="utf-8")
+        self.assertNotIn("Mengano", texto)
+        self.assertTrue(any("vetado" in x for x in self.errores(texto="Gracias al Lic. MENGANO ZUTANEZ por la clase.")))
+        self.assertFalse(any("vetado" in x for x in self.errores(texto="Gracias a Mengano por la clase.")))
 
     def test_h15_clientes(self):
         for t in ("Mi representado ganó el amparo la semana pasada.", "Un caso que llevé me enseñó a revisar plazos."):
