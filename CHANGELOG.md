@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-13 · Estilo de láminas y tono aprobados por Emi
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 13/11/2026, en el chat de Claude Code, sobre la muestra nueva de láminas: «en vez de poner mi nombre pon solo MILLA y recuerda que no deben dar hueva leer, polémicas, con algo de humor, pero serias, creíbles, profesionales y que generen interacción. HASTA AHORA ESTÁN PERFECTAS EN ESTA PRIMERA VERSIÓN».
+- Cambios: tres correcciones de Emi anotadas en `cuenta/voz.md` (estilo base de láminas, firma «MILLA», tono de toda pieza). Las láminas (6, sobre la Ley de Economía Digital para Pagos Digitales y Electrónicos, con los arts. 13, 15 y 16 y el transitorio tercero citados del DOF) quedan en `cuenta/privado/`, sin subir.
+- Archivos: `cuenta/voz.md` y este registro.
+- Verificación: `python3 ia/verificar.py ci` → aprobado; textos citados cotejados con dof.gob.mx el 13/11/2026.
+- Pendiente: texto del post de las láminas, aprobación de Emi y fecha (semana 47).
+
 ## 2026-11-13 · Primer post publicado: video del DOF (pagos digitales); Panel leído
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 13/11/2026, en el chat de Claude Code: «trata de conectar con el panel por favor, tienes mi autorización de todo. Y sí publica».

@@ -29,4 +29,6 @@ Leído el 13/11/2026 en dos posts públicos suyos sobre la Reunión Anual de Enl
 
 ## Correcciones de Emi
 
-(vacío: añadir aquí cada corrección con fecha y el antes y después)
+- **13/11/2026 · Láminas (documento PDF).** Antes: muestra de 8 láminas con tableros de ejemplo, tarjetas, degradados y el lema repetido en cada página («horribles… se ven extremadamente IA»). Después, aprobado como estilo base («HASTA AHORA ESTÁN PERFECTAS EN ESTA PRIMERA VERSIÓN»): aspecto de documento impreso (fondo papel, letra con serifa, un solo color de acento), una idea por lámina, la norma citada tal cual con la frase clave subrayada en amarillo, captura real de la fuente oficial y nada de pantallas inventadas.
+- **13/11/2026 · Firma de las láminas.** Antes: «Emiliano García Milla». Después: solo **MILLA**. Es firma, no captación: la lámina no ofrece servicios.
+- **13/11/2026 · Tono de toda pieza.** En palabras de Emi: que no dé hueva leerla; polémica, con algo de humor, pero seria, creíble y profesional, y que genere interacción. En la práctica: títulos que toman postura, una línea con humor por pieza a lo mucho (por ejemplo, «Sí: cheque. En 2026.»), el dato duro siempre con fuente y una pregunta final que invite a opinar, no «comenta X».
