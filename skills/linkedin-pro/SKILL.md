@@ -21,7 +21,7 @@ Lo que «todo el mundo dice» sin sustento va a [mitos.md](references/mitos.md).
 
 ## Reglas que no se rompen
 
-1. **Emi aprueba cada pieza y es él quien la publica.** La IA entrega el texto aprobado listo para copiar, con fecha y hora. Ninguna IA inicia sesión en LinkedIn, publica, programa, reacciona, comenta, invita ni manda mensajes por él. Las métricas llegan por captura.
+1. **Emi aprueba cada pieza y es él quien la publica.** La IA entrega el texto aprobado listo para copiar, con fecha y hora. La sesión de LinkedIn está en box (la abrió Emi el 13/11/2026): sirve para **leer** su perfil, posts y estadísticas a ritmo de persona. Ninguna IA publica, programa, reacciona, comenta, invita, manda mensajes ni edita el perfil sin su orden expresa para esa acción. Nunca se pide ni se escribe su contraseña.
 2. **La IA propone, Emi reescribe.** No se inventan vivencias, opiniones, cifras ni citas. **Jamás se dice que una pieza o herramienta la hizo una IA**: las construyó él; sí se nombra la IA que usa.
 3. **Nada sobre el algoritmo sin certeza y fuente.** No se inventan pesos ni porcentajes.
 4. **Límites de Emi**: nunca clientes ni asuntos, no nombrar a Castorena ni a sus licenciados, sin ataques personales, toda cita legal con fuente oficial verificada, un post informa u opina y no asesora un caso. Detalle en [pilares.md](references/pilares.md).
@@ -32,7 +32,7 @@ Lo que «todo el mundo dice» sin sustento va a [mitos.md](references/mitos.md).
 
 ## Estado de la cuenta
 
-Al 13/11/2026, lo que se ve sin sesión (ficha pública en Google): titular «Abogado en Formación | Enlace Universitario Banxico 2026», más de 180 seguidores y 192 contactos (`cuenta/perfil.json`). Ninguna IA puede ver el perfil completo ni las estadísticas: lo trae Emi con capturas. Lo primero es la [propuesta de perfil](references/perfil.md); se puede redactar desde ya.
+Visto con la sesión de Emi en box el 13/11/2026 (`cuenta/perfil.json`): titular «Abogado en Formación | Enlace Universitario Banxico 2026», 212 seguidores, 215 contactos, 20 posts. Últimos 365 días: 2,874 impresiones y 47 interacciones (38 reacciones, 2 comentarios, 6 guardados, 1 envío). El «Acerca de» dice «Licenciado en Derecho» y la experiencia actual dice «Pasante»: hay que aclararlo antes del titular nuevo ([perfil.md](references/perfil.md)).
 
 ## Qué leer según el encargo
 

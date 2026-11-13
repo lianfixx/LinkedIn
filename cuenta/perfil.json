@@ -6,10 +6,25 @@
     "fecha": "2026-11-13",
     "titular": "Abogado en Formación | Enlace Universitario Banxico 2026",
     "seguidores": 212,
-    "contactos": 192,
-    "ubicacion": "Área metropolitana de Ciudad de México",
-    "fuente": "páginas públicas de sus posts en LinkedIn (sin sesión) y ficha de Google; titular aún «Abogado en Formación | Enlace Universitario Banxico 2026»",
-    "posts": 20
+    "contactos": 215,
+    "posts": 20,
+    "acerca_de": "empieza «Licenciado en Derecho cursando actualmente la Maestría en Alta Dirección»; menciona experiencia judicial, legislativa y corporativa, Enlace Universitario Banxico 2026 y MILLA ABOGADOS como proyecto fundador",
+    "experiencia": "actual: pasante en un despacho (no se nombra) y servicio social en el Senado; antes: auxiliar de litigio, becario notarial, becario legal en una empresa, auxiliar de secretario de acuerdos en el Poder Judicial de la CDMX",
+    "destacados": "4: post de la Reunión de Enlaces Banxico, constancia de un programa de formación política de otro partido, un post sobre stickers y violencia digital, visita al TEPJF",
+    "panel_7_dias": {
+      "visualizaciones_perfil": 47,
+      "apariciones_busqueda": 13
+    },
+    "analitica_365_dias": {
+      "impresiones": 2874,
+      "interacciones": 47,
+      "reacciones": 38,
+      "comentarios": 2,
+      "compartidos": 0,
+      "guardados": 6,
+      "envios": 1
+    },
+    "fuente": "perfil y Análisis de contenido con la sesión de Emi en box, 13/11/2026"
   },
   "objetivos": [
     "autoridad profesional en IA + Derecho",
@@ -41,7 +56,7 @@
   "zona_horaria": "America/Mexico_City (UTC-6)",
   "revision_fuentes": "semanal",
   "modo": "la IA entrega cada pieza aprobada lista para copiar con fecha y hora; Emi la publica; las métricas las pasa Emi con capturas",
-  "sesion": "ninguna IA inicia sesión en LinkedIn (regla de Emi tras los bloqueos de X del 10 y 11/11/2026)",
+  "sesion": "sesión de LinkedIn abierta por Emi en box «main» el 13/11/2026; solo lectura salvo orden expresa",
   "minutos_emi_por_pieza": {
     "texto": 10,
     "imagen": 15,

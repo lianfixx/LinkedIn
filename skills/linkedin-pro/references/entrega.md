@@ -2,7 +2,7 @@
 
 ## Modo vigente
 
-**Ninguna IA inicia sesión en LinkedIn.** En X, la plataforma bloqueó el inicio de sesión desde las computadoras en la nube que usan las IA de Emi el 10 y el 11/11/2026, y Emi prohibió reintentarlo; la misma regla vale aquí desde el primer día. Además, el Acuerdo de usuario de LinkedIn (§8.2, vigente desde el 3/11/2025) prohíbe usar bots o métodos automatizados no autorizados para crear, comentar, reaccionar o compartir publicaciones, y prohíbe el scraping. Por eso:
+**Sesión en box, solo para leer.** La sesión de LinkedIn vive en la computadora virtual de Emi (box «main»): Emi la abrió él mismo el 13/11/2026 y pidió que se use. Ahí una IA puede **leer** su perfil, sus posts y sus estadísticas, a ritmo de persona. **No** publica, programa, reacciona, comenta, invita, manda mensajes ni edita el perfil sin una orden expresa de Emi para esa acción concreta. Nunca se escribe ni se pide su contraseña: si la sesión se cae, Emi la vuelve a abrir en box. El Acuerdo de usuario de LinkedIn (§8.2, vigente desde el 3/11/2025) prohíbe usar bots o métodos automatizados no autorizados para crear, comentar, reaccionar o compartir publicaciones, y prohíbe el scraping; por eso la lectura es puntual y nada se automatiza. Por eso:
 
 1. La IA prepara la pieza, Emi la reescribe y la aprueba, sola o en el paquete semanal (`linkedin.py aprobar … --reescrito`).
 2. La IA la entrega lista para copiar con `linkedin.py entregar ARCHIVO ID`: fecha, hora del centro de México, formato, archivo adjunto si lo hay y el texto exacto.
@@ -35,4 +35,4 @@ TEXTO:
 
 ## Lo que la IA nunca hace
 
-Iniciar sesión, publicar, programar, reaccionar, comentar, enviar invitaciones o mensajes, ni usar extensiones o herramientas que lo hagan por él. Herramientas de programación de socios de LinkedIn (Buffer, Hootsuite y otras) solo si Emi lo decide y las conecta él mismo; esta skill no las configura.
+Publicar, programar, reaccionar, comentar, enviar invitaciones o mensajes, ni usar extensiones o herramientas que lo hagan por él. Herramientas de programación de socios de LinkedIn (Buffer, Hootsuite y otras) solo si Emi lo decide y las conecta él mismo; esta skill no las configura.
