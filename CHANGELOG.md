@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-13 · Publicación en GitHub
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 13/11/2026: el repositorio `lianfixx/LinkedIn` ya existe (creado por Emi con Muse, con un README inicial).
+- Cambios: se integró la historia completa de linkedin-pro sobre el commit inicial del repositorio (el README inicial queda sustituido por el de la skill) y se subió a `main`.
+- Archivos: todos los del repositorio.
+- Verificación: `python3 ia/verificar.py ci` → aprobado antes del push; workflow «Control de la skill» en GitHub → ver la entrada siguiente o la pestaña Actions.
+- Pendiente: tarea semanal de revisión de fuentes; registro del repositorio en esta sesión.
+
 ## 2026-11-13 · Sesión de LinkedIn en box (solo lectura) y línea base del perfil
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 13/11/2026, en el chat de Claude Code: «Intenta sí o sí iniciar con box, hazlo»; abrió él mismo la sesión en box «main» («listo»). Sobre nombres vetados: «de nadie».
