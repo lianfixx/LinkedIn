@@ -55,16 +55,30 @@ Encontró 37 hallazgos (9 altos, 17 medios y 11 bajos) y confirmó 36 afirmacion
 | H-36 | Dos artículos Pulse dan 403 al auditor. | Esta sesión sí los leyó y encontró sus frases marca; queda la nota en `fuentes.json`. |
 | H-37 | La conclusión sobre los informes DSA iba como [oficial]. | Ahora va como [oficial] [criterio]. |
 
-## 3. Control final
+## 3. Segunda pasada
+
+El mismo revisor volvió a atacar las correcciones en un clon nuevo. Confirmó que ya no se reproducen H-9 a H-17, H-21 a H-25 ni H-29, y que las afirmaciones corregidas coinciden con sus fuentes. Encontró siete puntos más, todos corregidos y con prueba (clase `Reverificacion`):
+
+| # | Hallazgo | Corrección |
+|---|---|---|
+| E-1 | «Comenta si te ha pasado algo parecido» y «Dale like a las ideas, no a las personas» salían como anzuelo. | Ya no. Invitar a comentar una experiencia no es anzuelo. |
+| E-2 | Pasaban «Comenta GUÍA 👇 y te llega por inbox», «Escribe 'PDF' en comentarios para recibirla» y «Like si coincides». | Detectados. |
+| E-3 | Pasaba «Si necesitas un abogado, aquí estoy». Salían como captación «te puedo ayudar a entender la reforma» y un precio del mercado. | Detectado el primero. El precio de un servicio es error si no dice de quién y aviso si describe el mercado («los despachos cobran…»). |
+| E-4 | Pasaban «un asunto que atendí» y «le ayudé con su caso». | Detectados. |
+| E-5 | `publicado` aceptaba una fecha anterior a la aprobación. | Rechazada. Se acepta que la compuerta sea de honor (documentado). |
+| E-6 | `sellar --leidas-a-mano` no registraba quién leyó. | Exige `--lector` y guarda quién y cuándo. |
+| E-7 | Certeza de una fila de mitos; el apellido Castorena en otras personas. | Corregida la etiqueta; documentado que cualquier aparición se reformula. |
+
+## 4. Control final
 
 | Control | Resultado |
 |---|---|
-| `python3 -m unittest discover -s skills/linkedin-pro/scripts -p 'test_*.py'` | Aprobado: 65 pruebas, con Python 3.13 y 3.9. |
+| `python3 -m unittest discover -s skills/linkedin-pro/scripts -p 'test_*.py'` | Aprobado: 70 pruebas, con Python 3.13 y 3.9. |
 | `python3 ia/verificar.py ci` | Aprobado, con Python 3.13 y 3.9. |
 | `linkedin.py fuentes revisar --red` | Sin cambios: las 54 fuentes con sus frases marca. |
 | Workflows de GitHub | Ver la entrada de `CHANGELOG.md` del primer push. |
 
-## 4. Lo que no se pudo probar
+## 5. Lo que no se pudo probar
 
 - **El perfil real.** LinkedIn pide sesión. Solo se vio la ficha pública que muestra Google.
 - **Publicaciones y métricas.** Todavía no hay ninguna pieza publicada ni corregida por Emi. La voz es candidata.

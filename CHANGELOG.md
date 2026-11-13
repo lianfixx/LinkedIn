@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-13 · Segunda pasada de la auditoría
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: encargo del 13/11/2026: corregir todo lo que encuentre la auditoría independiente; el revisor volvió a atacar las correcciones.
+- Cambios: siete hallazgos más (E-1 a E-7, en `docs/AUDITORIA-2026-11-13.md`): menos falsos positivos de anzuelo y captación, nuevos anzuelos y fórmulas de captación y de clientes detectados, precio de servicio como error salvo que describa el mercado, `publicado` no acepta fechas anteriores a la aprobación, `sellar --leidas-a-mano` exige `--lector` y guarda quién y cuándo, etiqueta de certeza corregida y apellido Castorena documentado.
+- Archivos: `skills/linkedin-pro/scripts/{linkedin.py,test_linkedin.py}`, `skills/linkedin-pro/references/{mitos,pilares,prompts}.md`, `skills/linkedin-pro/SKILL.md`, `docs/AUDITORIA-2026-11-13.md`, `red/estado.json` y este registro.
+- Verificación: 70 pruebas → aprobado con Python 3.13 y 3.9; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: los de la entrada «correcciones de la auditoría».
+
 ## 2026-11-13 · Regla de Emi sobre la IA y post del video del DOF
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: respuestas de Emi del 13/11/2026 retransmitidas por la sesión «Matriz de Redes»: regla absoluta «Jamás en nada digas que lo armó una IA»; colores, estilo, nombrar las IA que usa, sin enlace a GitHub, cierre para equipos legales; video del DOF con subtítulos y urgencia de publicarlo hoy.

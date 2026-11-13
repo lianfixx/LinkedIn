@@ -64,8 +64,8 @@ búscala por su título) y compárala con lo que afirman references/feed.md,
 formatos.md, mitos.md y perfil.md. Busca además comunicados nuevos de LinkedIn
 (news.linkedin.com, blog de ingeniería, Centro de ayuda) sobre el feed, los formatos,
 la IA o el spam desde la fecha de «verificado».
-- Si nada cambió: «linkedin.py fuentes sellar --red» (con «--leidas-a-mano ID,ID» solo
-  para las que de verdad leíste tú), «linkedin.py estado», registra en CHANGELOG.md
+- Si nada cambió: «linkedin.py fuentes sellar --red» (con «--leidas-a-mano ID,ID --lector "Claude, tarea semanal"»
+  solo para las que de verdad leíste tú), «linkedin.py estado», registra en CHANGELOG.md
   y sube a main solo data/fuentes.json, red/estado.json y CHANGELOG.md.
 - Si algo cambió: corrige las afirmaciones afectadas con su certeza, actualiza
   data/limites.json si cambió un límite, corre «python3 ia/verificar.py ci» y abre un

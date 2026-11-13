@@ -569,11 +569,39 @@ class ReglaIA(Base):
         for t in ("Este video lo hizo una IA.", "Imagen generada con IA.", "Post escrito con ChatGPT.",
                   "La herramienta la armó Claude por mí.", "Contenido creado con inteligencia artificial."):
             self.assertTrue(any("regla de Emi" in x for x in self.errores(texto=t)), t)
-        for t in ("Uso Claude para leer y resumir el DOF.", "Construí un monitor del DOF; lo trabajo con Claude."):
+        for t in ("Uso Claude para leer y resumir el DOF.", "Construí un monitor del DOF; lo trabajo con Claude.",
+                  "Creo que la IA reemplaza tareas, no criterio."):
             self.assertFalse(any("regla de Emi" in x for x in self.errores(texto=t)), t)
 
     def test_persona_sintetica(self):
         self.assertTrue(any("sintéticos" in x for x in self.errores(persona_real_sintetica=True)))
+
+
+class Reverificacion(Base):
+    """Sección E de la auditoría: falsos positivos y negativos tras las primeras correcciones."""
+
+    def test_e1_e2_anzuelos(self):
+        for t in ("Comenta si te ha pasado algo parecido en tu práctica.", "Dale like a las ideas, no a las personas."):
+            self.assertFalse(any("anzuelo" in x for x in self.errores(texto=t)), t)
+        for t in ("Comenta GUÍA 👇 y te llega por inbox.", "Escribe 'PDF' en comentarios para recibirla.", "Like si coincides."):
+            self.assertTrue(any("anzuelo" in x for x in self.errores(texto=t)), t)
+
+    def test_e3_e4_captacion_y_clientes(self):
+        self.assertTrue(any("captación" in x for x in self.errores(texto="Si necesitas un abogado, aquí estoy.")))
+        for t in ("Hoy te puedo ayudar a entender la reforma.", "Hay despachos que cobran $5,000 por consulta."):
+            self.assertFalse(any("captación" in x for x in self.errores(texto=t)), t)
+        self.assertTrue(any("precio" in x for x in self.avisos(texto="Hay despachos que cobran $5,000 por consulta.")))
+        for t in ("Un asunto que atendí en el juzgado me marcó.", "Le ayudé con su caso a un amigo."):
+            self.assertTrue(any("límite" in x for x in self.errores(texto=t)), t)
+
+    def test_e5_publicado_antes_de_aprobar(self):
+        b = copy.deepcopy(BASE) | {"fecha": futuro(), "hora": "09:00"}
+        ruta = self.archivo([b])
+        self.correr("aprobar", str(ruta), "t-1", "--medio", "chat", "--reescrito", "--sin-x")
+        ayer = (L.ahora().date() - dt.timedelta(days=1)).isoformat()
+        code, out = self.correr("publicado", str(ruta), "t-1", "--url", "https://www.linkedin.com/posts/x-1",
+                                "--fecha", ayer, "--hora", "10:00")
+        self.assertEqual(code, 2, out)
 
 
 class Sellar(unittest.TestCase):
@@ -601,7 +629,8 @@ class Sellar(unittest.TestCase):
         L.descargar = lambda url: ("<p>hola, texto nuevo</p>", "")
         self.assertEqual(self.correr("fuentes", "sellar", "--red")[0], 1)
         self.assertEqual(json.loads(self.ruta.read_text())["verificado"], "2026-01-01")
-        self.assertEqual(self.correr("fuentes", "sellar", "--red", "--leidas-a-mano", "a")[0], 0)
+        self.assertEqual(self.correr("fuentes", "sellar", "--red", "--leidas-a-mano", "a")[0], 1)  # falta --lector
+        self.assertEqual(self.correr("fuentes", "sellar", "--red", "--leidas-a-mano", "a", "--lector", "prueba")[0], 0)
         d = json.loads(self.ruta.read_text())
         self.assertNotEqual(d["verificado"], "2026-01-01")
         self.assertTrue(d["fuentes"][0]["leida_a_mano"])

@@ -58,12 +58,15 @@ _EMOJI = "[\U0001F300-\U0001FAFF☀-➿⭐❤]"
 _PIDE = r"(?:comenta|comenten|escribe|escriban|pon|pongan|responde|respondan|deja|dejen|d[eé]ja(?:me|nos)|d[eé]jenme)"
 _DOY = r"(?:mando|paso|env[ií]o|regalo|comparto)"
 ANZUELOS = [
-    r"\b(?:dale|denle|deja|dejen|regala|regalen|da|den)\s+(?:un\s+|tu\s+|su\s+)?(?:like|me gusta|reacci[oó]n)\b",
-    rf"\b{_PIDE}\s+(?:la\s+palabra\s+|con\s+)?[\"«“'‘]?[A-Za-zÁÉÍÓÚÑáéíóúñ0-9]{{1,20}}[\"»”'’]?\s+(?:y|para|si)\s",
+    rf"\b(?:dale|denle|deja|dejen|regala|regalen|da|den)\s+(?:un\s+|tu\s+|su\s+)?(?:like|me gusta|reacci[oó]n)\s*"
+    rf"(?:$|[.!]|{_EMOJI}|si\b|para\b|y\s+(?:te|comparte|comenta|s[ií]gueme))",
+    r"(?:^|[.!?¿¡\n]\s*)like\s+si\b",
+    rf"\b{_PIDE}\s+(?:la\s+palabra\s+|con\s+)?[\"«“'‘]?[A-Za-zÁÉÍÓÚÑáéíóúñ0-9]{{1,20}}[\"»”'’]?\s*"
+    rf"(?:{_EMOJI}\ufe0f?\s*)?(?:(?:abajo|aqu[ií]|en\s+(?:los\s+)?comentarios)\s+)?(?:y|para|si)\s",
     rf"\b(?:{_PIDE}|reacciona|reaccionen|comparte|compartan|dale|denle)\b[^.\n]{{0,45}}\by\s+(?:te|les)\s+(?:l[oa]s?\s+)?{_DOY}\b",
     rf"\b(?:reacciona|reaccionen)\s+con\s+(?:un\s+|el\s+)?(?:emoji|{_EMOJI})",
     rf"{_EMOJI}️?\s*si\s+(?:est[aá]s|crees|piensas|te|eres|has|opinas)\b",
-    r"(?:^|[.!?¿¡\n]\s*)(?:dale like|comparte|compartan|comenta|comenten|reacciona|reaccionen)\s+si\b",
+    r"(?:^|[.!?¿¡\n]\s*)(?:dale like|comparte|compartan|reacciona|reaccionen)\s+si\b",
     r"\bsi\s+est[aá]s?\s+de\s+acuerdo,?\s+(?:dale|reacciona|comenta|comparte|escribe|pon)\b",
     r"(?:^|[.!?¿¡\n]\s*)etiqueta(?:n)?\s+a\s+(?:ese|esa|tu|tus|un|una|alguien|quien|aquel|aquella|\d|tres|dos)",
     rf"\b(?:con[eé]ctate|conecta|agr[eé]game|s[ií]gueme)\b[^.\n]{{0,30}}\by\s+te\s+{_DOY}\b",
@@ -78,15 +81,17 @@ CAPTACION = [
     r"\bagend[ae]n?\s+(?:tu|su|una)\s+(?:cita|consulta|asesor[ií]a|llamada)\b",
     r"\b(?:primera\s+)?(?:consulta|asesor[ií]a)\s+(?:gratis|gratuita|sin\s+costo)\b",
     r"\bcontr[aá]t(?:a|e|en)(?:me|nos)\b",
-    r"\b(?:te|les)\s+puedo\s+ayudar\b|\bpuedo\s+ayudarte\b|\bte\s+ayudo\s+con\s+tu\b",
+    r"\b(?:te|les)\s+puedo\s+ayudar\b(?!\s+a\s+(?:entender|comprender|ver|leer|ubicar))|\bpuedo\s+ayudarte\b(?!\s+a\s+(?:entender|comprender))|\bte\s+ayudo\s+con\s+tu\b",
+    r"\bsi\s+necesitas\s+(?:un[ao]?\s+)?(?:abogad[oa]|asesor[ií]a|ayuda\s+legal|defensa)\b",
     r"\b(?:escr[ií]beme|m[aá]ndame|env[ií]ame|escr[ií]banme)\b[^.\n]{0,40}\b(?:caso|asesor\w*|consulta\w*|demanda|despido|divorcio|problema)\b",
     r"\b(?:escr[ií]beme|m[aá]ndame\s+(?:un\s+)?mensaje|m[aá]ndame\s+dm)\b[^.\n]{0,40}\by\s+(?:lo\s+vemos|lo\s+revisamos|te\s+oriento|te\s+asesoro)\b",
     r"\batiendo\s+(?:asuntos|casos|juicios|demandas)\b|\btomo\s+(?:asuntos|casos)\b",
     r"\b(?:mis|nuestros)\s+honorarios\b|\bhonorarios\s+(?:accesibles|bajos|desde|preferenciales|justos|competitivos)\b",
-    rf"\b{_SERVICIO}\b[^.\n]{{0,40}}(?:\$|mxn)\s?\d|(?:\$|mxn)\s?\d[\d,.]*[^.\n]{{0,40}}\b{_SERVICIO}\b",
     r"\bcotiza(?:ci[oó]n)?\s+(?:sin|gratis)\b",
     r"(?:\$|mxn)\s?\d[\d,.]*\s*(?:\+\s*iva|m[aá]s\s+iva)\b",
 ]
+PRECIO_SERVICIO = rf"\b{_SERVICIO}\b[^.\n]{{0,40}}(?:\$|mxn)\s?\d|(?:\$|mxn)\s?\d[\d,.]*[^.\n]{{0,40}}\b{_SERVICIO}\b"
+TERCEROS_COBRAN = r"\b(?:cobran|cobra\s+(?:un|el|la)|despachos|abogados|firmas|el\s+mercado|en\s+promedio|suelen|t[ií]picamente)\b"
 ESCRIBEME = r"\b(?:escr[ií]beme|m[aá]ndame\s+(?:un\s+)?(?:mensaje|dm|inbox))\b"
 MILLA = r"\bmilla\s+abogados\b"
 ASESORIA = r"\ben\s+tu\s+caso\s+(?:debes|tienes\s+que|te\s+conviene|lo\s+mejor\s+es)\b"
@@ -100,7 +105,8 @@ ASUNTOS_DUROS = [
 ASUNTOS = [
     r"\b(?:mis?|nuestr[oa]s?|un|una|unos|unas|ese|esa|este|esta)\s+client[ea]s?\b",
     r"\b(?:mis?|nuestr[oa]s?)\s+(?:representad[oa]s?|patrocinad[oa]s?|quejos[oa]s?|asuntos?)\b",
-    r"\bun\s+(?:caso|asunto|juicio)\s+que\s+(?:llev[eé]|llevamos|llevo|tuve|tuvimos|gan[eé]|perd[ií])\b",
+    r"\bun\s+(?:caso|asunto|juicio)\s+que\s+(?:llev[eé]|llevamos|llevo|tuve|tuvimos|gan[eé]|perd[ií]|atend[ií]|atendimos|vi)\b",
+    r"\b(?:le|les)\s+ayud[eé]\s+con\s+su\s+(?:caso|asunto|demanda|juicio|divorcio|despido)\b",
     r"\ben el despacho\s+(?:llevamos|tenemos|vimos|lleg[oó]|atendimos|ganamos|perdimos)\b",
 ]
 CLIENTES_TERCEROS = r"\b(?:el|la|los|las)\s+client[ea]s?\b"
@@ -535,6 +541,13 @@ def revisar(b, historial: list[dict], cfg: dict, para: str = "") -> tuple[list[s
                          "(cuenta/perfil.json, captacion_milla)")
                 break
         else:
+            m = buscar(PRECIO_SERVICIO, todo)
+            if m and buscar(TERCEROS_COBRAN, todo):
+                w.append(f"«{m.group(0).strip()}»: precio junto a un servicio; confirmar que describe el mercado y no "
+                         "ofrece servicios de Emi")
+            elif m:
+                e.append(f"captación («{m.group(0).strip()}»): precio de un servicio sin decir de quién; si describe el "
+                         "mercado, decirlo («los despachos cobran…»)")
             m = buscar(ESCRIBEME, todo)
             if m:
                 w.append(f"«{m.group(0)}»: invitar a escribir está bien para conversar o colaborar; confirmar que no "
@@ -877,6 +890,8 @@ def cmd_publicado(a) -> int:
         raise Falla("fecha u hora de publicación inválidas (--fecha AAAA-MM-DD --hora HH:MM)")
     if dt.datetime.fromisoformat(f"{fecha}T{hora}").replace(tzinfo=MX) > ahora() + dt.timedelta(minutes=5):
         raise Falla("la fecha de publicación es futura: se anota cuando Emi confirma que ya salió")
+    if fecha < str(p.get("aprobado_por_emi", ""))[:10]:
+        raise Falla("la fecha de publicación es anterior a la aprobación de Emi")
     filas = publicados()
     if any(f.get("id") == p["id"] for f in filas):
         raise Falla(f"«{p['id']}» ya está anotado como publicado")
@@ -1042,9 +1057,12 @@ def cmd_fuentes(a) -> int:
             print("No se sella: hay cambios, fuentes sin leer o páginas con texto distinto. Leerlas, corregir lo que "
                   "haga falta y nombrarlas en --leidas-a-mano ID,ID (queda registrado quién y cuándo).")
             return 1
+        if a_mano and not es_texto(a.lector):
+            print("--lector: quién leyó a mano esas fuentes (por ejemplo «Claude Code, tarea semanal»)")
+            return 1
         for f in d["fuentes"]:
             if f["id"] in a_mano:
-                f["leida_a_mano"] = hoy()
+                f["leida_a_mano"] = {"fecha": hoy(), "por": una_linea(a.lector)}
         d["verificado"] = hoy()
         escribir_json(FUENTES, d)
         print(f"Sellado: fuentes verificadas el {d['verificado']}.")
@@ -1222,6 +1240,7 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("accion", choices=("ver", "revisar", "sellar"))
     s.add_argument("--red", action="store_true", help="descarga cada fuente y busca sus frases marca")
     s.add_argument("--leidas-a-mano", help="ids de fuentes que no se pudieron descargar y se leyeron a mano")
+    s.add_argument("--lector", help="quién las leyó a mano")
     s.set_defaults(f=cmd_fuentes)
     s = sub.add_parser("estado")
     s.add_argument("--comprobar", action="store_true")
