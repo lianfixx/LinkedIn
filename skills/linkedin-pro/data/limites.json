@@ -1,0 +1,75 @@
+{
+  "verificado": "2026-11-13",
+  "nota": "Límites técnicos de LinkedIn para perfiles personales, leídos en el Centro de ayuda oficial (versión en inglés) el 13/11/2026. «certeza_premia» es lo que se sabe de su alcance: LinkedIn no publica ventajas de alcance por formato, así que ninguno es «oficial». Ver references/formatos.md.",
+  "formatos": {
+    "texto": {
+      "max_texto": 3000,
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a528176",
+      "que_premia": "Conocimiento y opinión con punto de vista claro; LinkedIn no publica ventaja por formato",
+      "certeza_premia": "criterio"
+    },
+    "imagen": {
+      "max_texto": 3000,
+      "max_imagenes": 20,
+      "max_mb_imagen": 5,
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a527229",
+      "que_premia": "Imagen propia que explique algo; no hay dato oficial de alcance",
+      "certeza_premia": "criterio"
+    },
+    "documento": {
+      "max_texto": 3000,
+      "max_titulo": null,
+      "max_paginas": 300,
+      "max_mb": 100,
+      "tipos": ["PDF", "PPT", "PPTX", "DOC", "DOCX"],
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a518909",
+      "que_premia": "Guardados y tiempo de lectura según estudios de terceros; LinkedIn no publica ventaja oficial",
+      "certeza_premia": "terceros"
+    },
+    "video": {
+      "max_texto": 3000,
+      "min_s": 3,
+      "max_s": 900,
+      "max_gb": 5,
+      "proporcion": "1:2.4 a 2.4:1",
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a548372",
+      "que_premia": "El feed de video vertical elige videos ya publicados por calidad y relevancia (oficial); no se publica directo en él",
+      "certeza_premia": "oficial"
+    },
+    "articulo": {
+      "max_texto": 3000,
+      "max_cuerpo": 125000,
+      "max_titulo": null,
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a522483",
+      "que_premia": "Profundidad y búsqueda a largo plazo; no hay dato oficial de alcance en el feed",
+      "certeza_premia": "criterio"
+    },
+    "boletin": {
+      "max_texto": 3000,
+      "max_cuerpo": 125000,
+      "max_titulo": null,
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a591266",
+      "que_premia": "Suscriptores que reciben aviso de cada edición (oficial: el boletín notifica a suscriptores); no hay dato de alcance en el feed",
+      "certeza_premia": "oficial"
+    },
+    "encuesta": {
+      "max_texto": 3000,
+      "max_pregunta": null,
+      "min_opciones": 2,
+      "max_opciones": 4,
+      "max_opcion": 30,
+      "max_opcion_nota": "30 caracteres por opción es dato de terceros; el Centro de ayuda no lo publica. Se usa como tope prudente",
+      "duraciones": ["1 día", "3 días", "1 semana", "2 semanas"],
+      "prohibido": "pedir opiniones políticas, estado de salud u otros datos sensibles",
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a527273",
+      "que_premia": "Estudios de terceros discrepan; LinkedIn prohíbe preguntar opiniones políticas en encuestas",
+      "certeza_premia": "terceros"
+    }
+  },
+  "programacion_nativa": {
+    "desde_min": 10,
+    "hasta": "3 meses",
+    "excluye": ["Eventos", "Empleos"],
+    "fuente": "https://www.linkedin.com/help/linkedin/answer/a1347212"
+  }
+}

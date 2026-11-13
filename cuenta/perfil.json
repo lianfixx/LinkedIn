@@ -1,0 +1,37 @@
+{
+  "url": "https://www.linkedin.com/in/emiliano-milla",
+  "tipo": "personal",
+  "activa": true,
+  "observado": {
+    "fecha": "2026-11-13",
+    "titular": "Abogado en Formación | Enlace Universitario Banxico 2026",
+    "seguidores": "más de 180",
+    "contactos": 192,
+    "ubicacion": "Área metropolitana de Ciudad de México",
+    "fuente": "ficha pública que muestra Google; LinkedIn pide iniciar sesión para ver el perfil y ninguna IA inicia sesión"
+  },
+  "objetivos": ["autoridad profesional en IA + Derecho", "red y oportunidades (empleo, alianzas, academia)"],
+  "captacion_milla": false,
+  "captacion_nota": "Emi, 13/11/2026: «Ahora no». Cambiarlo requiere su confirmación y fijar límites éticos",
+  "balance": {"ia-derecho": 0.60, "carrera": 0.25, "opinion": 0.15},
+  "tolerancia_balance": 0.15,
+  "max_por_semana": 2,
+  "max_por_dia": 1,
+  "separacion_min_h": 24,
+  "gancho_max": 140,
+  "max_hashtags": 3,
+  "formatos": ["texto", "imagen", "documento", "video", "articulo", "boletin", "encuesta"],
+  "tono": "profesional y cercano, con algo de humor",
+  "zona_horaria": "America/Mexico_City (UTC-6)",
+  "revision_fuentes": "semanal",
+  "modo": "la IA entrega cada pieza aprobada lista para copiar con fecha y hora; Emi la publica; las métricas las pasa Emi con capturas",
+  "sesion": "ninguna IA inicia sesión en LinkedIn (regla de Emi tras los bloqueos de X del 10 y 11/11/2026)",
+  "minutos_emi_por_pieza": {"texto": 10, "imagen": 15, "documento": 25, "video": 15, "articulo": 40, "boletin": 40, "encuesta": 5},
+  "minutos_nota": "estimación de criterio: tiempo de Emi para reescribir, aprobar y publicar; se ajusta con lo real",
+  "pendientes_de_emi": [
+    {"que": "Crear el repositorio público lianfixx/LinkedIn y autorizar a la sesión a conectarlo", "desde": "2026-11-13", "bloquea": "subir la skill"},
+    {"que": "Pasar capturas de su perfil completo (titular, Acerca de, experiencia, destacados) para la propuesta de perfil", "desde": "2026-11-13", "bloquea": "optimización del perfil"},
+    {"que": "Material y postura para las dos primeras piezas", "desde": "2026-11-13", "bloquea": "primera semana"}
+  ],
+  "actualizado": "2026-11-13"
+}

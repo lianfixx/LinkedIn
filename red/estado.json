@@ -1,0 +1,115 @@
+{
+  "contrato": "redes-estado/0.1",
+  "skill": "linkedin-pro",
+  "red": "linkedin",
+  "version_skill": "1.0.0",
+  "actualizado": "2026-11-12",
+  "cuentas": [
+    {
+      "espacio": "personal",
+      "usuario": "https://www.linkedin.com/in/emiliano-milla",
+      "activa": true
+    }
+  ],
+  "cadencia": {
+    "max_por_dia": 1,
+    "separacion_min_h": 24,
+    "max_por_semana": 2,
+    "fuente": "decisión de Emi del 13/11/2026 (2 por semana); separación: criterio de la skill",
+    "certeza": "criterio"
+  },
+  "formatos": [
+    {
+      "id": "texto",
+      "que_premia": "Conocimiento y opinión con punto de vista claro; LinkedIn no publica ventaja por formato",
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a528176",
+      "certeza": "criterio"
+    },
+    {
+      "id": "imagen",
+      "que_premia": "Imagen propia que explique algo; no hay dato oficial de alcance",
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a527229",
+      "certeza": "criterio"
+    },
+    {
+      "id": "documento",
+      "que_premia": "Guardados y tiempo de lectura según estudios de terceros; LinkedIn no publica ventaja oficial",
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a518909",
+      "certeza": "terceros"
+    },
+    {
+      "id": "video",
+      "que_premia": "El feed de video vertical elige videos ya publicados por calidad y relevancia (oficial); no se publica directo en él",
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a548372",
+      "certeza": "oficial"
+    },
+    {
+      "id": "articulo",
+      "que_premia": "Profundidad y búsqueda a largo plazo; no hay dato oficial de alcance en el feed",
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a522483",
+      "certeza": "criterio"
+    },
+    {
+      "id": "boletin",
+      "que_premia": "Suscriptores que reciben aviso de cada edición (oficial: el boletín notifica a suscriptores); no hay dato de alcance en el feed",
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a591266",
+      "certeza": "oficial"
+    },
+    {
+      "id": "encuesta",
+      "que_premia": "Estudios de terceros discrepan; LinkedIn prohíbe preguntar opiniones políticas en encuestas",
+      "fuente": "https://www.linkedin.com/help/linkedin/answer/a527273",
+      "certeza": "terceros"
+    }
+  ],
+  "minutos_emi_por_pieza": {
+    "texto": 10,
+    "imagen": 15,
+    "documento": 25,
+    "video": 15,
+    "articulo": 40,
+    "boletin": 40,
+    "encuesta": 5
+  },
+  "publicados": [],
+  "lecciones": [
+    {
+      "fecha": "2026-11-13",
+      "texto": "Emi eligió para LinkedIn: perfil personal, autoridad en IA + Derecho y red, sin captar clientes por ahora, pilares 60/25/15, todos los formatos, 2 piezas por semana, tono profesional y cercano con algo de humor, revisión semanal de fuentes.",
+      "evidencia": "cuenta/aprendizajes.md",
+      "alcance": "red"
+    }
+  ],
+  "ideas_para_otras": [],
+  "pendientes_de_emi": [
+    {
+      "que": "Crear el repositorio público lianfixx/LinkedIn y autorizar a la sesión a conectarlo",
+      "desde": "2026-11-13",
+      "bloquea": "subir la skill"
+    },
+    {
+      "que": "Pasar capturas de su perfil completo (titular, Acerca de, experiencia, destacados) para la propuesta de perfil",
+      "desde": "2026-11-13",
+      "bloquea": "optimización del perfil"
+    },
+    {
+      "que": "Material y postura para las dos primeras piezas",
+      "desde": "2026-11-13",
+      "bloquea": "primera semana"
+    }
+  ],
+  "fuentes": {
+    "archivo": "skills/linkedin-pro/data/fuentes.json",
+    "verificado": "2026-11-13",
+    "referencias": [
+      "skills/linkedin-pro/references/feed.md",
+      "skills/linkedin-pro/references/mitos.md"
+    ]
+  },
+  "indice": {
+    "perfil": "cuenta/perfil.json",
+    "publicados": "cuenta/publicados.jsonl",
+    "aprendizajes": "cuenta/aprendizajes.md",
+    "puente_vox": "puente/para-vox.md"
+  }
+}
