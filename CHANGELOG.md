@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-13 · Primer post publicado: video del DOF (pagos digitales); Panel leído
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 13/11/2026, en el chat de Claude Code: «trata de conectar con el panel por favor, tienes mi autorización de todo. Y sí publica».
+- Cambios: (1) Pieza `2026-W46-pagos-a` (video de 56 s sobre la Ley de Economía Digital para Pagos Digitales y Electrónicos, DOF 04/11/2026, y dos criterios del Pleno de la SCJN) publicada a mano desde box con la sesión de Emi a las 12:52 (centro de México), con el texto aprobado (huella 6a76d07ef0fb) y el primer comentario con las fuentes oficiales: https://www.linkedin.com/feed/update/urn:li:activity:7527081695200595968/ . Anotada con `linkedin.py publicado`. (2) Panel de LinkedIn leído: cifras agregadas de 7 días en `cuenta/perfil.json` (`panel_7_dias`); se corrige que el 47 de visitas al perfil no era de 7 días.
+- Archivos: `cuenta/publicados.jsonl`, `cuenta/perfil.json`, `red/estado.json` y este registro.
+- Verificación: texto del post y del comentario releídos en la página publicada → coinciden; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: métricas del post el 20/11/2026; enlaces del SJF sin verificar desde aquí (Incapsula), conviene que Emi los abra.
+
 ## 2026-11-13 · Petición a Vox aplicada; muestra de láminas de la campaña
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: aviso de la sesión de Vox Studio (13/11/2026) de que aplicó la petición; Emi pidió («Sí») la muestra de láminas con su post de Banxico como modelo.
