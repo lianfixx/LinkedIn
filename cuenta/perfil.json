@@ -55,8 +55,8 @@
   "tono": "profesional y cercano, con algo de humor",
   "zona_horaria": "America/Mexico_City (UTC-6)",
   "revision_fuentes": "semanal",
-  "modo": "la IA entrega cada pieza aprobada lista para copiar con fecha y hora; Emi la publica; las métricas las pasa Emi con capturas",
-  "sesion": "sesión de LinkedIn abierta por Emi en box «main» el 13/11/2026; solo lectura salvo orden expresa",
+  "modo": "la IA prepara cada pieza; Emi la aprueba y da el sí final al bloque de entrega; Claude la publica a mano desde box (o Emi la publica)",
+  "sesion": "sesión de LinkedIn abierta por Emi en box «main» el 13/11/2026: leer, y publicar solo con su sí final a cada pieza",
   "minutos_emi_por_pieza": {
     "texto": 10,
     "imagen": 15,
@@ -89,11 +89,6 @@
       "bloquea": "propuesta de «Acerca de» y voz real"
     },
     {
-      "que": "Confirmar si ya tiene título y cédula de licenciado en Derecho, para poner «Abogado» en el titular sin riesgo",
-      "desde": "2026-11-13",
-      "bloquea": "titular"
-    },
-    {
       "que": "Dar los nombres de los licenciados que no se nombran, para vetarlos por huella",
       "desde": "2026-11-13",
       "bloquea": "filtro de nombres"
@@ -124,5 +119,6 @@
     "lectura_semanal_de_fuentes": true,
     "sello_automatico_en_main": true,
     "metricas_publicas": true
-  }
+  },
+  "perfil_decision": "Emi, 13/11/2026: no mover titular, Acerca de ni experiencia; destacados: lo pensará"
 }

@@ -6,7 +6,8 @@ Valen igual en Claude, ChatGPT, Codex, Gemini o cualquier otra IA, y para person
 
 ## Prohibido
 
-- Usar la sesión de LinkedIn de box para algo que no sea leer (publicar, programar, reaccionar, comentar, invitar, mandar mensajes, editar el perfil) sin la orden expresa de Emi para esa acción. Emi abrió la sesión el 13/11/2026 y pidió que se use para leer.
+- Publicar o programar en LinkedIn sin el sí final de Emi a esa pieza exacta (bloque de `entregar` con su huella), o con scripts: se hace a mano en el navegador de box (Emi lo pidió el 13/11/2026).
+- Usar la sesión de box para reaccionar, comentar, invitar, mandar mensajes o editar el perfil sin su orden expresa para esa acción.
 - Pedir, escribir o guardar la contraseña de LinkedIn. Si la sesión se cae, Emi la vuelve a abrir en box.
 - Leer LinkedIn en ráfaga o con scripts: la lectura con sesión es puntual, a ritmo de persona.
 - Publicar, programar o interactuar en LinkedIn (reaccionar, comentar, compartir, invitar, mandar mensajes, seguir) por Emi, o usar extensiones, bots o scraping de perfiles, posts o datos de miembros (además, el Acuerdo de usuario de LinkedIn lo prohíbe, §8.2).

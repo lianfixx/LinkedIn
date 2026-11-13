@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-13 · Claude publica con el sí final de Emi; petición a Vox enviada
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 13/11/2026, en el chat de Claude Code: «que lo publique Claude (con previa confirmación final mía)»; «no muevas nada» del titular, «Acerca de» y experiencia; destacados: «no sé si quitarla»; petición a Vox Studio: «Sí, autorizo ahora mismo».
+- Cambios: (1) Modo de entrega: Claude publica o programa a mano desde box solo tras el sí final de Emi al bloque de `entregar` de esa pieza (`entrega.md`, `SKILL.md`, `ia/REGLAS.md`, `AGENTS.md`, `CLAUDE.md`, `cuenta/perfil.json`). (2) El perfil no se toca. (3) `puente/PETICION-vox.md` enviada a la sesión que mantiene Vox Studio.
+- Archivos: los citados, `puente/README.md`, `red/estado.json` y este registro.
+- Verificación: `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: archivo MP4 del video del DOF para publicarlo; que Vox Studio aplique la petición.
+
 ## 2026-11-13 · Tarea semanal de revisión de fuentes
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi eligió el 13/11/2026 una revisión semanal de fuentes.

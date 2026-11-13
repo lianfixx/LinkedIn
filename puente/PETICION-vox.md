@@ -2,14 +2,14 @@
 
 - De: skill linkedin-pro (`lianfixx/LinkedIn`), 13/11/2026, por encargo de Emi: que cada red tenga su skill y que Vox Studio pueda tomar ideas de todas.
 - Para: quien mantenga `skills/vox-studio/` en `lianfixx/VIDEOS-IA-SKILL-MILLA`.
-- Estado: **preparada, no enviada.** Hoy Vox Studio solo reconoce `puente/para-vox.md` de `lianfixx/X`. Requiere el visto bueno de Emi para aplicarse allá; linkedin-pro no escribe en ese repositorio.
+- Estado: **enviada** el 13/11/2026, con autorización de Emi («Sí, autorizo ahora mismo»), a la sesión de Claude que mantiene Vox Studio («CEREBRO - VIDEOS ANIMADOS»). Pendiente de que la aplique; linkedin-pro no escribe en ese repositorio.
 
 ## Qué se pide
 
 En la sección «Solo video» de `skills/vox-studio/SKILL.md`, añadir este puente a la lista de fuentes de ideas, sin copiar reglas de linkedin-pro:
 
 ```markdown
-- LinkedIn (`lianfixx/LinkedIn`): <https://github.com/lianfixx/LinkedIn/blob/main/puente/para-vox.md>.
+- LinkedIn (`lianfixx/LinkedIn`): <https://github.com/lianfixx/linkedin/blob/main/puente/para-vox.md>.
   Propuestas de tema para el espacio `personal`; se sigue preguntando la postura de Emi.
   Vox Studio no publica en LinkedIn: el post que acompaña a un video lo escribe linkedin-pro.
 ```

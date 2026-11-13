@@ -103,11 +103,6 @@
       "bloquea": "propuesta de «Acerca de» y voz real"
     },
     {
-      "que": "Confirmar si ya tiene título y cédula de licenciado en Derecho, para poner «Abogado» en el titular sin riesgo",
-      "desde": "2026-11-13",
-      "bloquea": "titular"
-    },
-    {
       "que": "Dar los nombres de los licenciados que no se nombran, para vetarlos por huella",
       "desde": "2026-11-13",
       "bloquea": "filtro de nombres"

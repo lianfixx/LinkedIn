@@ -21,7 +21,7 @@ Lo que «todo el mundo dice» sin sustento va a [mitos.md](references/mitos.md).
 
 ## Reglas que no se rompen
 
-1. **Emi aprueba cada pieza y es él quien la publica.** La IA entrega el texto aprobado listo para copiar, con fecha y hora. La sesión de LinkedIn está en box (la abrió Emi el 13/11/2026): sirve para **leer** su perfil, posts y estadísticas a ritmo de persona. Ninguna IA publica, programa, reacciona, comenta, invita, manda mensajes ni edita el perfil sin su orden expresa para esa acción. Nunca se pide ni se escribe su contraseña.
+1. **Emi aprueba cada pieza y da el sí final antes de que salga.** La IA entrega el texto aprobado listo para copiar, con fecha y hora. La sesión de LinkedIn está en box (la abrió Emi el 13/11/2026): sirve para **leer** su perfil, posts y estadísticas a ritmo de persona. Claude publica o programa en su nombre solo después de su sí final a esa pieza exacta ([entrega.md](references/entrega.md)); no reacciona, comenta, invita, manda mensajes ni edita el perfil sin orden expresa. Nunca se pide ni se escribe su contraseña.
 2. **La IA propone, Emi reescribe.** No se inventan vivencias, opiniones, cifras ni citas. **Jamás se dice que una pieza o herramienta la hizo una IA**: las construyó él; sí se nombra la IA que usa.
 3. **Nada sobre el algoritmo sin certeza y fuente.** No se inventan pesos ni porcentajes.
 4. **Límites de Emi**: nunca clientes ni asuntos, no nombrar a Castorena ni a sus licenciados, sin ataques personales, toda cita legal con fuente oficial verificada, un post informa u opina y no asesora un caso. Detalle en [pilares.md](references/pilares.md).
@@ -56,7 +56,7 @@ Visto con la sesión de Emi en box el 13/11/2026 (`cuenta/perfil.json`): titular
 4. **Borrador** en `cuenta/privado/` con el formato de [redaccion.md](references/redaccion.md): texto, pilar, formato, `para_quien`, `aporta`.
 5. **Revisar**: `lk revisar ARCHIVO --contra-x`. Corregir hasta que no haya errores; atender los avisos.
 6. **Emi lo reescribe y aprueba** esa pieza exacta: texto, archivo, pilar, fecha, hora, postura y fuentes. Solo entonces: `lk aprobar ARCHIVO ID [ID…] --medio "dónde lo aprobó" --reescrito` (varias piezas a la vez si aprueba el paquete semanal). Anota la fecha y una huella de todo el contenido, y compara también con lo publicado en X. Si cambia cualquier campo, la aprobación deja de valer. La huella es una compuerta de honor: detecta cambios, no impide que una IA la falsifique; por eso las reglas prohíben anotar una aprobación que Emi no dio.
-7. **Entregar**: `lk entregar ARCHIVO ID` imprime el bloque listo para copiar ([entrega.md](references/entrega.md)). Emi lo publica o lo programa en LinkedIn y manda el enlace.
+7. **Entregar**: `lk entregar ARCHIVO ID` imprime el bloque con todo lo que va a salir ([entrega.md](references/entrega.md)). Con el sí final de Emi a ese bloque, Claude lo publica o programa desde box; o lo publica Emi.
 8. **Anotar**, cuando Emi confirme que ya salió: `lk publicado ARCHIVO ID --url URL` (solo piezas aprobadas, con la fecha real); a los 7 días, `lk metricas ID … --fuente "captura"`; la lección con `lk aprender "…"`; y `lk estado` para la Matriz de Redes.
 
 Para una semana: lo mismo con `lk semana ARCHIVO --contra-x`, que además valida cadencia (1 al día, 2 por semana, 24 horas entre piezas) y balance.
