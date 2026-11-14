@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-14 · Documento de pagos digitales programado
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, en el chat de Claude Code: «Me parece bien, aunque prefiero el Lunes, busca la hora perfecta (Adjunta las imágenes en pdf por favor al post)»; «Sí» al texto sin dos puntos y «si» al título de 57 caracteres.
+- Cambios: pieza `2026-W47-pagos-doc` (documento PDF de 6 láminas, pilar opinión, huella 612d43e2bf52) programada con el programador nativo de LinkedIn desde la sesión de Emi en box, para el lunes 16/11/2026 a las 10:30 (centro de México). Box usa UTC, así que en el programador se puso 16:30. Hora elegida por criterio: el 16 es día feriado y la gente entra más tarde; no hay hora oficial.
+- Archivos: este registro (la pieza y el PDF siguen en `cuenta/privado/`, sin subir).
+- Verificación: texto leído en el editor antes de programar → coincide con el aprobado; título 57/58; LinkedIn confirmó «Publicación programada».
+- Pendiente: el 16/11, anotar el enlace con `linkedin.py publicado` y poner las fuentes oficiales en el primer comentario si Emi lo pide.
+
 ## 2026-11-13 · Límite del título de documento (58 caracteres)
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: al programar las láminas de pagos digitales, el editor de LinkedIn mostró que «Título del documento» admite 58 caracteres; el título aprobado tenía 63.
