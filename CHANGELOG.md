@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-15 · Registro en el panel de redes
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 15/11/2026, en el chat de Claude Code: «Si», a registrar cada pieza programada o publicada directo en el panel de la Matriz de Redes.
+- Cambios: paso nuevo en `references/entrega.md`: `POST /api/claude/externa` con la clave = id de la pieza. Se comprobó que el panel ya tenía las dos piezas de LinkedIn con su clave (`2026-W46-pagos-a` publicada con su enlace y `2026-W47-pagos-doc` programada para el 16/11 a las 10:30), así que no se registró nada de nuevo.
+- Archivos: `skills/linkedin-pro/references/entrega.md` y este registro.
+- Verificación: `GET /api/claude/estado` → 200; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: registrar el documento como publicado, con su enlace, el 16/11.
+
 ## 2026-11-15 · «programados» en red/estado.json
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: mensaje de la sesión de la Matriz de Redes (15/11/2026): Emi pidió que el panel de redes tenga datos frescos; la revisión de las 13:17 y 21:17 lee `red/estado.json` y pidió agregar lo programado.

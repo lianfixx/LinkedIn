@@ -8,8 +8,11 @@
 2. La IA la entrega lista para copiar con `linkedin.py entregar ARCHIVO ID`: fecha, hora del centro de México, formato, archivo adjunto si lo hay y el texto exacto.
 3. **Se publica.** Desde el 13/11/2026, Emi pidió que **Claude publique** desde su sesión en box, siempre con su confirmación final: la IA le muestra el bloque de `entregar` (texto exacto, archivo, fecha, hora y huella), Emi responde que sí a **esa** pieza, y solo entonces la IA la publica o la programa en LinkedIn, a mano en el navegador, sin scripts. Después anota el enlace con `publicado`. Sin ese sí explícito, no se publica nada. Si Emi prefiere hacerlo él, la publica desde su teléfono o computadora. Si quiere dejarla programada, LinkedIn tiene programación nativa: de 10 minutos a 3 meses antes, con el icono del reloj (en escritorio, abajo a la derecha; en móvil, arriba a la derecha). No sirve para Eventos ni Empleos. La hora se toma de la zona horaria del dispositivo (Centro de ayuda, a1347212).
 4. Si quedó programada, la IA lo anota con `linkedin.py programado ARCHIVO ID` y corre `estado`: en `red/estado.json` aparece en «programados» con fecha, pilar, formato y huella, sin el texto (el repositorio es público). Al anotarla como publicada sale de esa lista.
-5. Emi manda el enlace del post. La IA lo anota con `linkedin.py publicado ARCHIVO ID --url URL` (y `--fecha`, `--hora` si salió en otro momento). Solo acepta piezas aprobadas, enlaces de un post y fechas que ya pasaron.
-6. **A los 7 días**, Emi manda captura de las estadísticas del post y la IA las anota con `linkedin.py metricas`. Ver [medicion.md](medicion.md).
+5. **Panel de redes** (Emi, 15/11/2026: «Si»): cada vez que una pieza queda programada o sale, se registra también en el panel de la Matriz de Redes, que es privado y pide sesión:
+   `curl -s -X POST https://redes.milla-abogados.workers.dev/api/claude/externa -H "Authorization: Bearer x" -H "Content-Type: application/json" -d '{"red":"linkedin","clave":"ID","titulo":"…","texto":"…","fecha":"ISO con -06:00","estado":"programada|publicada","url":"…","fuente":"linkedin-pro"}'`.
+   La llave la pone el proxy (por eso «Bearer x»). La clave es el id de la pieza, así no se duplica. El panel nunca la publica; solo la registra. Detalle en `lianfixx/redes`, `skills/matriz-redes/references/panel.md`.
+6. Emi manda el enlace del post. La IA lo anota con `linkedin.py publicado ARCHIVO ID --url URL` (y `--fecha`, `--hora` si salió en otro momento). Solo acepta piezas aprobadas, enlaces de un post y fechas que ya pasaron.
+7. **A los 7 días**, Emi manda captura de las estadísticas del post y la IA las anota con `linkedin.py metricas`. Ver [medicion.md](medicion.md).
 
 ## Formato del bloque de entrega
 
