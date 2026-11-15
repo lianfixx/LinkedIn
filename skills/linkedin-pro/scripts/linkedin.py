@@ -935,6 +935,43 @@ def cmd_publicado(a) -> int:
     return 0
 
 
+def programados() -> list[dict]:
+    ruta = CUENTA / "programados.json"
+    if not ruta.is_file():
+        return []
+    dato = leer_json(ruta)
+    if not isinstance(dato, list):
+        raise Falla(f"{ruta}: debe ser una lista")
+    hechos = {f.get("id") for f in publicados()}
+    return [x for x in dato if isinstance(x, dict) and x.get("id") not in hechos]
+
+
+def cmd_programado(a) -> int:
+    """Anota que una pieza aprobada quedó programada en LinkedIn. Solo metadatos: el texto no
+    se publica en el repositorio hasta que la pieza sale (el repositorio es público)."""
+    dato = leer_json(a.archivo)
+    p = buscar_pieza(dato, a.id)
+    if p.get("estado") not in ("aprobado", "entregado"):
+        raise Falla(f"«{a.id}» no está aprobada ni entregada; no se anota como programada")
+    e, w = revisar(p, publicados(), perfil(), "entregado")
+    if e:
+        informe(a.id, e, w)
+        raise Falla("no se anota como programada mientras haya errores (¿cambió algo después de aprobarla?)")
+    fecha, hora = p.get("fecha"), p.get("hora")
+    if not fecha_ok(fecha) or not hora_ok(hora):
+        raise Falla("la pieza no tiene fecha u hora válidas")
+    if dt.datetime.fromisoformat(f"{fecha}T{hora}").replace(tzinfo=MX) <= ahora():
+        raise Falla("la fecha ya pasó: si salió, anotarla con «publicado»")
+    ruta = CUENTA / "programados.json"
+    filas = [x for x in (leer_json(ruta) if ruta.is_file() else []) if x.get("id") != p["id"]]
+    filas.append({"id": p["id"], "fecha": f"{fecha}T{hora}:00-06:00", "espacio": "personal",
+                  "pilar": p.get("pilar"), "formato": p.get("formato", "texto"),
+                  "huella_texto": huella_completa(p), "donde": "programador nativo de LinkedIn"})
+    escribir_json(ruta, sorted(filas, key=lambda x: x["fecha"]))
+    print(f"Anotado «{p['id']}» como programado para el {fecha} {hora}. Correr «estado».")
+    return 0
+
+
 def cmd_metricas(a) -> int:
     filas = publicados()
     for f in filas:
@@ -1146,6 +1183,8 @@ def construir_estado() -> dict:
             "huella_texto": f.get("huella_texto"),
             "metricas": {"capturado": ult.get("capturado", ""), "fuente": ult.get("fuente", ""), "valores": ult.get("valores", {})},
         })
+    progs = [{k: x.get(k) for k in ("id", "fecha", "espacio", "pilar", "formato", "huella_texto", "donde")}
+             for x in programados()]
     return {
         "contrato": "redes-estado/0.1",
         "skill": "linkedin-pro",
@@ -1163,6 +1202,7 @@ def construir_estado() -> dict:
                       "certeza": v.get("certeza_premia", "criterio")} for k, v in lim.get("formatos", {}).items()],
         "minutos_emi_por_pieza": cfg.get("minutos_emi_por_pieza", {}),
         "publicados": pubs,
+        "programados": progs,
         "lecciones": lecciones,
         "ideas_para_otras": ideas,
         "pendientes_de_emi": cfg.get("pendientes_de_emi", []),
@@ -1265,6 +1305,10 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--fecha")
     s.add_argument("--hora")
     s.set_defaults(f=cmd_publicado)
+    s = sub.add_parser("programado")
+    s.add_argument("archivo")
+    s.add_argument("id")
+    s.set_defaults(f=cmd_programado)
     s = sub.add_parser("metricas")
     s.add_argument("id")
     for m in METRICAS:

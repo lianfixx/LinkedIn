@@ -266,6 +266,22 @@ class Aprobacion(Base):
         self.assertEqual(fila["metricas"][0]["valores"], {"impresiones": 350, "reacciones": 12})
         self.assertEqual(len(fila["huella_texto"]), 64)
 
+    def test_programado(self):
+        b = copy.deepcopy(BASE) | {"fecha": futuro(), "hora": "09:00"}
+        ruta = self.archivo([b])
+        code, out = self.correr("programado", str(ruta), "t-1")
+        self.assertEqual(code, 2, out)  # sin aprobar no se anota
+        self.assertEqual(self.correr("aprobar", str(ruta), "t-1", "--medio", "chat", "--reescrito", "--sin-x")[0], 0)
+        code, out = self.correr("programado", str(ruta), "t-1")
+        self.assertEqual(code, 0, out)
+        progs = L.programados()
+        self.assertEqual([x["id"] for x in progs], ["t-1"])
+        self.assertNotIn("texto", progs[0])  # el repositorio es público: sin texto antes de salir
+        self.assertEqual(L.construir_estado()["programados"][0]["id"], "t-1")
+        url = "https://www.linkedin.com/posts/emiliano-milla_ia-activity-123"
+        self.assertEqual(self.correr("publicado", str(ruta), "t-1", "--url", url, "--fecha", L.hoy(), "--hora", "00:01")[0], 0)
+        self.assertEqual(L.programados(), [])  # al publicarse sale de programados
+
     def test_cambio_invalida(self):
         b = copy.deepcopy(BASE) | {"fecha": futuro(), "hora": "09:00"}
         ruta = self.archivo([b])

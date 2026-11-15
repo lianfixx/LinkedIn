@@ -57,7 +57,7 @@ Visto con la sesión de Emi en box el 13/11/2026 (`cuenta/perfil.json`): titular
 5. **Revisar**: `lk revisar ARCHIVO --contra-x`. Corregir hasta que no haya errores; atender los avisos.
 6. **Emi lo reescribe y aprueba** esa pieza exacta: texto, archivo, pilar, fecha, hora, postura y fuentes. Solo entonces: `lk aprobar ARCHIVO ID [ID…] --medio "dónde lo aprobó" --reescrito` (varias piezas a la vez si aprueba el paquete semanal). Anota la fecha y una huella de todo el contenido, y compara también con lo publicado en X. Si cambia cualquier campo, la aprobación deja de valer. La huella es una compuerta de honor: detecta cambios, no impide que una IA la falsifique; por eso las reglas prohíben anotar una aprobación que Emi no dio.
 7. **Entregar**: `lk entregar ARCHIVO ID` imprime el bloque con todo lo que va a salir ([entrega.md](references/entrega.md)). Con el sí final de Emi a ese bloque, Claude lo publica o programa desde box; o lo publica Emi.
-8. **Anotar**, cuando Emi confirme que ya salió: `lk publicado ARCHIVO ID --url URL` (solo piezas aprobadas, con la fecha real); a los 7 días, `lk metricas ID … --fuente "captura"`; la lección con `lk aprender "…"`; y `lk estado` para la Matriz de Redes.
+8. **Anotar.** Si quedó programada en LinkedIn: `lk programado ARCHIVO ID` y `lk estado` (solo metadatos; el texto no se sube hasta que sale). Cuando ya salió: `lk publicado ARCHIVO ID --url URL` (solo piezas aprobadas, con la fecha real); a los 7 días, `lk metricas ID … --fuente "captura"`; la lección con `lk aprender "…"`; y `lk estado` para la Matriz de Redes.
 
 Para una semana: lo mismo con `lk semana ARCHIVO --contra-x`, que además valida cadencia (1 al día, 2 por semana, 24 horas entre piezas) y balance.
 

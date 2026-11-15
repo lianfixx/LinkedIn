@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-15 · «programados» en red/estado.json
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: mensaje de la sesión de la Matriz de Redes (15/11/2026): Emi pidió que el panel de redes tenga datos frescos; la revisión de las 13:17 y 21:17 lee `red/estado.json` y pidió agregar lo programado.
+- Cambios: comando `linkedin.py programado ARCHIVO ID` (solo piezas aprobadas con fecha futura) que guarda metadatos en `cuenta/programados.json`: id, fecha, pilar, formato, huella y dónde se programó; nunca el texto, porque el repositorio es público. `estado` publica la lista en «programados» y quita las piezas que ya se anotaron como publicadas. Prueba nueva. `SKILL.md` y `entrega.md` lo explican. Anotada la pieza `2026-W47-pagos-doc` (lunes 16/11, 10:30).
+- Archivos: `skills/linkedin-pro/scripts/{linkedin,test_linkedin}.py`, `skills/linkedin-pro/SKILL.md`, `skills/linkedin-pro/references/entrega.md`, `cuenta/programados.json`, `red/estado.json` y este registro.
+- Verificación: `python3 ia/verificar.py ci` → aprobado (72 pruebas).
+- Pendiente: el registro directo en el panel (POST a la API del panel) espera la confirmación de Emi.
+
 ## 2026-11-14 · Documento de pagos digitales programado
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, en el chat de Claude Code: «Me parece bien, aunque prefiero el Lunes, busca la hora perfecta (Adjunta las imágenes en pdf por favor al post)»; «Sí» al texto sin dos puntos y «si» al título de 57 caracteres.
