@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-16 · Documento de pagos digitales publicado
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: tarea programada por esta misma sesión el 14/11/2026 para anotar la pieza cuando saliera.
+- Cambios: `2026-W47-pagos-doc` salió a las 10:30 (centro de México) con el programador de LinkedIn: https://www.linkedin.com/feed/update/urn:li:activity:7528132303097692160/ . Se anotó con `linkedin.py publicado` y pasó de «programados» a «publicados» en `red/estado.json`. También se registró como publicada en el panel de redes (`/api/claude/externa`, clave `2026-W47-pagos-doc`).
+- Archivos: `cuenta/publicados.jsonl`, `red/estado.json` y este registro.
+- Verificación: texto y PDF (6 páginas, título completo) leídos en la actividad del perfil con la sesión de Emi → coinciden con lo aprobado; el panel respondió con la pieza actualizada; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: métricas el 23/11/2026; las del video, el 20/11/2026.
+
 ## 2026-11-15 · Registro en el panel de redes
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 15/11/2026, en el chat de Claude Code: «Si», a registrar cada pieza programada o publicada directo en el panel de la Matriz de Redes.

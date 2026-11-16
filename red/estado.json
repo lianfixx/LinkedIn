@@ -3,7 +3,7 @@
   "skill": "linkedin-pro",
   "red": "linkedin",
   "version_skill": "1.0.0",
-  "actualizado": "2026-11-14",
+  "actualizado": "2026-11-16",
   "cuentas": [
     {
       "espacio": "personal",
@@ -86,19 +86,24 @@
         "fuente": "",
         "valores": {}
       }
-    }
-  ],
-  "programados": [
+    },
     {
       "id": "2026-W47-pagos-doc",
       "fecha": "2026-11-16T10:30:00-06:00",
       "espacio": "personal",
       "pilar": "opinion",
       "formato": "documento",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7528132303097692160/",
+      "idea_matriz": "",
       "huella_texto": "612d43e2bf521b30ac8654af31c7a92a838ea1a035038eba445b19a8d0aa8905",
-      "donde": "programador nativo de LinkedIn"
+      "metricas": {
+        "capturado": "",
+        "fuente": "",
+        "valores": {}
+      }
     }
   ],
+  "programados": [],
   "lecciones": [
     {
       "fecha": "2026-11-13",
