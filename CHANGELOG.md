@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-18 · Post de The Economist aprobado para el jueves 19
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: encargo de Emi a la Matriz de Redes (18/11) de un post sobre la portada «The World Ahead 2027» de The Economist; en el chat de Claude Code eligió la opción B, el jueves 19 (excepción suya al tope de 2 por semana) y compartir el post de The Economist con su texto.
+- Cambios: pieza `2026-W47-economist` aprobada (huella 2dbb89d562ef). Se revisó cómo se ve en LinkedIn con su inspector de publicaciones: el enlace del tuit no trae imagen y la página oficial solo trae el logo. Por eso se comparte el post de The Economist en LinkedIn («Compartir con tus ideas»): la imagen es de ellos, con su crédito, y no se sube su portada como propia. Lo compartido no se puede programar, así que sale en vivo. Anotada en «programados» y en el panel de redes.
+- Archivos: `cuenta/programados.json`, `red/estado.json` y este registro.
+- Verificación: `revisar --contra-x` → sin errores; inspector de LinkedIn leído con la sesión de Emi; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: confirmar que la imagen del post de The Economist es la portada; publicarlo el 19 a las 8:30.
+
 ## 2026-11-17 · Post del mapa aprobado; Emi lo publica él
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 17/11/2026, en el chat de Claude Code: cambiar las láminas de la campaña por una versión de su post de X del 17/11 («Va con imagen y apruebo texto»).

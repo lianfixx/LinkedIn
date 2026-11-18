@@ -16,5 +16,14 @@
     "formato": "imagen",
     "huella_texto": "fedf66cfbcae05b99ace256cee6fbfbbf8eb0ab7d9de55e198f4ac941515492b",
     "donde": "Emi lo publica desde su teléfono (Chrome en box no respondió)"
+  },
+  {
+    "id": "2026-W47-economist",
+    "fecha": "2026-11-19T08:30:00-06:00",
+    "espacio": "personal",
+    "pilar": "ia-derecho",
+    "formato": "texto",
+    "huella_texto": "2dbb89d562ef0d0a4090ef2f121f52885a4d21ff9ccc4fe88df8fc1823aee323",
+    "donde": "se comparte en vivo el jueves (LinkedIn no programa contenido compartido)"
   }
 ]
