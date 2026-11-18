@@ -8,7 +8,8 @@ Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 - Cambios: pieza `2026-W47-economist` aprobada (huella 2dbb89d562ef). Se revisó cómo se ve en LinkedIn con su inspector de publicaciones: el enlace del tuit no trae imagen y la página oficial solo trae el logo. Por eso se comparte el post de The Economist en LinkedIn («Compartir con tus ideas»): la imagen es de ellos, con su crédito, y no se sube su portada como propia. Lo compartido no se puede programar, así que sale en vivo. Anotada en «programados» y en el panel de redes.
 - Archivos: `cuenta/programados.json`, `red/estado.json` y este registro.
 - Verificación: `revisar --contra-x` → sin errores; inspector de LinkedIn leído con la sesión de Emi; `python3 ia/verificar.py ci` → aprobado.
-- Pendiente: confirmar que la imagen del post de The Economist es la portada; publicarlo el 19 a las 8:30.
+- Pendiente: el enlace cuando salga el 19 a las 8:30.
+- Cambio (mismo día): Emi pidió «tú sin miedo publica la foto tal cual». La pieza pasa a formato imagen con la portada original de The Economist (bajada del tuit oficial, 1181×1577), con crédito en el texto alternativo. Se aprobó de nuevo (huella adada91577fc). Box no pudo adjuntar la foto (error 9), así que Emi la programa desde su teléfono.
 
 ## 2026-11-17 · Post del mapa aprobado; Emi lo publica él
 - Agente: Claude Code (sesión en la nube)
