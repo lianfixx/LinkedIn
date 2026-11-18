@@ -3,7 +3,7 @@
   "skill": "linkedin-pro",
   "red": "linkedin",
   "version_skill": "1.0.0",
-  "actualizado": "2026-11-16",
+  "actualizado": "2026-11-17",
   "cuentas": [
     {
       "espacio": "personal",
@@ -103,7 +103,17 @@
       }
     }
   ],
-  "programados": [],
+  "programados": [
+    {
+      "id": "2026-W47-mapa",
+      "fecha": "2026-11-18T08:30:00-06:00",
+      "espacio": "personal",
+      "pilar": "ia-derecho",
+      "formato": "imagen",
+      "huella_texto": "fedf66cfbcae05b99ace256cee6fbfbbf8eb0ab7d9de55e198f4ac941515492b",
+      "donde": "Emi lo publica desde su teléfono (Chrome en box no respondió)"
+    }
+  ],
   "lecciones": [
     {
       "fecha": "2026-11-13",

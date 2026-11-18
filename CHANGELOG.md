@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-17 · Post del mapa aprobado; Emi lo publica él
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 17/11/2026, en el chat de Claude Code: cambiar las láminas de la campaña por una versión de su post de X del 17/11 («Va con imagen y apruebo texto»).
+- Cambios: pieza `2026-W47-mapa` (imagen de su Matriz General, recortada sin despacho ni MILLA; texto adaptado, no copiado de X) aprobada con huella fedf66cfbcae para el miércoles 18/11 a las 8:30. No se pudo programar desde box (la pestaña de LinkedIn se cerró con el error 9 varias veces, por poca memoria y otra sesión en el mismo Chrome). Emi la publica desde su teléfono con el texto y la imagen que se le entregaron. Se anotó en «programados» y en el panel de redes (clave `2026-W47-mapa`). El documento de 8 láminas queda fuera; la Matriz lo movió al 1/12.
+- Archivos: `cuenta/programados.json`, `red/estado.json` y este registro.
+- Verificación: `revisar --contra-x` → sin errores; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: el enlace del post cuando salga; la pieza de The Economist (lunes 23) espera que Emi elija A o B.
+
 ## 2026-11-16 · Documento de pagos digitales publicado
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: tarea programada por esta misma sesión el 14/11/2026 para anotar la pieza cuando saliera.
