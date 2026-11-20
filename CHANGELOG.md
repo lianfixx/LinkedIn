@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-19 · Posts del mapa y de The Economist salieron; métricas del video
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: tareas programadas por esta sesión para revisar lo publicado.
+- Cambios: en la actividad del perfil se ven publicados el post del mapa (18/11, 73 impresiones) y el de The Economist (19/11, 33 impresiones a las 9 h, con la portada y su crédito en el texto alternativo). Emi los subió con cambios propios al texto aprobado («Estudié derecho» en vez de «Soy abogado», «implemento IA», «no mi criterio»; en el de The Economist, «quién firma,» con salto de línea y «por mi» sin acento). Todavía no se anotan con `publicado`: falta el enlace de cada post, y box se trabó al buscarlo. Se anotaron las métricas del video del 13/11: 55 impresiones, 1 reacción y 1 comentario (el de fuentes de Emi). El documento del 16/11 va en 39 impresiones.
+- Archivos: `cuenta/publicados.jsonl`, `red/estado.json` y este registro.
+- Verificación: `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: enlaces de los dos posts; anotarlos con el texto tal como salió.
+
 ## 2026-11-18 · Post de The Economist aprobado para el jueves 19
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: encargo de Emi a la Matriz de Redes (18/11) de un post sobre la portada «The World Ahead 2027» de The Economist; en el chat de Claude Code eligió la opción B, el jueves 19 (excepción suya al tope de 2 por semana) y compartir el post de The Economist con su texto.

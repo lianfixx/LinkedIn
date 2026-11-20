@@ -3,7 +3,7 @@
   "skill": "linkedin-pro",
   "red": "linkedin",
   "version_skill": "1.0.0",
-  "actualizado": "2026-11-17",
+  "actualizado": "2026-11-19",
   "cuentas": [
     {
       "espacio": "personal",
@@ -82,9 +82,13 @@
       "idea_matriz": "",
       "huella_texto": "6a76d07ef0fbd3c0e47668c91249efd9c6bc80bd9399a24a68b975f157313245",
       "metricas": {
-        "capturado": "",
-        "fuente": "",
-        "valores": {}
+        "capturado": "2026-11-19",
+        "fuente": "actividad del perfil leída con la sesión de Emi en box, 19/11/2026 (6 días; el comentario es el de fuentes de Emi)",
+        "valores": {
+          "impresiones": 55,
+          "reacciones": 1,
+          "comentarios": 1
+        }
       }
     },
     {
